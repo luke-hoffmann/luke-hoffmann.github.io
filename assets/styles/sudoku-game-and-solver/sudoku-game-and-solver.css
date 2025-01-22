@@ -1,0 +1,11 @@
+@import url(../globals.css);
+
+body {
+  background-color: var(--background-color);
+  font-family: var(--primary-font-family);
+}
+
+#ranger-input {
+  /* Causes the input element to horizontally stretch to fill in available horizontal space */
+  flex:1;
+}
