@@ -6,11 +6,15 @@ body {
   font-family: var(--primary-font-family);
   background-color: var(--background-color);
 }
-
+.title-and-projects-spacer {
+  width:100%;
+  height:5vh;
+}
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 10px;
   row-gap: 10px;
+  will-change: transform, opacity;
 }
 
