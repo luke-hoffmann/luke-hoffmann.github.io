@@ -1,0 +1,28 @@
+@import url('../globals.css');
+.project-div{
+    background-color: none;
+    --content-width: 400px;
+    --div-height:500px;
+    --content-height:470px;
+    --image-height:400px;
+    height:var(--div-height);
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.project-div img {
+    width:var(--content-width);
+    height: var(--image-height);
+    display: block;
+    image-resolution: 100dpi;
+}
+
+
+.project-lower-content {
+    display: block;
+    width:var(--content-width);
+    height: calc(var(--content-height) - var(--image-height));
+    font-family: var(--secondary-font-family);
+    font-size: 40px;
+}

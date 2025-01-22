@@ -1,0 +1,61 @@
+@import url('../globals.css');
+:root {
+    --header-height:18vh;
+}
+.header{
+    --text-font-size:43px;
+    --text-middle-font-size:50px;
+    --sub-div-width:20%;
+    --sub-div-middle-width:25%;
+    --text-spacer-size: calc(calc(var(--header-height) - var(--text-font-size)) / 2);
+    --text-middle-spacer-size: calc(calc(var(--header-height) - var(--text-middle-font-size)) / 2);
+    width:100%;
+    height:var(--header-height);
+    background-color: var(--background-color);
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    display:flex;
+    justify-content: space-evenly;
+    
+}
+
+.header .sub-div {
+    display:inline-block;
+    width:var(--sub-div-width);
+    height: inherit;
+    margin:0;
+    background-color: transparent;
+
+}
+.header .sub-div:has(#middle)  {
+    width:var(--sub-div-middle-width);
+}
+.header .spacer {
+    height:var(--text-spacer-size);
+    width:100%;
+}
+.header .sub-div .text{
+    font-size: var(--text-font-size);
+    width:100%;
+    text-transform: capitalize;
+}
+.header .sub-div #left {
+    text-align: left;
+}
+.header .sub-div .text#middle {
+    text-align: center;
+    font-size: var(--text-middle-font-size);
+    color: var(--primary-color);
+    font-weight: bold;
+    
+}
+.header .sub-div .spacer#middle {
+    height:var(--text-middle-spacer-size) !important;
+    
+}
+.header .sub-div #right {
+    text-align: right;
+}
+
+
