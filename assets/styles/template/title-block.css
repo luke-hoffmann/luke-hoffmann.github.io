@@ -12,9 +12,14 @@
     width:100%;
     --text-font-size:4vw;
     --text-middle-font-size:4.1em;
-    --phone-text-middle-font-size: 3em;
     --text-name-font-size:2.5em;
-    --phone-text-name-font-size:2em;
+
+    --phone-text-middle-font-size: 10vw;
+    --phone-text-name-font-size:6vw;
+
+    --small-phone-text-middle-font-size: 9.8vw;
+    --small-phone-text-name-font-size:6vw;
+    
 }
 .title-block .horizontal-center {
     width: 100%;
@@ -79,20 +84,29 @@
 
 
 .title-block #portfolio {
-    font-size: var(--phone-text-middle-font-size);
+    font-size: var(--text-middle-font-size);
     color: var(--primary-color);
     font-weight: bold;
 }
 .title-block #name {
-    font-size: var(--phone-text-name-font-size);
+    font-size: var(--text-name-font-size);
     color: black;
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (max-width: 640px) {
     .title-block #portfolio {
-        font-size: var(--text-middle-font-size);
+        font-size: var(--phone-text-middle-font-size);
     }
     .title-block #name {
-        font-size: var(--text-name-font-size);
+        font-size: var(--phone-text-name-font-size);
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .title-block #portfolio {
+        font-size: var(--small-phone-text-middle-font-size);
+    }
+    .title-block #name {
+        font-size: var(--small-phone-text-name-font-size);
     }
 }
