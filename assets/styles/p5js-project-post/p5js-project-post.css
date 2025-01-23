@@ -63,13 +63,18 @@
     height: calc(calc(calc(calc(100svh - var(--header-height)) - var(--space-title-explanation-height)) - var(--explanation-div-height)) - var(--move-arrow-div-height)) !important;
     width:100%;
 }
+#control-buttons {
+    width:100%;
+    height:100px;
+}
 .reset {
     width:100px;
     height:60px;
     outline: none;
     border: none;
+    cursor: pointer;
 }
-#play-button{
+#play-rgb-boids-button{
     width:75px;
     height:75px;
     position: absolute;

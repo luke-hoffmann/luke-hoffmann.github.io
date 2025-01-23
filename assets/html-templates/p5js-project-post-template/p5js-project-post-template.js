@@ -396,6 +396,10 @@ function startSimulation(){
   draw();
   document.getElementById("play-button").remove();
 }
+
+
+
+
 function draw() {
   image(renderGraphic, 0, 0);
     renderGraphic.background(255);

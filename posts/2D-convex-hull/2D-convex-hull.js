@@ -103,6 +103,11 @@ function findConvex(){
 
 
 function setup(){
+  widthOfContainer = document.getElementById("p5-canvas-div").getBoundingClientRect().width;
+    if (widthOfContainer < viewWidth) {
+    viewWidth = widthOfContainer;
+    viewHeight = widthOfContainer;
+  }
   var canvas= createCanvas(viewWidth,viewHeight);
   canvas.parent("p5-canvas-div");
   renderGraphic = createGraphics(viewWidth, viewHeight);
