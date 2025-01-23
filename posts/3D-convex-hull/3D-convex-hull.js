@@ -47,7 +47,7 @@ function setup(){
     if (widthOfContainer < viewWidth) {
       viewWidth = widthOfContainer;
       viewHeight = widthOfContainer;
-      radiusOfPointsGenerated = 150;
+      radiusOfPointsGenerated = 130;
     }
     var canvas = createCanvas(viewWidth,viewHeight);
     canvas.parent("p5-canvas-div")
