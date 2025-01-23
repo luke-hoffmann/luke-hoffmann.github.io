@@ -63,7 +63,12 @@
     height: calc(calc(calc(calc(100svh - var(--header-height)) - var(--space-title-explanation-height)) - var(--explanation-div-height)) - var(--move-arrow-div-height)) !important;
     width:100%;
 }
-
+.reset {
+    width:100px;
+    height:60px;
+    outline: none;
+    border: none;
+}
 #play-button{
     width:75px;
     height:75px;
