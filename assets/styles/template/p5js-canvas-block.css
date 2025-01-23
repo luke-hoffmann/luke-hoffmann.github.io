@@ -1,7 +1,7 @@
 @import url("../globals.css");
 :root {
-    --p5-canvas-container-width: 400px;
-    --p5-canvas-container-height: 400px;
+    --p5-canvas-container-width: 500px;
+    --p5-canvas-container-height: 500px;
     --p5-canvas-width:400px;
     --p5-canvas-height:400px;
 }
@@ -11,15 +11,27 @@
     height:var(--p5-canvas-container-height);
 }
 #p5-canvas-container {
+    
     display: inline-flex;
     justify-content: center;
     flex-direction: column;
     width: var(--p5-canvas-container-width); 
     height: var(--p5-canvas-container-height); 
     border: 0px solid black;
+    --p5-canvas-label-font-size:2.2em;
+    font-family: var(--primary-font-family);
 }
 #p5-canvas-div {
     width: var(--p5-canvas-width); 
     height: var(--p5-canvas-height); 
+    
+}
+
+
+#p5-canvas-container .label {
+    width:var(--p5-canvas-width);
+    height:calc(var(--p5-canvas-container-height) - var(--p5-canvas-height));
+    text-align: center;
+    font-size: var(--p5-canvas-label-font-size);
     
 }
