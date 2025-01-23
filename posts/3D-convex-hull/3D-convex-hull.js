@@ -42,10 +42,12 @@ function startSimulation(){
 
     
 function setup(){
+    radiusOfPointsGenerated = 200;
     widthOfContainer = document.getElementById("p5-canvas-div").getBoundingClientRect().width;
     if (widthOfContainer < viewWidth) {
       viewWidth = widthOfContainer;
       viewHeight = widthOfContainer;
+      radiusOfPointsGenerated = 150;
     }
     var canvas = createCanvas(viewWidth,viewHeight);
     canvas.parent("p5-canvas-div")
@@ -53,7 +55,7 @@ function setup(){
     for (let i =0 ; i < 100;i++) {
         thetaXY = Math.random() * Math.PI*2
         thetaZ = Math.random()* Math.PI*2;
-        points.array.push(Field.SpherePoint(200));
+        points.array.push(Field.SpherePoint(radiusOfPointsGenerated));
     }
     planes = (Field.QuickHull(points));
 }
