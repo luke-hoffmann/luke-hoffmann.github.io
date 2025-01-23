@@ -1,14 +1,96 @@
 @import url("../globals.css");
-.vertical-space#title-canvas {
-    height:10vh;
+@import url('../template/header.css');
+@import url('../template/p5js-canvas-block.css');
+:root {
+    --explanation-div-height:30vh;
+    --move-arrow-div-height:15vh;
+    --space-title-explanation-height: calc(calc(calc(100vh - var(--header-height)) - var(--explanation-div-height)) / 2);
+}
+.title-space#bottom{
+    height:var(--move-arrow-div-height);
+}
+
+.project-title {
+    height:auto;
+    width:100%;
+    text-align: center;
+    font-family: var(--primary-font-family);
+    font-size:2.5em;
+    display: block;
+}
+.project-paragraph {
+    text-align: center;
 }
 
 .horizontal-center#explanation-div{
     width: 100%;
-    height:40vh;
+    height:var(--explanation-div-height)
 }
 
-.explanation-wrapper {
+#explanation-div #explanation-wrapper {
+    height:var(--explanation-div-height);
+    font-size:18px;
     width:500px;
-    height:100%;
 }
+@media only screen and (max-width:465px) {
+    .project-paragraph {
+        font-size:4.05vw;
+    }
+}
+@media only screen and (max-width: 430px) {
+    
+    .project-title {
+        font-size:1.65em;
+        
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .project-title {
+        font-size:1.7em;
+        
+    }
+    #explanation-div #explanation-wrapper {
+        width:90%;
+    }
+}
+.vertical-space#title-explanation{
+
+    height: var(--space-title-explanation-height);
+    width:100%;
+}
+.vertical-space#explanation-arrow{
+    height: calc(calc(calc(calc(100svh - var(--header-height)) - var(--space-title-explanation-height)) - var(--explanation-div-height)) - var(--move-arrow-div-height)) !important;
+    width:100%;
+}
+
+#play-button{
+    width:75px;
+    height:75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;  /* Ensure it appears above the canvas */
+    font-size: 30px;
+    border: none;
+}
+
+.vertical-space#arrow-canvas{
+    width:100%;
+    height: calc(calc(100vh - var(--p5-canvas-container-height))/2);
+}
+.vertical-space#canvas-bottom-of-page {
+    width:100%;
+    height: calc(calc(100vh - var(--p5-canvas-container-height))/2);
+}
+
+@media only screen and (max-width: 450px) {
+    .vertical-space#arrow-canvas{
+        height: calc(calc(100vh - var(--p5-canvas-container-height))/2);
+    }
+    .vertical-space#canvas-bottom-of-page {
+        height: calc(calc(100vh - var(--p5-canvas-container-height))/2);
+    }
+}
+

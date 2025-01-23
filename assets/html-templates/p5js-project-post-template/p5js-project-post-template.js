@@ -370,8 +370,14 @@ let renderHeight = 500;
 let renderGraphic;
 let viewWidth = 400;
 let viewHeight = 400;
+let hasStartBeenPressed = false;
 let sF = 1;
 function setup(){
+    widthOfContainer = document.getElementById("p5-canvas-div").getBoundingClientRect().width;
+    if (widthOfContainer < viewWidth) {
+      viewWidth = widthOfContainer;
+      viewHeight = widthOfContainer;
+    }
     var canvas = createCanvas(viewWidth,viewHeight);
     canvas.parent('p5-canvas-div');
     renderGraphic = createGraphics(viewWidth, viewHeight);
@@ -384,8 +390,14 @@ function setup(){
     let testBug2  = new bug(createVector(200,200), createVector(-1,-1));
 }
 let zeta = 0;
+function startSimulation(){
+  hasStartBeenPressed = true;
+  loop();
+  draw();
+  document.getElementById("play-button").remove();
+}
 function draw() {
-    image(renderGraphic, 0, 0);
+  image(renderGraphic, 0, 0);
     renderGraphic.background(255);
     renderGraphic.scale(sF);
     renderGraphic.push();
@@ -394,15 +406,7 @@ function draw() {
   strokeWeight(1);
   heightFactor = height/perceptionRadius;
   widthFactor = width/perceptionRadius;
-  /*
-  for (let i =1; i< widthFactor;i++) {
-    for (let j=1; j < heightFactor; j++) {
-      line(0,i * perceptionRadius, width, i*perceptionRadius);
-      line(i * perceptionRadius, 0, i*perceptionRadius, height);
-    }
-    
-  }
-  */
+
   for (let i =0;i < height/perceptionRadius; i++) {
     row = [];
     for (let j =0; j < width/perceptionRadius; j++) {
@@ -491,7 +495,14 @@ function draw() {
   }
   //noLoop();
   //zeta++;
-    renderGraphic.pop();
+  renderGraphic.pop();
+  
+  if(!hasStartBeenPressed) {
+    noLoop();
+    image(renderGraphic, 0, 0);
+    return
+  }
+
 }
 
 function exportHighRes() {
