@@ -1,0 +1,16 @@
+@import url("../globals.css");
+:root {
+    --p5-canvas-container-width: 500px;
+    --p5-canvas-container-height: 500px;
+}
+
+#p5-canvas-center {
+    width:100%;
+    height:var(--p5-canvas-container-height);
+}
+
+#p5-canvas-div {
+    width: var(--p5-canvas-container-width); 
+    height: var(--p5-canvas-container-height); 
+    border: 2px solid black;
+}

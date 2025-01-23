@@ -1,12 +1,28 @@
-@import url('../globals.css');
-:root {
-    --header-height:8vh;
-}
-.title-space {
-    height: 0px;
+@import url("../globals.css");
+.title-space .horizontal-center {
     width:100%;
+    height:100%;
 }
 
+:root {
+    --title-height:70vh;
+}
+.title-block {
+    height: var(--title-height);
+    width:100%;
+    --text-font-size:4vw;
+    --text-middle-font-size:4.3em;
+    --text-name-font-size:2.5em;
+}
+.title-block .horizontal-center {
+    width: 100%;
+    height:100%;
+}
+.title-block .horizontal-center .vertical-space-evenly {
+    
+    height: 100%;
+}
+/*
 .header{
     --text-font-size:2.5vw;
     --text-middle-font-size:3em;
@@ -25,6 +41,7 @@
     font-family: var(--primary-font-family);
     
 }
+    */
 .header a {
     text-decoration: none;
     color:black;
@@ -50,27 +67,21 @@
     height:var(--text-spacer-size);
     width:100%;
 }
-.header .sub-div .text{
+.title-block .text{
     font-size: var(--text-font-size);
     width:100%;
     text-transform: capitalize;
-}
-.header .sub-div #left {
-    text-align: left;
-}
-
-
-.header .sub-div #middle {
     text-align: center;
+}
+
+
+
+.title-block #portfolio {
     font-size: var(--text-middle-font-size);
     color: var(--primary-color);
     font-weight: bold;
 }
-.header .sub-div .spacer#middle {
-    height:var(--text-middle-spacer-size) !important;
+.title-block #name {
+    font-size: var(--text-name-font-size);
+    color: black;
 }
-.header .sub-div #right {
-    text-align: right;
-}
-
-

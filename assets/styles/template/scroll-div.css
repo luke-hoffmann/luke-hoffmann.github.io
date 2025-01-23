@@ -1,9 +1,4 @@
-@import url("header.css");
 
-.title-space {
-    height: calc(calc( 100vh - var(--header-height)) / 2);
-    width:100%;
-}
 .title-space#bottom button {
     width:100px;
     height:100px;

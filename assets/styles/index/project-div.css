@@ -1,19 +1,25 @@
 @import url('../globals.css');
+
+:root {
+    --content-width: 400px;
+    --content-height:400px;
+    --projects-top-spacer-height:calc(calc(100vh -  var(--content-height)) / 2) ;
+}
 .project-div{
     background-color: transparent;
     --content-width: 400px;
-    --div-height:400px;
     --content-height:400px;
     --image-width:300px;
     --image-height:300px;
     
-    height:var(--div-height);
+    height: calc(calc(100vh - var(--projects-top-spacer-height)) + 50px);
     display:flex;
-    justify-content: center;
+    justify-content: first baseline;
     flex-direction: column;
     will-change: transform, opacity;
     
 }
+
 .project-div img {
     width:var(--image-width);
     height: var(--image-height);

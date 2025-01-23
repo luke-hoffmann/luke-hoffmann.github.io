@@ -9,26 +9,6 @@ let selectionColor = "#FD480F";
 let textCol = "#000000";
 let placedTextCol = "#8ac0ff";
 let notesMode = "off";
-// let notesBoard = 
-//let notesBoard = [];
-/*
-for (i =0; i < 9 ;i++) {
-  a = []
-  for (j =0; j< 9 ;j++) {
-    d = []
-    b  =[]
-
-    
-    for (k =0; k < 9 ;k++) {
-       
-      b.push(0)
-    }
-    
-    a.push(b)
-  }
-  notesBoard.push(a);
-}
-*/
 let updatedBoard = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -63,14 +43,11 @@ let unChangeable = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
 
 ];
 function colRowColBox(row, col, color) {
-  //color = "red"
-  //console.log(row, " ", col)
   $("#smallerSmall_" + (row + "_" + col)).css("background-color", color);
 
   for (i = 0; i < 9; i++) {
 
     $("#smallerSmall_" + row + "_" + i).css("background-color", color);
-
   }
   for (i = 0; i < 9; i++) {
 
@@ -106,9 +83,6 @@ function colRowColBox(row, col, color) {
     }
   }
 }
-
-
-
 
 
 function checkBox(row, col, matrix, number) {
@@ -167,14 +141,9 @@ function checkSpot(row, column, matrix, number) {
 }
 
 function solveBoard(board) {
-  //console.log("poop")
-  //local = Math.random()
 
-  //console.log(local);
-  //console.log(" ")
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
-      //console.log(i)
       if (board[i][j] == 0) {
         for (let l = 1; l < 10; l++) {
           if (checkSpot(i, j, board, l)) {
@@ -214,9 +183,6 @@ function scrambleBoard(board, num) {
     for (let j = 0; j < 3; j++) {
 
       searching = true;
-      //a = Math.round(Math.random()*9);
-
-      //board[j+addAmount][i] = checkBox(j+addAmount,i,board,a);
 
       while (searching) {
         a = Math.round(Math.random() * 9);
@@ -234,9 +200,6 @@ function scrambleBoard(board, num) {
     }
   }
   (solveBoard(board))
-  //console.log(board)
-
-
   for (let i = 0; i < num; i++) {
     search = true;
     while (search) {
@@ -247,7 +210,6 @@ function scrambleBoard(board, num) {
         mainBoard[searchRow][searchCol] = 0;
         search = false;
 
-        //console.log(mainBoard[searchRow][searchCol])
       }
 
     }
@@ -289,87 +251,87 @@ for (i = 1; i < 82; i++) {
   content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>";
 
   if (row == 2) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 3) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
 
   if (row == 5) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 6) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (col == 2) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (col == 5) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (col == 3) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (col == 6) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
 
   if (row == 2 && col == 2) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 2 && col == 3) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 2 && col == 5) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 2 && col == 6) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
 
   }
 
   if (row == 5 && col == 5) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 5 && col == 6) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
 
   }
   if (row == 5 && col == 2) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 5 && col == 3) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + ";border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;border-bottom: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + ";border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";border-bottom: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
 
   }
 
   if (row == 6 && col == 2) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 6 && col == 3) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
 
   }
   if (row == 6 && col == 5) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 6 && col == 6) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
 
   }
 
   if (row == 3 && col == 5) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 3 && col == 6) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
 
   }
   if (row == 3 && col == 2) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid black;border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-right: " + seperationForShower + "px solid" + selectionColor +";border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
   }
   if (row == 3 && col == 3) {
-    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid black;border-top: " + seperationForShower + "px solid black;' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
+    content = "<div class='smallBoi'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box; border-left: " + seperationForShower + "px solid" + selectionColor +";border-top: " + seperationForShower + "px solid" + selectionColor +";' id='" + "smallerSmall_" + row + "_" + col + "'> <h3 style='color:" + textCol + "; text-align:center;'>" + smallContent + "</h3> </div>"
 
 
   }
@@ -388,7 +350,6 @@ for (i = 1; i < 82; i++) {
     topVal += 9;
   }
 }
-//
 
 for (i = 1; i < 10; i++) {
   content = "<div class='numberOptions'style='width:60px; margin:2px; margin-bottom:1px; height:60px; display:inline-block; background-color:" + backCol + "; border: 1px solid black; box-sizing:border-box;' id='" + "smallerSmall_" + i + "'> <h3 style='black:white; text-align:center;'>" + i + "</h3> </div>";
@@ -438,12 +399,10 @@ $(".smallBoi").click(function() {
 
 })
 
-
-//colRowColBox(4,4,mainBoard,"lightgrey")
 $(".numberOptions").click(function() {
   info = $(this).attr("id").split("_");
   $("#buttons >").not(this).css("background-color", backCol);
-  $(this).css("background-color", "lightgrey");
+  $(this).css("background-color", selectionColor);
   number = Number(info[1]);
   changeNumber = number;
   if (unChangeable[selectedRow][selectedCol] == 1) {
@@ -683,22 +642,15 @@ $(document).keypress(function(event) {
 
         
       } else {
-        console.log($("#smallerSmall_" + selectedRow + "_" + selectedCol + ">").length)
         content = ""
         $("#smallerSmall_" + selectedRow + "_" + selectedCol).css("vertical-align","top")
         changeNumber = a;
-        
-        
-        
         for (let i =1; i < 10; i++) {
-          
        smallContent = "<div id='notesDiv" +i + "' style='display:inline-block;margin:0px; width:33%; height:27%; text-align:center;  '> </div>"
           content += smallContent;
         }
         $("#smallerSmall_" + selectedRow + "_" + selectedCol).html(content)
-
         $("#smallerSmall_" + selectedRow + "_" + selectedCol + " > #notesDiv" + changeNumber).html(changeNumber)
-
         notesBoard[selectedRow][selectedCol][changeNumber-1] = 1;
       }
     }
@@ -710,7 +662,6 @@ $(document).keypress(function(event) {
 
 
 $("#reset").click(function() {
-  //console.log("reset")
   for (i = 0;i < 9; i++) {
 
     for (j =0; j< 9;j++) {
@@ -724,7 +675,6 @@ $("#reset").click(function() {
   for (i = 0; i < 9; i++) {
     for (j = 0; j < 9; j++) {
       num = mainBoard[i][j];
-      
       if (width < 620) {
         if (num == 0) {
           $("#smallerSmall_" + i + "_" + j).html("<h3 style='margin-top:4px; color:" + textCol + "; text-align:center;'><span style='visibility:hidden;'>0</span></h3>");
@@ -743,7 +693,6 @@ $("#reset").click(function() {
   }
   for (i = 0; i < 9; i++) {
     for (j = 0; j < 9; j++) {
-
       if (unChangeable[i][j] == 0) {
         $("#smallerSmall_" + i + "_" + j).css("background-color", backCol);
         $("#smallerSmall_" + i + "_" + j).css("color", placedTextCol);
@@ -753,9 +702,6 @@ $("#reset").click(function() {
 
     }
   }
-
-
-  console.log(difficulty(mainBoard));
 })
 
 
@@ -795,25 +741,18 @@ function difficulty() {
   listOfDif = [];
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j<9;j++) {
-
       listOfFound = [];
-
       for (k = 1; k < 10;k++){
         a = !checkCol(j,mainBoard,k)
         b = !checkRow(i,mainBoard,k)
         c = !checkBox(i,j,mainBoard,k)
-        //console.log(a,b,c)
         length = 0;
         if( a && b && c){
           listOfFound.push(k)
           length++
         } else {
-          
         }
-        
       }
-      //console.log(i + " " + j);
-      //console.log(listOfFound)
       possibilitiesForEach[i][j] = length
       listOfDif.push(listOfFound);
     }
@@ -828,14 +767,9 @@ function difficulty() {
     }
     average+=smallSum;
   }
-  
   averagePerSquare = Math.round(( (average/listOfDif.length) + Number.EPSILON) * 100) / 100;
-  // console.log(averagePerSquare)
-  // console.log(counter);
   return ({avg:averagePerSquare, counter:counter});
 }
-
-
 
 
 function getDifficultiesForEach(){
@@ -854,9 +788,7 @@ function getDifficultiesForEach(){
     }
     averageForSmall = averageForSmall/timesToDo;
     averageCounterSmall = averageCounterSmall/timesToDo;
-
     eachItem.push({averageOf:averageForSmall, counter:averageCounterSmall});
-    
   }
   console.log(eachItem)
 }
@@ -864,7 +796,6 @@ function getDifficultiesForEach(){
 $(document).on('input', '#ranger', function() {
   $("#hard").val($("#ranger").val()/10)
 })
-
 
 $(document).on('input', '#hard', function() {
   $("#ranger").val($("#hard").val()*10)
