@@ -1,16 +1,25 @@
 @import url("../globals.css");
 :root {
-    --p5-canvas-container-width: 500px;
-    --p5-canvas-container-height: 500px;
+    --p5-canvas-container-width: 400px;
+    --p5-canvas-container-height: 400px;
+    --p5-canvas-width:400px;
+    --p5-canvas-height:400px;
 }
 
 #p5-canvas-center {
     width:100%;
     height:var(--p5-canvas-container-height);
 }
-
-#p5-canvas-div {
+#p5-canvas-container {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
     width: var(--p5-canvas-container-width); 
     height: var(--p5-canvas-container-height); 
-    border: 2px solid black;
+    border: 0px solid black;
+}
+#p5-canvas-div {
+    width: var(--p5-canvas-width); 
+    height: var(--p5-canvas-height); 
+    
 }

@@ -23,7 +23,9 @@
 body {
     margin:0;
 }
-
+.vertical-space {
+    width:100%;
+}
 .horizontal-center {
     display: inline-flex;
     justify-content: center;
