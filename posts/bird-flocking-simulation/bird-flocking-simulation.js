@@ -394,7 +394,7 @@ function startSimulation(){
   hasStartBeenPressed = true;
   loop();
   draw();
-  document.getElementById("play-button").remove();
+  document.getElementById("play-rgb-boids-button").remove();
 }
 function draw() {
   image(renderGraphic, 0, 0);
