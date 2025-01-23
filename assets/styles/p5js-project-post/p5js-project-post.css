@@ -2,3 +2,13 @@
 .vertical-space#title-canvas {
     height:10vh;
 }
+
+.horizontal-center#explanation-div{
+    width: 100%;
+    height:40vh;
+}
+
+.explanation-wrapper {
+    width:500px;
+    height:100%;
+}
