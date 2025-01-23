@@ -391,10 +391,17 @@ function setup(){
 }
 let zeta = 0;
 function startSimulation(){
+  if (hasStartBeenPressed) {
+      hasStartBeenPressed = false;
+      document.getElementById("play-button").innerHTML = "Play";
+      noLoop();
+      return
+  }
+  document.getElementById("play-button").innerHTML = "Pause";
   hasStartBeenPressed = true;
   loop();
   draw();
-  document.getElementById("play-rgb-boids-button").remove();
+  
 }
 function draw() {
   image(renderGraphic, 0, 0);
