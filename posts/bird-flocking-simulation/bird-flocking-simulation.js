@@ -359,12 +359,18 @@ class bug {
 
   
 }
+
+
 let bugs = [];
 let grid = [];
 
-
-
-
+function reset(){
+  
+  bugs = [];
+  grid = [];
+  setup();
+  redraw();
+}
 let renderWidth = 500;
 let renderHeight = 500;
 let renderGraphic;
