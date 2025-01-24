@@ -1,14 +1,5 @@
 let sideLength= 170;
-let points = [
-  [-sideLength / 2, -sideLength / 2, -sideLength / 2],
-  [-sideLength / 2, -sideLength / 2, sideLength / 2],
-  [sideLength / 2, -sideLength / 2, -sideLength / 2],
-  [sideLength / 2, sideLength / 2, -sideLength / 2],
-  [sideLength / 2, -sideLength / 2, sideLength / 2],
-  [-sideLength / 2, sideLength / 2, sideLength / 2],
-  [-sideLength / 2, sideLength / 2, -sideLength / 2],
-  [sideLength / 2, sideLength / 2, sideLength / 2]
-];
+
 let orthographic = [
   [1,0,0],
   [0,1,0],
@@ -75,11 +66,29 @@ function startSimulation(){
 }
 
 function setup(){
+  sideLength = 170;
+  widthOfContainer = document.getElementById("p5-canvas-div").getBoundingClientRect().width;
+    if (widthOfContainer < viewWidth) {
+      viewWidth = widthOfContainer;
+      viewHeight = widthOfContainer;
+      sideLength = 130;
+    }
   var canvas= createCanvas(viewWidth,viewHeight);
   canvas.parent("p5-canvas-div");
   renderGraphic = createGraphics(viewWidth, viewHeight);
     
 }
+
+let points = [
+  [-sideLength / 2, -sideLength / 2, -sideLength / 2],
+  [-sideLength / 2, -sideLength / 2, sideLength / 2],
+  [sideLength / 2, -sideLength / 2, -sideLength / 2],
+  [sideLength / 2, sideLength / 2, -sideLength / 2],
+  [sideLength / 2, -sideLength / 2, sideLength / 2],
+  [-sideLength / 2, sideLength / 2, sideLength / 2],
+  [-sideLength / 2, sideLength / 2, -sideLength / 2],
+  [sideLength / 2, sideLength / 2, sideLength / 2]
+];
 let theta = 0.05;
 let circleTheta = 0;
 
@@ -128,7 +137,7 @@ function draw() {
       [0,0,1]
     ]
       
-      renderGraphic.translate(200,200)
+      renderGraphic.translate(width/2,height/2)
       
       points2 = matrixMult(points,rotationX)
       points2 = matrixMult(points2,rotationY)

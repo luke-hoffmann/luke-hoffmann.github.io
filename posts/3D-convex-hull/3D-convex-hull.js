@@ -7,6 +7,7 @@ let redPoints = [];
 let renderWidth = 5000;
 let renderHeight = 5000;
 let renderGraphic;
+let ogWidth = 400;
 let viewWidth = 400;
 let viewHeight = 400;
 let sF = 1;
@@ -39,7 +40,14 @@ function startSimulation(){
     draw();
     
 }
-
+function reset(){
+    points=new Field();
+    sizeOfSlice=400;
+    planes = undefined;
+    redPoints = [];
+    setup();
+    redraw();
+}
     
 function setup(){
     radiusOfPointsGenerated = 200;
@@ -48,6 +56,9 @@ function setup(){
       viewWidth = widthOfContainer;
       viewHeight = widthOfContainer;
       radiusOfPointsGenerated = 130;
+    }
+    if (ogWidth != viewWidth) {
+        radiusOfPointsGenerated = 130;
     }
     var canvas = createCanvas(viewWidth,viewHeight);
     canvas.parent("p5-canvas-div")

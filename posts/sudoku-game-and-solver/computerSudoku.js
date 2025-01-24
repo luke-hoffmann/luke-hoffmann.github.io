@@ -426,25 +426,46 @@ $(".numberOptions").click(function() {
   // <h3 style='color:"+ textCol+"; text-align:center;'>"+ smallContent +"</h3>
   
   if (unChangeable[selectedRow][selectedCol] == 0 && mainBoard[selectedRow][selectedCol] == changeNumber) {
-    
+    width = document.body.clientWidth;
     mainBoard[selectedRow][selectedCol] = 0;
-    $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 text-align:center;'><span style='visibility:hidden;'>0</span></h3>")
-    return
+    for (i = 0; i < 9; i++) {
+    for (j = 0; j < 9; j++) {
+
+      if (unChangeable[i][j] == 0) {
+        $("#smallerSmall_" + i + "_" + j).css("background-color", backCol);
+        $("#smallerSmall_" + i + "_" + j).css("color", placedTextCol);
+      } else if (unChangeable[i][j] == 1) {
+        $("#smallerSmall_" + i + "_" + j).css("background-color", backCol);
+      }
+
+    }
   }
+  colRowColBox(row, col, "#666666");
+    if (width < 720) {
+      $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style='margin-top:4px; color:" + setCol + "; text-align:center;'><span style='visibility:hidden;'>0</span></h3>")
 
+    } else {
+      $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style='color:" + setCol + "; text-align:center;'><span style='visibility:hidden;'>0</span></h3>")
 
-  
-  if (unChangeable[selectedRow][selectedCol] == 0) {
+    }
+    //console.log(1)
+  }
+  else if (unChangeable[selectedRow][selectedCol] == 0) {
     mainBoard[selectedRow][selectedCol] = changeNumber;
-    $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style='color:" + placedTextCol + "; text-align:center;'>" + changeNumber + "</h3>")
+    if (width < 720) {
+      $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style='margin-top:4px; color:" + placedTextCol + "; text-align:center;'>" + changeNumber + "</h3>");
+    }
+    else {
+      $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style='color:" + placedTextCol + "; text-align:center;'>" + changeNumber + "</h3>")
+    }
+    //console.log(2)
   }
   
   $("#smallerSmall_" + selectedRow + "_" + selectedCol).css("background-color", selectionColor);
   } else {
     
-    if (mainBoard[selectedRow][selectedCol] != 0) {
-      return
-    }
+    if (mainBoard[selectedRow][selectedCol] == 0) {
+      
       
     if ($("#smallerSmall_" + selectedRow + "_" + selectedCol + ">").length == 9) {
         
@@ -463,7 +484,7 @@ $(".numberOptions").click(function() {
 
         
       } else {
-        console.log($("#smallerSmall_" + selectedRow + "_" + selectedCol + ">").length)
+        
         content = ""
         $("#smallerSmall_" + selectedRow + "_" + selectedCol).css("vertical-align","top")
         
@@ -481,6 +502,7 @@ $(".numberOptions").click(function() {
 
         notesBoard[selectedRow][selectedCol][changeNumber-1] = 1;
       }
+    }
     }
     
   
@@ -546,7 +568,18 @@ $(document).keypress(function(event) {
   if (selectedRow < 0 || selectedCol < 0 || selectedRow > 8 || selectedCol > 8) {
     selectedRow = -4;
     selectedCol = -4;
-    
+    for (i = 0; i < 9; i++) {
+      for (j = 0; j < 9; j++) {
+
+        if (unChangeable[i][j] == 0) {
+          $("#smallerSmall_" + i + "_" + j).css("background-color", backCol);
+          $("#smallerSmall_" + i + "_" + j).css("color", placedCol);
+        } else if (unChangeable[i][j] == 1) {
+          $("#smallerSmall_" + i + "_" + j).css("background-color", backCol);
+        }
+
+      }
+    }
     return
   }
   if (key === 13 || key === 32) {
@@ -601,13 +634,23 @@ $(document).keypress(function(event) {
     if (unChangeable[selectedRow][selectedCol] == 0) {
       if (mainBoard[selectedRow][selectedCol] != a) {
     
-      $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style=' color:" + placedTextCol + "; text-align:center;'>" + (a) + "</h3>");
+        if (width < 620) {
 
+          $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style='margin-top:4px; color:" + placedTextCol + "; text-align:center;'>" + (a) + "</h3>");
+        } else {
+          $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style=' color:" + placedTextCol + "; text-align:center;'>" + (a) + "</h3>");
+  
+        }
       mainBoard[selectedRow][selectedCol] = a
       } else
       {
-        
-        $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style=' text-align:center;'><span style='visibility:hidden;'>0</span></h3>");
+        if (width < 620) {
+
+          $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style='margin-top:4px; color:" + placedTextCol + "; text-align:center;'><span style='visibility:hidden;'>0</span></h3>");
+        } else {
+          $("#smallerSmall_" + selectedRow + "_" + selectedCol).html("<h3 style=' color:" + placedTextCol + "; text-align:center;'><span style='visibility:hidden;'>0</span></h3>");
+
+        }
         mainBoard[selectedRow][selectedCol] = 0;
       
 
