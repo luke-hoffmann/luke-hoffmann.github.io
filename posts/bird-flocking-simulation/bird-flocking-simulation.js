@@ -384,6 +384,7 @@ function setup(){
       viewWidth = widthOfContainer;
       viewHeight = widthOfContainer;
     }
+    
     var canvas = createCanvas(viewWidth,viewHeight);
     canvas.parent('p5-canvas-div');
     renderGraphic = createGraphics(viewWidth, viewHeight);
