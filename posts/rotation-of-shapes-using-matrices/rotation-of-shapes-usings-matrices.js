@@ -34,19 +34,24 @@ let viewHeight = 400;
 let sF = 1;
 
 function scalePositionToRGB(x,y,w,h){
-    return [(x/(w))*255,80,(y/(h))*255];
-  }
+  return [(x/(w))*255,80,(y/(h))*255];
+}
   
   
   
-  function strokeOrFillRGB(array,filler){
+function strokeOrFillRGB(array,filler){
     
-    if (filler == "fill") {
-      renderGraphic.fill(array[0],array[1],array[2]);
-    }
-    if (filler == "stroke") {
-      renderGraphic.stroke(array[0],array[1],array[2]);
-    }
+  if (filler == "fill") {
+    renderGraphic.fill(array[0],array[1],array[2]);
+  }
+  if (filler == "stroke") {
+    renderGraphic.stroke(array[0],array[1],array[2]);
+  }
+  if (filler== "color") {
+    color = ("rgb(" + Math.round(array[0]) + "," + Math.round(array[1])  + "," +Math.round(array[2]) + ")");
+    console.log(color);
+    return color;
+  }
 }
 
 let hasStartBeenPressed = false;
@@ -64,7 +69,8 @@ function startSimulation(){
   draw();
   
 }
-
+let colorsForGraph = [];
+let points;
 function setup(){
   sideLength = 170;
   widthOfContainer = document.getElementById("p5-canvas-div").getBoundingClientRect().width;
@@ -76,19 +82,22 @@ function setup(){
   var canvas= createCanvas(viewWidth,viewHeight);
   canvas.parent("p5-canvas-div");
   renderGraphic = createGraphics(viewWidth, viewHeight);
-    
+  points = [
+    [-sideLength / 2, -sideLength / 2, -sideLength / 2],
+    [-sideLength / 2, -sideLength / 2, sideLength / 2],
+    [sideLength / 2, -sideLength / 2, -sideLength / 2],
+    [sideLength / 2, sideLength / 2, -sideLength / 2],
+    [sideLength / 2, -sideLength / 2, sideLength / 2],
+    [-sideLength / 2, sideLength / 2, sideLength / 2],
+    [-sideLength / 2, sideLength / 2, -sideLength / 2],
+    [sideLength / 2, sideLength / 2, sideLength / 2]
+  ];
+  for (let i =0;i < points.length;i++) {
+    colorsForGraph.push(strokeOrFillRGB(scalePositionToRGB(points[i][0]+width/2,points[i][1]+height/2,width,height),"color"));
+  }
 }
 
-let points = [
-  [-sideLength / 2, -sideLength / 2, -sideLength / 2],
-  [-sideLength / 2, -sideLength / 2, sideLength / 2],
-  [sideLength / 2, -sideLength / 2, -sideLength / 2],
-  [sideLength / 2, sideLength / 2, -sideLength / 2],
-  [sideLength / 2, -sideLength / 2, sideLength / 2],
-  [-sideLength / 2, sideLength / 2, sideLength / 2],
-  [-sideLength / 2, sideLength / 2, -sideLength / 2],
-  [sideLength / 2, sideLength / 2, sideLength / 2]
-];
+console.log(colorsForGraph)
 let theta = 0.05;
 let circleTheta = 0;
 
@@ -163,8 +172,9 @@ function draw() {
       //console.log(orderToDo)
       renderGraphic.stroke(0);
       
-      
+      renderGraphic.strokeWeight(3);
       renderGraphic.line(newArray[0][0][0],newArray[0][0][1],newArray[1][0][0],newArray[1][0][1])
+      renderGraphic.strokeWeight(1);
       renderGraphic.line(newArray[2][0][0],newArray[2][0][1],newArray[0][0][0],newArray[0][0][1])
       renderGraphic.line(newArray[2][0][0],newArray[2][0][1],newArray[3][0][0],newArray[3][0][1])
       renderGraphic.line(newArray[5][0][0],newArray[5][0][1],newArray[1][0][0],newArray[1][0][1])
@@ -179,7 +189,8 @@ function draw() {
       renderGraphic.line(newArray[1][0][0],newArray[1][0][1],newArray[4][0][0],newArray[4][0][1])
       renderGraphic.line(newArray[7][0][0],newArray[7][0][1],newArray[4][0][0],newArray[4][0][1])
       for (let i =0; i < newArray.length; i++) {
-        strokeOrFillRGB(scalePositionToRGB(newArray[i][0][0],newArray[i][0][1],width/4,height/4),"fill");
+        renderGraphic.fill(colorsForGraph[i]);
+        //strokeOrFillRGB(scalePositionToRGB(newArray[i][0][0],newArray[i][0][1],width/4,height/4),"fill");
         renderGraphic.circle (newArray[i][0][0],newArray[i][0][1],15)
       }
       //noLoop()

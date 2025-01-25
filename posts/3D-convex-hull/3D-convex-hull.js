@@ -105,7 +105,7 @@ function getPointsFromPlane(plane) {
 
 
 function draw() {
-    image(renderGraphic, 0, 0);
+    
     
     renderGraphic.background(255);
     
@@ -158,6 +158,7 @@ function draw() {
         image(renderGraphic, 0, 0);
         return
     }
+    image(renderGraphic, 0, 0);
 }
 
 function exportHighRes() {

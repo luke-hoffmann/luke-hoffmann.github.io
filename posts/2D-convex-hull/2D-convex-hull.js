@@ -96,9 +96,13 @@ let graphConvexHull = false;
 function reset(){
   graphConvexHull = false;
   setup();
+  document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
+  redraw();
 }
 function findConvex(){
-  graphConvexHull = true;
+  graphConvexHull = !graphConvexHull;
+  document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
+  redraw();
 }
 
 
@@ -116,6 +120,7 @@ function setup(){
       points.push([20 + Math.random()*(width-40),20 + Math.random()*(height-40)]);
   }
   hull = ConvexHull(points);
+  redraw();
 }
 function strokeOrFillRGB(array,filler){
 
@@ -128,7 +133,8 @@ function strokeOrFillRGB(array,filler){
 }
 
 function draw() {
-  image(renderGraphic, 0, 0);
+  
+  renderGraphic.background(255);
   renderGraphic.scale(sF);
   // do stuff here
   for (let i =0;  i < points.length;i++) {
@@ -140,6 +146,8 @@ function draw() {
           renderGraphic.line(hull[i-1][0],hull[i-1][1],hull[i][0],hull[i][1])
       }
   }
+  image(renderGraphic, 0, 0);
+  noLoop();
 }
 
 function exportHighRes() {
@@ -147,7 +155,7 @@ function exportHighRes() {
   sF = renderWidth/viewWidth;
   renderGraphic = createGraphics(renderWidth, renderHeight);
   renderGraphic.background(255);
-  draw();
+  redraw();
   
   save(renderGraphic, "convex-hull-2D-render", 'png');
   
