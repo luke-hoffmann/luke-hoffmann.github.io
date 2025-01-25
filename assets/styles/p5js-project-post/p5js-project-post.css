@@ -50,17 +50,7 @@
     }
 }
 
-#control-buttons {
-    height:100px;
-}
-.reset {
-    width:135px;
-    height:60px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-size: 22px;
-}
+
 
 ul, li {
     text-align: left;

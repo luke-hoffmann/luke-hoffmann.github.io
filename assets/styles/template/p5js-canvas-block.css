@@ -40,3 +40,14 @@
     font-size: var(--p5-canvas-label-font-size);
     
 }
+#control-buttons {
+    width:100%;
+}
+.reset {
+    
+    height:60px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+}

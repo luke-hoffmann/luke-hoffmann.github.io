@@ -40,15 +40,23 @@ function startSimulation(){
     draw();
     
 }
+let graphConvexHull = false;
 function reset(){
     points=new Field();
     sizeOfSlice=400;
     planes = undefined;
     redPoints = [];
+    graphConvexHull = false;
+    document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
     setup();
     redraw();
 }
-    
+function findConvex(){
+    graphConvexHull = !graphConvexHull;
+    document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
+    redraw();
+}
+  
 function setup(){
     radiusOfPointsGenerated = 200;
     widthOfContainer = document.getElementById("p5-canvas-div").getBoundingClientRect().width;
@@ -105,31 +113,33 @@ function draw() {
     renderGraphic.push()
     renderGraphic.translate(width/2,height/2);
     // do stuff here
-    for(let i =0;i<planes.length;i++){
-        renderGraphic.stroke("black");
-        renderGraphic.fill("black")
-        renderGraphic.stroke(colors[i]);
-        renderGraphic.fill(colors[i])
-        planePoints = getPointsFromPlane(planes[i])
-        last = undefined
-        first = undefined
-        for(let j =0;j<planePoints.length;j++){
-            graph = Vector.rotateAroundX(planePoints[j],t);
-            graph = Vector.rotateAroundY(graph,t);
-            if (j==0) {
-                first = graph;
-            }
-            renderGraphic.circle(graph.x,graph.y,10);
-            if (j >0) {
-                renderGraphic.line(last.x,last.y,graph.x,graph.y);
-            }
-            if (j == planePoints.length-1) {
-                renderGraphic.stroke("black")
-                renderGraphic.line(first.x,first.y,graph.x,graph.y);
-                continue;
+    if (graphConvexHull) {
+        for(let i =0;i<planes.length;i++){
+            renderGraphic.stroke("black");
+            renderGraphic.fill("black")
+            renderGraphic.stroke(colors[i]);
+            renderGraphic.fill(colors[i])
+            planePoints = getPointsFromPlane(planes[i])
+            last = undefined
+            first = undefined
+            for(let j =0;j<planePoints.length;j++){
+                graph = Vector.rotateAroundX(planePoints[j],t);
+                graph = Vector.rotateAroundY(graph,t);
+                if (j==0) {
+                    first = graph;
+                }
+                renderGraphic.circle(graph.x,graph.y,10);
+                if (j >0) {
+                    renderGraphic.line(last.x,last.y,graph.x,graph.y);
+                }
+                if (j == planePoints.length-1) {
+                    renderGraphic.stroke("black")
+                    renderGraphic.line(first.x,first.y,graph.x,graph.y);
+                    continue;
             }
             last = graph;
         }
+    }
     }
     for(let i =0;i<points.array.length;i++){
         renderGraphic.stroke("black");
