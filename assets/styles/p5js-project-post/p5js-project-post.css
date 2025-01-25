@@ -2,6 +2,7 @@
 
 :root {
     --move-arrow-div-height:15vh;
+    
 }
 .title-space#bottom{
     height:var(--move-arrow-div-height);
