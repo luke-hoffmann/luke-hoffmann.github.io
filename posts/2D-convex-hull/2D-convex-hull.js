@@ -113,7 +113,7 @@ function setup(){
   renderGraphic = createGraphics(viewWidth, viewHeight);
   points =[];
   for (let i =0 ;i  <20;i++) {
-      points.push([Math.random()*(width-20),Math.random()*(height-20)]);
+      points.push([20 + Math.random()*(width-40),20 + Math.random()*(height-40)]);
   }
   hull = ConvexHull(points);
 }
