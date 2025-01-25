@@ -1,0 +1,18 @@
+@import url("../globals.css");
+@import url("p5js-project-post.css");
+
+:root {
+    --explanation-div-height:50vh;
+}
+
+.vertical-space#title-explanation{
+    height: var(--space-title-explanation-height);
+}
+.vertical-space#explanation-arrow{
+    height: calc(calc(calc(calc(100svh - var(--header-height)) - var(--space-title-explanation-height)) - var(--explanation-div-height)) - var(--move-arrow-div-height));
+}
+
+
+.horizontal-center#explanation-div, #explanation-div #explanation-wrapper{
+    height:var(--explanation-div-height);
+}
