@@ -49,7 +49,7 @@ function strokeOrFillRGB(array,filler){
   }
   if (filler== "color") {
     color = ("rgb(" + Math.round(array[0]) + "," + Math.round(array[1])  + "," +Math.round(array[2]) + ")");
-    console.log(color);
+
     return color;
   }
 }
@@ -96,8 +96,6 @@ function setup(){
     colorsForGraph.push(strokeOrFillRGB(scalePositionToRGB(points[i][0]+width/2,points[i][1]+height/2,width,height),"color"));
   }
 }
-
-console.log(colorsForGraph)
 let theta = 0.05;
 let circleTheta = 0;
 
@@ -160,16 +158,12 @@ function draw() {
         b = matrixMult(b,rotationZ)
         b[0][0] = b[0][0]
         b[0][1] = b[0][1]
-        //console.log(b)
         newArray.push(b);
       }
       
       
       
       //weDontCareAboutZ = matrixMult(points2,orthographic);
-      //console.log(newArray[0][0])
-      
-      //console.log(orderToDo)
       renderGraphic.stroke(0);
       
       renderGraphic.strokeWeight(3);
@@ -190,10 +184,8 @@ function draw() {
       renderGraphic.line(newArray[7][0][0],newArray[7][0][1],newArray[4][0][0],newArray[4][0][1])
       for (let i =0; i < newArray.length; i++) {
         renderGraphic.fill(colorsForGraph[i]);
-        //strokeOrFillRGB(scalePositionToRGB(newArray[i][0][0],newArray[i][0][1],width/4,height/4),"fill");
         renderGraphic.circle (newArray[i][0][0],newArray[i][0][1],15)
       }
-      //noLoop()
       
       theta+=0.01;
     renderGraphic.pop();
