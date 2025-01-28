@@ -3,7 +3,7 @@
     height:auto;
     text-align: center;
     font-family: var(--primary-font-family);
-    font-size:2.5em;
+    font-size:1.7em;
     display: block;
 }
 .project-paragraph {
@@ -18,18 +18,7 @@
     font-size:18px;
     width:500px;
 }
-@media only screen and (max-width:465px) {
-    .project-paragraph {
-        font-size:4.05vw;
-    }
-}
-@media only screen and (max-width: 430px) {
-    
-    .project-title {
-        font-size:1.65em;
-        
-    }
-}
+
 
 @media only screen and (max-width: 500px) {
     .project-title {
@@ -40,8 +29,6 @@
         width:90%;
     }
 }
-
-
 
 ul, li {
     text-align: left;

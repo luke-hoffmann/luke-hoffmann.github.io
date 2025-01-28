@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luke Hoffmann - 2D Convex Hull</title>
+    <link rel="stylesheet" href="/assets/css/globals.css"></link>
+    <link rel="stylesheet" href="/assets/css/includes/p5js-canvas-block.css"></link>
+    <link rel="stylesheet" href="/assets/css/p5js-project-post/p5js-project-post.css"></link>
+    
+</head>
+<body>
+    <link rel="stylesheet" href="/assets/css/includes/header.css"></link>
+    <div class="header">
+        <div class="sub-div">
+                <div class="text" id="left">
+                    <a href="">
+                    Luke Hoffmann
+                    </a>
+
+                </div>
+            
+        </div>
+        <div class="sub-div">
+
+                <div class="text take-away-to-projects" id="middle" >
+                    <a href="" id="middle">
+                    Online Portfolio
+                    </a>
+                </div>
+        </div>
+        <div class="sub-div">
+
+                <div class="text" id="right">
+                    <a href="">
+                        Contact
+                    </a>
+                </div>
+        </div>
+    </div>
+<div class="vertical-space" id="title-bottom"></div>
+    <div class="horizontal-center" id="explanation-div">
+        <div id="explanation-wrapper">
+            <span class="project-title">2D Convex Hull Visualization</span>
+                <span class="project-paragraph">
+                    This visualization shows the following: <ul>
+<li>Generation of random points when the GENERATE POINTS button is pressed</li>
+<li>Application of the Convex Hull Algorithm when the RUN ALGORITHM button is pressed which does the following:<ol>
+<li>Takes in the set of random points </li>
+<li>Identifies the outermost points</li>
+<li>Connects those points to enclose all other points</li>
+</ol>
+</ul>
+
+                </span>
+        </div>
+    </div>
+    
+    <div class="vertical-space" id="paragraph-canvas"></div>
+    <div class="horizontal-center" id="p5-canvas-center">
+    <div id="p5-canvas-container">
+        <div class="horizontal-center">
+            <div class="p5-canvas-div" id="canvas-insertion-point">
+            <!-- p5.js canvas will be inserted here -->
+            </div>
+            
+        </div>
+        <div class="horizontal-space-evenly" id="control-buttons">
+    <button class='reset' type="button" onclick="reset()">Reset</button>
+    <button id='find-convex' class='reset' type='button' onclick="findConvex()">Find Convex Hull</button>
+</div>
+        
+        
+    </div>
+</div>
+
+   
+
+    <div class="vertical-space" id="canvas-bottom-of-page"></div>
+    
+    
+    
+        
+        <script  src="/assets/js/project-scripts/2D-convex-hull.js"></script>
+        
+    
+</body>
+
+</html>

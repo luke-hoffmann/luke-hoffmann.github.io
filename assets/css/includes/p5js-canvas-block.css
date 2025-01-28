@@ -20,7 +20,7 @@
     --p5-canvas-label-font-size:2.2em;
     font-family: var(--primary-font-family);
 }
-#p5-canvas-div {
+.p5-canvas-div {
     position: relative;
     width: var(--p5-canvas-width); 
     height: var(--p5-canvas-height); 

@@ -1,3 +1,7 @@
+---
+page.p5js-link: /assets/js/p5js/p5.min.js
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{page.title}}</title>
     <link rel="stylesheet" href="/assets/css/globals.css"></link>
-    <link rel="stylesheet" href="/assets/css/template/p5js-canvas-block.css"></link>
+    <link rel="stylesheet" href="/assets/css/includes/p5js-canvas-block.css"></link>
     <link rel="stylesheet" href="/assets/css/p5js-project-post/p5js-project-post.css"></link>
     {% if page.custom_css %}
         {% for stylesheet in page.custom_css %}
-        <link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css">
+        <link rel="stylesheet" href="stylesheet"></link>
         {% endfor %}
     {% endif %}
 </head>
 <body>
     {% include header.html %}
-    <div class="vertical-space" id="title-explanation"></div>
     <div class="horizontal-center" id="explanation-div">
         <div id="explanation-wrapper">
             <span class="project-title">{{page.projectTitle}}</span>
@@ -26,23 +29,19 @@
     </div>
     
     <div class="vertical-space" id="paragraph-canvas"></div>
-    <div class="horizontal-center target" id="p5-canvas-center">
-        <div id="p5-canvas-container">
-            <div class="horizontal-center">
-                <div id="p5-canvas-div" >
-                <!-- p5.js canvas will be inserted here -->
-                
-                </div>
-                
-            </div>
-            {% include {{page.projectButtons}} %}
-            
-            
-        </div>
-    </div>
+    {% include p5js-canvas.html %}
+   
+
     <div class="vertical-space" id="canvas-bottom-of-page"></div>
-    <script src="/assets/js/p5js/p5.min.js"></script>
-    <script src="{{page.projectScript}}"></script>
+    {% if page.p5js-link %}
+    <script src="{{page.p5js-link}}"></script>
+    {% endif %}
+    
+    {% if page.projectScripts %}
+        {% for script in page.projectScripts %}
+        <script  src="{{script}}"></script>
+        {% endfor %}
+    {% endif %}
 </body>
 
 </html>
