@@ -1,0 +1,97 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Flocking Simulation</title>
+    <link rel="stylesheet" href="../../assets/styles/globals.css"></link>
+    <link rel="stylesheet" href="../../assets/styles/template/header.css"></link>
+    <link rel="stylesheet" href="../../assets/styles/template/p5js-canvas-block.css"></link>
+    <link rel="stylesheet" href="../../assets/styles/p5js-project-post/p5js-project-post.css"></link>
+    <link rel="stylesheet" href="../../assets/styles/template/scroll-div.css"></link>
+    <link rel="stylesheet" href="../../assets/styles/p5js-project-post/bird-flocking-simulation.css"></link>
+    
+</head>
+<body>
+    <div class="header">
+        <div class="sub-div">
+                <div class="text" id="left">
+                    <!--<a href=""> -->
+                        {{ "hello there my name" | capitalize }}
+                        <!--</a> -->
+
+                </div>
+                
+                
+            
+        </div>
+        <div class="sub-div">
+
+                <div class="text take-away-to-projects" id="middle" >
+                    <a href="../../index.html" id="middle">
+                    Online Portfolio
+                    </a>
+                </div>
+        </div>
+        <div class="sub-div">
+
+                <div class="text" id="right">
+                    <!--<a href="">-->
+                        Contact
+                    <!--</a>-->
+                </div>
+        </div>
+    </div>
+    <div class="vertical-space" id="title-explanation"></div>
+    <div class="horizontal-center" id="explanation-div">
+        <div id="explanation-wrapper">
+            <span class="project-title">Bird Flocking Simulation</span>
+            <!--
+            <span class="project-paragraph">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit illo aperiam ullam suscipit? Eaque beatae quis, libero erferendis modi neque necessitatibus quidem, reiciendis voluptatem placeat harum amet officiis pariatur accusamus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam fuga quasi id nisi culpa, corrupti, dicta voluptatibus impedit nobis quos laborum exercitationem perspiciatis rerum enim animi aliquam totam eaque vitae. 
+            </span>
+            -->
+        </div>
+    </div>
+    
+    <div class="vertical-space" id="explanation-arrow"></div>
+    <div class="title-space" id="bottom"> 
+        <div class="horizontal-center">
+            <div class="vertical-center">
+                <div id="scroll-button-vertical-spacer"></div>
+                <button class='take-away-to-projects' id="scroll-button" type="button" onclick="scrollToPoint()">
+                    <img src="../../assets/images/arrow-down-simple.svg" alt="icon" />
+                </button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="vertical-space" id="arrow-canvas"></div>
+    <div class="horizontal-center target" id="p5-canvas-center">
+        <div id="p5-canvas-container">
+            <div class="horizontal-center">
+                <div id="p5-canvas-div" >
+                <!-- p5.js canvas will be inserted here -->
+                 <!--<button id="play-rgb-boids-button" type="button"onclick="startSimulation()">Play</button>-->
+                </div>
+            </div>
+            <div class="horizontal-space-evenly" id="control-buttons">
+                <button class='reset' type="button" onclick="reset()">Reset</button>
+                <button id="play-button"type="button" class="reset" onclick="startSimulation()">Play</button>
+            </div>
+            <div class="horizontal-center">
+                <div class="label">Bird Flocking Simulation</div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="vertical-space" id="canvas-bottom-of-page"></div>
+    <script src="../../assets/lib/p5js/p5.min.js"></script>
+    <script src="bird-flocking-simulation.js"></script>
+    <script src="scroll.js"></script>
+</body>
+
+</html>

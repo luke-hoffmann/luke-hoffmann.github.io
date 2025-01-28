@@ -1,0 +1,17 @@
+
+:root {
+    --explanation-div-height:35vh;
+    --space-title-explanation-height: calc(calc(calc(100vh - var(--header-height)) - var(--explanation-div-height)) / 2);
+}
+
+.vertical-space#title-explanation{
+    height: var(--space-title-explanation-height);
+}
+.vertical-space#explanation-arrow{
+    height: calc(calc(calc(calc(100svh - var(--header-height)) - var(--space-title-explanation-height)) - var(--explanation-div-height)) - var(--move-arrow-div-height));
+}
+
+
+.horizontal-center#explanation-div, #explanation-div #explanation-wrapper{
+    height:var(--explanation-div-height);
+}
