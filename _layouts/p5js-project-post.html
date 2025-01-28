@@ -1,5 +1,5 @@
 ---
-page.p5js-link: /assets/js/p5js/p5.min.js
+
 ---
 
 <!DOCTYPE html>
@@ -33,9 +33,7 @@ page.p5js-link: /assets/js/p5js/p5.min.js
    
 
     <div class="vertical-space" id="canvas-bottom-of-page"></div>
-    {% if page.p5js-link %}
-    <script src="{{page.p5js-link}}"></script>
-    {% endif %}
+   
     
     {% if page.projectScripts %}
         {% for script in page.projectScripts %}

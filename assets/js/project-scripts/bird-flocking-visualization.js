@@ -379,14 +379,14 @@ let viewHeight = 400;
 let hasStartBeenPressed = false;
 let sF = 1;
 function setup(){
-    widthOfContainer = document.getElementById("p5-canvas-div").getBoundingClientRect().width;
+    widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
     if (widthOfContainer < viewWidth) {
       viewWidth = widthOfContainer;
       viewHeight = widthOfContainer;
     }
     
     var canvas = createCanvas(viewWidth,viewHeight);
-    canvas.parent('p5-canvas-div');
+    canvas.parent('canvas-insertion-point');
     renderGraphic = createGraphics(viewWidth, viewHeight);
 
     for (let i =0; i < amountOfBugs; i ++) {

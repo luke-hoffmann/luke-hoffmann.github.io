@@ -1,3 +1,4 @@
+
 class Field {
     constructor(array) {
         

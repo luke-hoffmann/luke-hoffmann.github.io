@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luke Hoffmann - 3D Convex Hull</title>
+    <title>Luke Hoffmann - Bird Flocking</title>
     <link rel="stylesheet" href="/assets/css/globals.css"></link>
     <link rel="stylesheet" href="/assets/css/includes/p5js-canvas-block.css"></link>
     <link rel="stylesheet" href="/assets/css/p5js-project-post/p5js-project-post.css"></link>
@@ -41,17 +41,9 @@
 <div class="vertical-space" id="title-bottom"></div>
     <div class="horizontal-center" id="explanation-div">
         <div id="explanation-wrapper">
-            <span class="project-title">3D Convex Hull Visualization</span>
+            <span class="project-title">Bird Flocking Visualization</span>
                 <span class="project-paragraph">
-                    This visualization shows the following: <ul>
-<li>Generate random points when the GENERATE POINTS button is pressed</li>
-<li>Apply the Convex Hull Algorithm when the RUN ALGORITHM button is pressed which does the following:<ol>
-<li>Takes in the set of random points </li>
-<li>Identifies the outermost points</li>
-<li>Connects those points to enclose all other points</li>
-</ol>
-</ul>
-
+                    
                 </span>
         </div>
     </div>
@@ -67,9 +59,7 @@
         </div>
         <div class="horizontal-space-evenly" id="control-buttons">
     <button class='reset' type="button" onclick="reset()">Reset</button>
-    <button id='find-convex' class='reset' type='button' onclick="findConvex()">Find Convex Hull</button>
     <button id="play-button"type="button" class="reset" onclick="startSimulation()">Play</button>
-    
 </div>
         
         
@@ -85,9 +75,7 @@
         
         <script  src="/assets/js/p5js/p5.min.js"></script>
         
-        <script  src="/assets/js/project-scripts/geometry.js"></script>
-        
-        <script  src="/assets/js/project-scripts/3D-convex-hull.js"></script>
+        <script  src="/assets/js/project-scripts/bird-flocking-visualization.js"></script>
         
     
 </body>
