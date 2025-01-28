@@ -1,13 +1,4 @@
 
-
-:root {
-    --move-arrow-div-height:15vh;
-    
-}
-.title-space#bottom{
-    height:var(--move-arrow-div-height);
-}
-
 .project-title {
     height:auto;
     text-align: center;
@@ -55,31 +46,3 @@
 ul, li {
     text-align: left;
 }
-#play-rgb-boids-button {
-    width:75px;
-    height:75px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index: 10;  /* Ensure it appears above the canvas */
-    font-size: 25px;
-    border: none;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.vertical-space#arrow-canvas, .vertical-space#canvas-bottom-of-page{
-    height: calc(calc(100vh - var(--p5-canvas-container-height))/2);
-}
-
-
-@media only screen and (max-width: 450px) {
-    .vertical-space#arrow-canvas, .vertical-space#canvas-bottom-of-page{
-        height: calc(calc(100vh - var(--p5-canvas-container-height))/2);
-    }
-}
-

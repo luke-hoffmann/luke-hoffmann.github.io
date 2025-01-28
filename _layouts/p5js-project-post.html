@@ -25,15 +25,17 @@
         </div>
     </div>
     
-    <div class="vertical-space" id="arrow-canvas"></div>
+    <div class="vertical-space" id="paragraph-canvas"></div>
     <div class="horizontal-center target" id="p5-canvas-center">
         <div id="p5-canvas-container">
             <div class="horizontal-center">
                 <div id="p5-canvas-div" >
                 <!-- p5.js canvas will be inserted here -->
-                 <button type="button" id="play-button" onclick="startSimulation()">Play</button>
+                
                 </div>
+                
             </div>
+            {% include {{page.projectButtons}} %}
             
             
         </div>

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing123</title>
     <link rel="stylesheet" href="/assets/css/globals.css"></link>
-    <link rel="stylesheet" href="/assets/css/template/header.css"></link>
     <link rel="stylesheet" href="/assets/css/template/p5js-canvas-block.css"></link>
     <link rel="stylesheet" href="/assets/css/p5js-project-post/p5js-project-post.css"></link>
+    
 </head>
 <body>
-    
+    <link rel="stylesheet" href="/assets/css/template/header.css"></link>
     <div class="title-space" id="top"></div>
     <div class="header">
         <div class="sub-div">
@@ -45,20 +45,33 @@
         <div id="explanation-wrapper">
             <span class="project-title"></span>
                 <span class="project-paragraph">
-                    This is the description of my page.
+                    This visualization shows the following: <ul>
+<li>Generate random points when the GENERATE POINTS button is pressed</li>
+<li>Apply the Convex Hull Algorithm when the RUN ALGORITHM button is pressed which does the following:<ol>
+<li>Takes in the set of random points </li>
+<li>Identifies the outermost points</li>
+<li>Connects those points to enclose all other points</li>
+</ol>
+</ul>
+
                 </span>
         </div>
     </div>
     
-    <div class="vertical-space" id="arrow-canvas"></div>
+    <div class="vertical-space" id="paragraph-canvas"></div>
     <div class="horizontal-center target" id="p5-canvas-center">
         <div id="p5-canvas-container">
             <div class="horizontal-center">
                 <div id="p5-canvas-div" >
                 <!-- p5.js canvas will be inserted here -->
-                 <button type="button" id="play-button" onclick="startSimulation()">Play</button>
+                
                 </div>
+                
             </div>
+            <div class="horizontal-space-evenly" id="control-buttons">
+    <button class='reset' type="button" onclick="reset()">Reset</button>
+    <button id='find-convex' class='reset' type='button' onclick="findConvex()">Find Convex Hull</button>
+</div>
             
             
         </div>
