@@ -29,16 +29,21 @@ class MathFunctions{
         return this.xSquared(x);
       case "xCubed":
         return this.xCubed(x);
+      case "x":
+        return this.x(x);
     }
   }
   sin(theta) {
     return Math.sin(theta);
   }
   xSquared(x){
-    return x^2;
+    return x*x;
   }
   xCubed(x) {
-    return x^3;
+    return x*x*x;
+  }
+  x(x){
+    return x;
   }
 }
 class Rectangle {
@@ -78,7 +83,7 @@ class IntegralVisualizer {
       this.graphWidth = graphWidth;
       this.graphHeight = graphHeight;
       this.mathFunction = mathFunction;
-      this.doesRectangleStartOnLeft =true;
+      this.doesRectangleStartOnLeft =false;
       this.wF = graphWidth/domainWidth;
       this.hF= graphHeight/range;
       this.domainWidth = domainWidth;
@@ -102,7 +107,7 @@ class IntegralVisualizer {
     }
     calculateLeftDxRectangles(baselinePoints,functionPoints){
       let rectangles = [];
-      for (let i =1 ; i< functionPoints.length-1;i ++) {
+      for (let i =1 ; i< functionPoints.length;i ++) {
         let w = Math.abs(functionPoints[i].x - baselinePoints[i-1].x) * this.wF;
         let h = -(functionPoints[i].y - baselinePoints[i-1].y) * this.hF;
         let x = this.graphPlacementX + (this.graphWidth/2 - (baselinePoints[i].x *this.wF));
@@ -111,8 +116,16 @@ class IntegralVisualizer {
       }
       return rectangles;
     }
-    calculateRightDxRectangles(){
-      
+    calculateRightDxRectangles(baselinePoints,functionPoints){
+      let rectangles = [];
+      for (let i =1 ; i< baselinePoints.length;i ++) {
+        let w = Math.abs(functionPoints[i-1].x - baselinePoints[i].x) * this.wF;
+        let h = (functionPoints[i-1].y - baselinePoints[i].y) * this.hF;
+        let x = this.graphPlacementX + (this.graphWidth/2 - (functionPoints[i].x *this.wF));
+        let y = this.graphPlacementY + (this.graphHeight/2 - (baselinePoints[i].y * this.hF));
+        rectangles.push(new Rectangle(x,y,w,h));
+      }
+      return rectangles;
     }
     calculateDxRectangles(functionStartX, functionBaseLineY,sizeOfDx){
       
