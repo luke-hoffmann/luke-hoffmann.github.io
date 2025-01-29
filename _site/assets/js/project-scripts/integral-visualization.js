@@ -56,13 +56,15 @@ class Rectangle {
       renderGraphic.noFill();
     } else {
       renderGraphic.fill(fill);
-      renderGraphic.fill("black")
     }
     if (stroke === false) {
       renderGraphic.noStroke();
     } else {
+
       renderGraphic.stroke(stroke);
     }
+    renderGraphic.noFill();
+    renderGraphic.stroke("black");
   }
   draw (fill,stroke) {
     this.applyColorSettings(fill,stroke);
@@ -83,14 +85,14 @@ class IntegralVisualizer {
     }
     calculatePointsOnFunctionAtSpacing(functionStartX, domainWidth, sizeOfDx){
       let points = [];
-      for (let x = functionStartX; x <= domainWidth/sizeOfDx; x++) {
+      for (let x = functionStartX; x <= functionStartX + domainWidth; x+=sizeOfDx) {
         points.push(new Point(x,this.mathFunction.chosenFunction(x)));
       }
       return points;
     }
     calculatePointsOnBaselineAtSpacing(functionStartX,functionBaseLineY,domainWidth,sizeOfDx) {
       let points =[];
-      for (let x = functionStartX; x <= domainWidth/sizeOfDx; x++) {
+      for (let x = functionStartX; x <= functionStartX + domainWidth; x+=sizeOfDx) {
         points.push(new Point(x,functionBaseLineY));
       }
       return points;
@@ -99,9 +101,9 @@ class IntegralVisualizer {
       let rectangles = [];
       for (let i =1 ; i< functionPoints.length-1;i ++) {
         let w = Math.abs(functionPoints[i].x - baselinePoints[i-1].x) * this.wF;
-        let h = Math.abs(functionPoints[i].y - baselinePoints[i-1].y) * this.hF;
-        let x = baselinePoints[i].x * this.wF;
-        let y = functionPoints[i].y * this.hF;
+        let h = -(functionPoints[i].y - baselinePoints[i-1].y) * this.hF;
+        let x = this.graphPlacementX + (this.graphWidth/2 - (baselinePoints[i].x *this.wF));
+        let y = this.graphPlacementY + (this.graphHeight/2 - (-functionPoints[i].y * this.hF));
         rectangles.push(new Rectangle(x,y,w,h));
       }
       return rectangles;
@@ -123,6 +125,14 @@ class IntegralVisualizer {
       }
       
     }
+    graphTheGraph(){
+      stroke(100);
+      renderGraphic.rect(this.graphPlacementX,this.graphPlacementY,this.graphWidth,this.graphHeight);
+      stroke(0)
+      renderGraphic.line(this.graphPlacementX+ this.graphWidth/2, this.graphPlacementY, this.graphPlacementX + this.graphWidth/2, this.graphPlacementY+this.graphHeight)
+      renderGraphic.line(this.graphPlacementX , this.graphPlacementY + this.graphHeight/2, this.graphPlacementX + this.graphWidth, this.graphPlacementY+this.graphHeight/2)
+      this.graphRectangles(rectangles,0,0);
+    }
 }
 let rectangles;
 let integralVisualizer;
@@ -135,9 +145,9 @@ function setup(){
     var canvas= createCanvas(viewWidth,viewHeight);
     canvas.parent("canvas-insertion-point");
     renderGraphic = createGraphics(viewWidth, viewHeight);
-    integralVisualizer = new IntegralVisualizer(25,25,350,350,new MathFunctions("sin"),6,3)
+    integralVisualizer = new IntegralVisualizer(25,25,350,350,new MathFunctions("sin"),8,3)
     
-    rectangles = integralVisualizer.calculateDxRectangles(-3,0,0.5);
+    rectangles = integralVisualizer.calculateDxRectangles(-4,0,0.01);
 
     redraw();
 }
@@ -151,10 +161,12 @@ function strokeOrFillRGB(array,filler){
 } 
   
 function draw() {
-    renderGraphic.background(255);
+    renderGraphic.background(200);
     renderGraphic.scale(sF);
     // do stuff here
-    integralVisualizer.graphRectangles(rectangles,0,0);
+    
+    
+    integralVisualizer.graphTheGraph();
     image(renderGraphic, 0, 0);
     noLoop();
 }
