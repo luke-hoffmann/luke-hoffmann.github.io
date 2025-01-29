@@ -82,6 +82,8 @@ class IntegralVisualizer {
       this.wF = graphWidth/domainWidth;
       this.hF= graphHeight/range;
       this.domainWidth = domainWidth;
+      this.rectangles;
+      this.areaUnderCurve = 0;
     }
     calculatePointsOnFunctionAtSpacing(functionStartX, domainWidth, sizeOfDx){
       let points = [];
@@ -113,10 +115,10 @@ class IntegralVisualizer {
     }
     calculateDxRectangles(functionStartX, functionBaseLineY,sizeOfDx){
       let functionPoints = this.calculatePointsOnFunctionAtSpacing(functionStartX,this.domainWidth,sizeOfDx);
-      console.log(functionPoints)
       let baselinePoints = this.calculatePointsOnBaselineAtSpacing(functionStartX,functionBaseLineY,this.domainWidth,sizeOfDx);
       let rectangles = this.doesRectangleStartOnLeft ? this.calculateLeftDxRectangles(baselinePoints,functionPoints) : this.calculateRightDxRectangles(baselinePoints,functionPoints);
-      console.log(rectangles)
+      this.rectangles = rectangles;
+      this.areaUnderCurve = this.calculateAreaOfRectangles(this.rectangles);
       return rectangles;
     }
     graphRectangles (rectangles,fill,stroke) {
@@ -125,13 +127,23 @@ class IntegralVisualizer {
       }
       
     }
+    calculateAreaOfRectangles(rectangles){
+      let sum = 0;
+      for (let i =0; i <rectangles.length;i ++) {
+        let rectangle = rectangles[i];
+        sum += ((rectangle.w * rectangle.h) / this.wF) /this.hF;
+      }
+      return sum;
+    }
     graphTheGraph(){
-      stroke(100);
+      renderGraphic.stroke(100);
+      renderGraphic.fill(230);
       renderGraphic.rect(this.graphPlacementX,this.graphPlacementY,this.graphWidth,this.graphHeight);
-      stroke(0)
+      renderGraphic.stroke(0)
       renderGraphic.line(this.graphPlacementX+ this.graphWidth/2, this.graphPlacementY, this.graphPlacementX + this.graphWidth/2, this.graphPlacementY+this.graphHeight)
       renderGraphic.line(this.graphPlacementX , this.graphPlacementY + this.graphHeight/2, this.graphPlacementX + this.graphWidth, this.graphPlacementY+this.graphHeight/2)
-      this.graphRectangles(rectangles,0,0);
+      
+      this.graphRectangles(this.rectangles,0,0);
     }
 }
 let rectangles;
@@ -146,8 +158,8 @@ function setup(){
     canvas.parent("canvas-insertion-point");
     renderGraphic = createGraphics(viewWidth, viewHeight);
     integralVisualizer = new IntegralVisualizer(25,25,350,350,new MathFunctions("sin"),8,3)
+    integralVisualizer.calculateDxRectangles(-4,0,0.5);
     
-    rectangles = integralVisualizer.calculateDxRectangles(-4,0,0.01);
 
     redraw();
 }
@@ -161,14 +173,15 @@ function strokeOrFillRGB(array,filler){
 } 
   
 function draw() {
+    renderGraphic.clear();
     renderGraphic.background(200);
     renderGraphic.scale(sF);
     // do stuff here
-    
-    
+    dxSize = Number(document.getElementById("dxSlider").value)
+    integralVisualizer.calculateDxRectangles(-4,0,dxSize);
     integralVisualizer.graphTheGraph();
+    document.getElementById("area-curve-span").innerHTML = Math.round(100* integralVisualizer.areaUnderCurve)/100;
     image(renderGraphic, 0, 0);
-    noLoop();
 }
   
 
