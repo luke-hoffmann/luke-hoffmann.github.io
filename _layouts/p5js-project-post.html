@@ -10,10 +10,10 @@
     <title>{{page.title}}</title>
     <link rel="stylesheet" href="/assets/css/global.css"></link>
     <link rel="stylesheet" href="/assets/css/includes/p5js-canvas-block.css"></link>
-    <link rel="stylesheet" href="/assets/css/p5js-project-post/p5js-project-post.css"></link>
-    {% if page.custom_css %}
-        {% for stylesheet in page.custom_css %}
-        <link rel="stylesheet" href="stylesheet"></link>
+    <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/p5js-project-post.css"></link>
+    {% if page.projectCSS %}
+        {% for stylesheet in page.projectCSS %}
+        <link rel="stylesheet" href="{{stylesheet}}"></link>
         {% endfor %}
     {% endif %}
 </head>

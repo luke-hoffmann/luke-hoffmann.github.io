@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.horizontal-center#explanation-div, #control-buttons, .project-title{
+.horizontal-center#explanation-div, .project-title{
     width: 100%;
 }
 

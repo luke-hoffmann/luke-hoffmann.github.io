@@ -25,16 +25,27 @@ class MathFunctions{
     switch(this.functionSelector) {
       case "sin":
         return this.sin(x);
+      case "cos":
+        return this.cos(x);
       case "xSquared":
         return this.xSquared(x);
       case "xCubed":
         return this.xCubed(x);
       case "x":
         return this.x(x);
+      case "polynomialOne":
+        return this.polynomialOne(x);
+      case "polynomialTwo":
+        return this.polynomialTwo(x);
+      case "cubicOne":
+        return this.cubicOne(x);
     }
   }
   sin(theta) {
     return Math.sin(theta);
+  }
+  cos(theta) {
+    return Math.cos(theta);
   }
   xSquared(x){
     return x*x;
@@ -44,6 +55,16 @@ class MathFunctions{
   }
   x(x){
     return x;
+  }
+  polynomialOne(x){
+  }
+
+  polynomialTwo(x) {
+
+  }
+
+  cubicOne(x) {
+    return (.5 * (Math.pow(x,3))) + (2*(Math.pow(x,2))) + x -1;
   }
 }
 class Rectangle {
@@ -77,19 +98,20 @@ class Rectangle {
   }
 }
 class IntegralVisualizer {
-    constructor (graphPlacementX,graphPlacementY,graphWidth,graphHeight,mathFunction,domainWidth,range) {
+    constructor (graphPlacementX,graphPlacementY,graphWidth,graphHeight,mathFunction,functionStartX,range) {
       this.graphPlacementX = graphPlacementX;
       this.graphPlacementY = graphPlacementY;
       this.graphWidth = graphWidth;
       this.graphHeight = graphHeight;
       this.mathFunction = mathFunction;
       this.doesRectangleStartOnLeft =false;
-      this.wF = graphWidth/domainWidth;
+      this.wF = graphPlacementX/functionStartX;
       this.hF= graphHeight/range;
-      this.domainWidth = domainWidth;
+      this.domainWidth = graphWidth/this.wF;
       this.rectangles;
       this.areaUnderCurve = 0;
       this.graphPoints;
+      this.functionStartX = functionStartX;
     }
     calculatePointsOnFunctionAtSpacing(functionStartX, domainWidth, sizeOfDx){
       let points = [];
@@ -98,6 +120,7 @@ class IntegralVisualizer {
       }
       return points;
     }
+    
     calculatePointsOnBaselineAtSpacing(functionStartX,functionBaseLineY,domainWidth,sizeOfDx) {
       let points =[];
       for (let x = functionStartX; x <= functionStartX + domainWidth; x+=sizeOfDx) {
@@ -107,22 +130,22 @@ class IntegralVisualizer {
     }
     calculateLeftDxRectangles(baselinePoints,functionPoints){
       let rectangles = [];
-      for (let i =1 ; i< functionPoints.length;i ++) {
-        let w = Math.abs(functionPoints[i].x - baselinePoints[i-1].x) * this.wF;
-        let h = -(functionPoints[i].y - baselinePoints[i-1].y) * this.hF;
-        let x = this.graphPlacementX + (this.graphWidth/2 - (baselinePoints[i].x *this.wF));
-        let y = this.graphPlacementY + (this.graphHeight/2 - (-functionPoints[i].y * this.hF));
+      for (let i =1 ; i<= functionPoints.length-1;i ++) {
+        let w = (functionPoints[i-1].x - baselinePoints[i].x) * this.wF;
+        let h = -(functionPoints[i-1].y - baselinePoints[i].y) * this.hF;
+        let x = this.graphPlacementX + (this.graphWidth/2 + (baselinePoints[i].x *this.wF));
+        let y = this.graphPlacementY + (this.graphHeight/2 - (baselinePoints[i].y * this.hF));
         rectangles.push(new Rectangle(x,y,w,h));
       }
       return rectangles;
     }
     calculateRightDxRectangles(baselinePoints,functionPoints){
       let rectangles = [];
-      for (let i =1 ; i< baselinePoints.length;i ++) {
-        let w = Math.abs(functionPoints[i-1].x - baselinePoints[i].x) * this.wF;
-        let h = (functionPoints[i-1].y - baselinePoints[i].y) * this.hF;
-        let x = this.graphPlacementX + (this.graphWidth/2 - (functionPoints[i].x *this.wF));
-        let y = this.graphPlacementY + (this.graphHeight/2 - (baselinePoints[i].y * this.hF));
+      for (let i =1 ; i<= functionPoints.length-1;i ++) {
+        let w = (functionPoints[i].x - baselinePoints[i-1].x) * this.wF;
+        let h = ( baselinePoints[i-1].y - functionPoints[i].y) * this.hF;
+        let x = this.graphPlacementX + (this.graphWidth/2 + (baselinePoints[i-1].x *this.wF));
+        let y = this.graphPlacementY + (this.graphHeight/2 - (baselinePoints[i-1].y * this.hF));
         rectangles.push(new Rectangle(x,y,w,h));
       }
       return rectangles;
@@ -150,18 +173,13 @@ class IntegralVisualizer {
       }
       return sum;
     }
-    calculateFunctionPoints(functionStartX, domainWidth,intervalBetweenPoints){
-      let points = [];
-      for (let x = functionStartX; x < functionStartX + domainWidth; x+=intervalBetweenPoints) {
-        points.push(new Point(x,this.mathFunction.chosenFunction(x)));
-      }
-      return points;
-    }
+    
     calculateGraphPoints(functionPoints){
       let graphPoints = [];
       for (let i=0 ; i < functionPoints.length;i++ ){
-        let x = this.graphPlacementX + (this.graphWidth/2 - (functionPoints[i].x *this.wF))
-        let y = this.graphPlacementY + (this.graphHeight/2 - (-functionPoints[i].y *this.hF))
+        let x =  this.graphPlacementX + (this.graphWidth/2 + (functionPoints[i].x *this.wF) + (this.functionStartX));
+        let y = this.graphPlacementY + (this.graphHeight/2 - (functionPoints[i].y *this.hF));
+        
         graphPoints.push( new Point(x,y,3,"red"));
       }
       this.graphPoints = graphPoints;
@@ -182,9 +200,23 @@ class IntegralVisualizer {
       
       this.graphRectangles(this.rectangles,0,0);
     }
+    initialize(){
+      this.calculateGraphPoints(integralVisualizer.calculatePointsOnFunctionAtSpacing(this.functionStartX,0.02));
+      this.calculateDxRectangles(this.functionStartX,0,0.5);
+    }
 }
 let rectangles;
 let integralVisualizer;
+let graphStartX = Number(document.getElementById("intervalSlider").value);
+let range = 3;
+
+
+function updateVisualization() {
+  domainWidth = Number(document.getElementById("intervalSlider").value);
+  integralVisualizer = new IntegralVisualizer(25,25,350,350,new MathFunctions(document.getElementById("functionPicker").value),graphStartX,range)
+  integralVisualizer.initialize();
+}
+
 function setup(){
     widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
       if (widthOfContainer < viewWidth) {
@@ -194,11 +226,9 @@ function setup(){
     var canvas= createCanvas(viewWidth,viewHeight);
     canvas.parent("canvas-insertion-point");
     renderGraphic = createGraphics(viewWidth, viewHeight);
-    let graphStartX = -4;
-    let domainWidth = 8;
-    integralVisualizer = new IntegralVisualizer(25,25,350,350,new MathFunctions("sin"),8,3)
-    integralVisualizer.calculateGraphPoints(integralVisualizer.calculateFunctionPoints(graphStartX,domainWidth,0.02));
-    integralVisualizer.calculateDxRectangles(graphStartX,0,0.5);
+    
+    integralVisualizer = new IntegralVisualizer(25,25,350,350,new MathFunctions(document.getElementById("functionPicker").value),graphStartX,3)
+    integralVisualizer.initialize();
     
 
     redraw();
@@ -219,7 +249,6 @@ function draw() {
     // do stuff here
     dxSize = Number(document.getElementById("dxSlider").value)
     integralVisualizer.calculateDxRectangles(-4,0,dxSize);
-    
     integralVisualizer.graphTheCanvas();
     integralVisualizer.graphTheFunction(integralVisualizer.graphPoints);
     document.getElementById("area-curve-span").innerHTML = Math.round(100* integralVisualizer.areaUnderCurve)/100;

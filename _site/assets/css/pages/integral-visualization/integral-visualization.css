@@ -1,0 +1,12 @@
+.slider {
+    width:var(--p5-canvas-width);
+}
+
+#area-curve {
+    text-align: center;
+}
+
+
+.integral-visualization-control-buttons {
+    width:100%;
+}
