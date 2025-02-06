@@ -20,31 +20,15 @@
     
     <div class="title-and-projects-spacer" id="target"></div>
     <div class="container" >
-        {% include project-div.html 
-            title='Birds Flocking Visualization' 
-            redirectLink='/projects/bird-flocking-visualization.html' 
-            imageSource='assets/images/project-images/low-res/boids-with-rgb-render.png' 
-        %}
-        {% include project-div.html 
-            title='2-D Convex Hull Algorithm' 
-            redirectLink='/projects/2D-convex-hull-algorithm.html' 
-            imageSource='assets/images/project-images/low-res/convex-hull-2D-render.png' 
-        %}
-        {% include project-div.html 
-            title='3-D Convex Hull Algorithm' 
-            redirectLink='/projects/3D-convex-hull-algorithm.html' 
-            imageSource='assets/images/project-images/low-res/convex-hull-3D-render.png' 
-        %}
-        {% include project-div.html 
-            title='Rotation of Shapes Using Matrices' 
-            redirectLink='/projects/shapes-rotating-matrices.html' 
-            imageSource='assets/images/project-images/low-res/rotating-cube-3d-render.png' 
-        %}
-        {% include project-div.html 
-            title='Integral Visualization' 
-            redirectLink='/projects/integral-visualization.html' 
-            imageSource='assets/images/project-images/low-res/rotating-cube-3d-render.png' 
-        %}
+        {% if page.projects %}
+            {% for project in page.projects %}
+                {% assign project_title = project[0] %}
+                {% assign project_link = project[1] %}
+                {% assign project_image = project[2] %}
+        
+                {% include project-div.html title=project_title redirectLink=project_link imageSource=project_image %}
+            {% endfor %}
+        {% endif %}
     </div>
     <script src="/assets/js/jquery/jquery-3.7.1.min.js"></script>
     <script src="/assets/js/home-page.js"></script>

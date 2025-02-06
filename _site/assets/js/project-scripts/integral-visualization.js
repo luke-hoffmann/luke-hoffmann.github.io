@@ -98,20 +98,20 @@ class Rectangle {
   }
 }
 class IntegralVisualizer {
-    constructor (graphPlacementX,graphPlacementY,graphWidth,graphHeight,mathFunction,functionStartX,range) {
+    constructor (graphPlacementX,graphPlacementY,graphWidth,graphHeight,mathFunction,domainWidth,range) {
       this.graphPlacementX = graphPlacementX;
       this.graphPlacementY = graphPlacementY;
       this.graphWidth = graphWidth;
       this.graphHeight = graphHeight;
       this.mathFunction = mathFunction;
       this.doesRectangleStartOnLeft =false;
-      this.wF = graphPlacementX/functionStartX;
-      this.hF= graphHeight/range;
-      this.domainWidth = graphWidth/this.wF;
+      this.wF = graphWidth/domainWidth;
+      this.hF = graphHeight/range;
+      this.domainWidth = domainWidth
       this.rectangles;
       this.areaUnderCurve = 0;
       this.graphPoints;
-      this.functionStartX = functionStartX;
+      this.functionStartX = - domainWidth/2
     }
     calculatePointsOnFunctionAtSpacing(functionStartX, domainWidth, sizeOfDx){
       let points = [];
@@ -186,16 +186,13 @@ class IntegralVisualizer {
       }
     } 
     graphTheCanvas(){
-      renderGraphic.stroke(100);
-      renderGraphic.fill(230);
-      renderGraphic.rect(this.graphPlacementX,this.graphPlacementY,this.graphWidth,this.graphHeight);
       renderGraphic.stroke(0);
       renderGraphic.line(this.graphPlacementX+ this.graphWidth/2, this.graphPlacementY, this.graphPlacementX + this.graphWidth/2, this.graphPlacementY+this.graphHeight);
       renderGraphic.line(this.graphPlacementX , this.graphPlacementY + this.graphHeight/2, this.graphPlacementX + this.graphWidth, this.graphPlacementY+this.graphHeight/2);
     }
     initialize(dxSize){
-      this.graphPoints = this.calculateGraphPoints(this.calculatePointsOnFunctionAtSpacing(this.functionStartX,this.domainWidth,0.02));
-
+      this.graphPoints = this.calculateGraphPoints(this.calculatePointsOnFunctionAtSpacing(this.functionStartX,this.domainWidth,0.009));
+      
       let rectanglePoints = this.calculateGraphPoints(this.calculatePointsOnFunctionAtSpacing(this.functionStartX,this.domainWidth,dxSize));
       let rectangleBaselinePoints = this.calculateGraphPoints(this.calculatePointsOnBaselineAtSpacing(this.functionStartX,0,this.domainWidth,dxSize));
       this.calculateDxRectangles(rectanglePoints,rectangleBaselinePoints);
@@ -207,14 +204,14 @@ class IntegralVisualizer {
 
 let rectangles;
 let integralVisualizer;
-let graphStartX = Number(document.getElementById("intervalSlider").value);
+let domainWidth = Number(document.getElementById("intervalSlider").value);
 let range = 3;
 
 
 function updateVisualization() {
-  graphStartX = Number(document.getElementById("intervalSlider").value);
+  domainWidth = Number(document.getElementById("intervalSlider").value);
   dxSize = Number(document.getElementById("dxSlider").value)
-  integralVisualizer = new IntegralVisualizer(40,25,310,350,new MathFunctions(document.getElementById("functionPicker").value),graphStartX,range)
+  integralVisualizer = new IntegralVisualizer(10,10,380,380,new MathFunctions(document.getElementById("functionPicker").value),domainWidth,range)
   integralVisualizer.initialize(dxSize);
 }
 
@@ -228,8 +225,7 @@ function setup(){
     canvas.parent("canvas-insertion-point");
     renderGraphic = createGraphics(viewWidth, viewHeight);
     dxSize = Number(document.getElementById("dxSlider").value)
-    integralVisualizer = new IntegralVisualizer(25,25,350,350,new MathFunctions(document.getElementById("functionPicker").value),graphStartX,range)
-    integralVisualizer.initialize(dxSize);
+    updateVisualization();
     
 
     redraw();
@@ -245,14 +241,14 @@ function strokeOrFillRGB(array,filler){
   
 function draw() {
     renderGraphic.clear();
-    renderGraphic.background(200);
+    renderGraphic.background(255);
     renderGraphic.scale(sF);
     // do stuff here
     
     integralVisualizer.graphTheCanvas();
     integralVisualizer.graphRectangles(false,"black");
     integralVisualizer.graphTheFunction(integralVisualizer.graphPoints);
-    document.getElementById("area-curve-span").innerHTML = Math.round(100* integralVisualizer.areaUnderCurve)/100;
+    
     image(renderGraphic, 0, 0);
 }
   
