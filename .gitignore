@@ -4,3 +4,6 @@ _site
 .jekyll-metadata
 vendor
 Gemfile.lock
+.gitattributes
+open-terminal.bat
+_config.yml
