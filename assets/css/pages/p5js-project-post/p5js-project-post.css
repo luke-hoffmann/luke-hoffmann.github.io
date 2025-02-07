@@ -6,8 +6,9 @@
     font-size:1.7em;
     display: block;
 }
-.project-paragraph {
-    text-align: center;
+.project-paragraph p {
+    text-align: justify;
+    text-indent: 50px;
 }
 
 .horizontal-center#explanation-div, .project-title{

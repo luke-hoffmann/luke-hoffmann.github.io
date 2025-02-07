@@ -1,5 +1,5 @@
 @import url('../fonts/walbuam-2010-pro/stylesheet.css');
-
+@import url('reset.css');
 @font-face {
     font-family: akidenz-grotesk;
     src: url("../fonts/akzidenz-grotesk/AkzidenzGroteskBE-Regular.otf");

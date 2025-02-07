@@ -47,15 +47,27 @@
         <div id="explanation-wrapper">
             <span class="project-title">3D Convex Hull Visualization</span>
                 <span class="project-paragraph">
-                    This visualization shows the following: <ul>
-<li>Generate random points when the GENERATE POINTS button is pressed</li>
-<li>Apply the Convex Hull Algorithm when the RUN ALGORITHM button is pressed which does the following:<ol>
-<li>Takes in the set of random points </li>
-<li>Identifies the outermost points</li>
-<li>Connects those points to enclose all other points</li>
-</ol>
-</ul>
+                    <p>
+    One challenge that is often approached in computer graphics is determining the boundary or the outermost points from a set of data. While this concept may seem confusing at first, let me break it down with an example. 
+</p> 
 
+<p>
+    Imagine a group of people standing together. Within this group, there will be people at the center of the group, and there will be people at the very edges. The people standing on the edges are the “boundary” points. They make up a boundary that contains all of the other people in the group. If you were to pull a string around the whole group, it would only touch the people on the outside. Those are the people that make up the boundary of the group.</p> 
+
+<p>
+    Our brains can visualize this process, finding the outermost points, or people, is obvious, but a computer doesn’t explicitly know how. When I first read about this challenge, the idea of it made sense. When I set out to tell the computer how to do this, I struggled.</p>
+
+<p>
+    I first decided to implement this procedure in two dimensions. You can see that <b><a type="link" href="/projects/2D-convex-hull-algorithm.html">HERE</a></b>. Mastering two dimensions, I decided to create this visualization.
+</p>
+
+<h3> What does the visualization do?</h3>
+<ul>
+    <li>The <b> Generate Points </b> button allows you to generate a random set of points </li>
+    <li>The <b> Find Convex Hull </b> button does what is described above. It finds calculates the outermost points of the random points, and displays their connections </li>
+    <li>The <b> Play </b> button applies a rotation to the points, this is used to help show the three dimensionality of the points </li>
+
+</ul>
                 </span>
         </div>
     </div>
