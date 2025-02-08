@@ -34,3 +34,7 @@
 ul, li {
     text-align: left;
 }
+
+.vertical-space#canvas-bottom {
+    height:40px;
+}
