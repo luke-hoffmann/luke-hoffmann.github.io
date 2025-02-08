@@ -37,8 +37,8 @@ class MathFunctions{
         return this.polynomialOne(x);
       case "polynomialTwo":
         return this.polynomialTwo(x);
-      case "cubicOne":
-        return this.cubicOne(x);
+      case "oneOverFourX":
+        return this.oneOverFourX(x);
     }
   }
   sin(theta) {
@@ -63,8 +63,9 @@ class MathFunctions{
 
   }
 
-  cubicOne(x) {
-    return (.5 * (Math.pow(x,3))) + (2*(Math.pow(x,2))) + x -1;
+  oneOverFourX(x) {
+    return (1/(4*x));
+
   }
 }
 class Rectangle {
@@ -98,13 +99,13 @@ class Rectangle {
   }
 }
 class IntegralVisualizer {
-    constructor (graphPlacementX,graphPlacementY,graphWidth,graphHeight,mathFunction,domainWidth,range) {
+    constructor (graphPlacementX,graphPlacementY,graphWidth,graphHeight,mathFunction,domainWidth,range,riemannSide) {
       this.graphPlacementX = graphPlacementX;
       this.graphPlacementY = graphPlacementY;
       this.graphWidth = graphWidth;
       this.graphHeight = graphHeight;
       this.mathFunction = mathFunction;
-      this.doesRectangleStartOnLeft =false;
+      this.doesRectangleStartOnLeft =riemannSide;
       this.wF = graphWidth/domainWidth;
       this.hF = graphHeight/range;
       this.domainWidth = domainWidth
@@ -132,9 +133,9 @@ class IntegralVisualizer {
       let rectangles = [];
       for (let i =1 ; i< functionPoints.length;i ++) {
         let w = (functionPoints[i-1].x - baselinePoints[i].x)
-        let h = -(functionPoints[i-1].y - baselinePoints[i].y)
-        let x = this.graphPlacementX +baselinePoints[i].x 
-        let y = this.graphPlacementY + baselinePoints[i].y
+        let h = (functionPoints[i-1].y - baselinePoints[i].y)
+        let x = baselinePoints[i].x 
+        let y = baselinePoints[i].y
         rectangles.push(new Rectangle(x,y,w,h));
       }
       return rectangles;
@@ -206,12 +207,21 @@ let rectangles;
 let integralVisualizer;
 let domainWidth = Number(document.getElementById("intervalSlider").value);
 let range = 3;
-
+let visualizedFunctionInUse = new MathFunctions("sin");
+let riemannSide = true;
+function setRiemannSide(side) {
+  riemannSide = side;
+  updateVisualization();
+}
+function changeVisualizedFunction(functionToUse) {
+  visualizedFunctionInUse = new MathFunctions(functionToUse);
+  updateVisualization();
+}
 
 function updateVisualization() {
   domainWidth = Number(document.getElementById("intervalSlider").value);
   dxSize = Number(document.getElementById("dxSlider").value)
-  integralVisualizer = new IntegralVisualizer(10,10,380,380,new MathFunctions(document.getElementById("functionPicker").value),domainWidth,range)
+  integralVisualizer = new IntegralVisualizer(10,10,380,380,visualizedFunctionInUse,domainWidth,range,riemannSide)
   integralVisualizer.initialize(dxSize);
 }
 

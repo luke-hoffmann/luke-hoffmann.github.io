@@ -2,7 +2,26 @@
     width:var(--p5-canvas-width);
 }
 
-
+math {
+    font-size: 20px !important;
+}
 .integral-visualization-control-buttons {
     width:100%;
+}
+
+
+.horizontal-space-evenly#function-selection, .horizontal-space-evenly#riemann-selection {
+    width:100%;
+    
+}
+
+.horizontal-space-evenly#function-selection button{
+    width:20%;
+    height:40px
+}
+
+
+.horizontal-space-evenly#riemann-selection button{
+    width:45%;
+    height:40px
 }
