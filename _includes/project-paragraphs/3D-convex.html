@@ -1,16 +1,16 @@
 <p>
-    One challenge that is often approached in computer graphics is determining the boundary or the outermost points from a set of data. While this concept may seem confusing at first, let me break it down with an example. 
-</p> 
-
-<p>
-    Imagine a group of people standing together. Within this group, there will be people at the center of the group, and there will be people at the very edges. The people standing on the edges are the “boundary” points. They make up a boundary that contains all of the other people in the group. If you were to pull a string around the whole group, it would only touch the people on the outside. Those are the people that make up the boundary of the group.</p> 
-
-<p>
-    Our brains can visualize this process, finding the outermost points or people, is obvious, but a computer doesn’t explicitly know how. When I first read about this challenge, the idea of it made sense. However, when I set out to tell the computer how to do this, I struggled.</p>
-
-<p>
-    I first decided to implement this procedure in two dimensions. You can see that <b><a type="link" href="/projects/2D-convex-hull-algorithm.html">HERE</a></b>. Mastering two dimensions, I decided to create this visualization.
+    Visualize a school of fish. As they move through the ocean, there is the outer shell of fish that are on the outside of the group. There are also fish on the inside of the group. Imagine freezing the school of fish in place and wrapping it with gift wrap. You can hopefully visualize the shell that is created around the fish. 
 </p>
+<p>
+    In computer graphics, this shell is called a convex hull. It is a structure that is created from some set of points in space. The objective is to find the points from the set, that, when connected, contain all the other points.
+</p>
+<p>
+    Our intuition can tell us what this would look like, but trying to teach a computer to do this is much more difficult. Computers don’t have the spatial understanding and reasoning that our brains do. 
+</p>
+<p> 
+    My objective when I learned about this task was to write a procedure that the computer could follow, to achieve this task. My first step in understanding this problem, was to create a 2 dimensional implementation. You can see that <b><a type="link" href="/projects/2D-convex-hull-algorithm.html">HERE</a></b>. After mastering two dimensions, I decided to create the web graphic shown below.
+</p>
+
 
 <h3> What does the visualization do?</h3>
 <ul>
