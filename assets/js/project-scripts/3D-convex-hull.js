@@ -76,6 +76,14 @@ function setup(){
         thetaZ = Math.random()* Math.PI*2;
         points.array.push(Field.SpherePoint(radiusOfPointsGenerated));
     }
+
+    points = new Field([
+        new Vector(0,100,0),
+        new Vector(0,100,100),
+        new Vector(0,150,0),
+        new Vector(0,0,100),
+        new Vector(100,100,100)
+    ]);
     planes = (Field.QuickHull(points));
 }
 function BoundFace(index){
