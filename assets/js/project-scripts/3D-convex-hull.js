@@ -1,9 +1,4 @@
-let points=new Field();
-let sizeOfSlice=400;
-let planes = undefined;
-let redPoints = [];
 
-1350,600
 let renderWidth = 500;
 let renderHeight = 500;
 let renderGraphic;
@@ -11,6 +6,7 @@ let ogWidth = 400;
 let viewWidth = 400;
 let viewHeight = 400;
 let sF = 1;
+let mesh, canvas;
 function scalePositionToRGB(x,y,w,h){
     return [x/(w)*255,80,y/(h)*255];
 }
@@ -42,10 +38,10 @@ function startSimulation(){
 }
 let graphConvexHull = false;
 function reset(){
-    points=new Field();
-    sizeOfSlice=400;
-    planes = undefined;
-    redPoints = [];
+    fieldOfPoints = Field.generateRandomFieldInSphere(170,200);
+    mesh = Mesh.generateConvexMesh(fieldOfPoints,200);
+    mesh.triangleColor = true;
+
     graphConvexHull = false;
     document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
     setup();
@@ -59,6 +55,7 @@ function findConvex(){
   
 function setup(){
     radiusOfPointsGenerated = 200;
+    numberOfPointsGenerated = 200;
     widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
     if (widthOfContainer < viewWidth) {
       viewWidth = widthOfContainer;
@@ -68,44 +65,26 @@ function setup(){
     if (ogWidth != viewWidth) {
         radiusOfPointsGenerated = 130;
     }
-    var canvas = createCanvas(viewWidth,viewHeight);
-    canvas.parent("canvas-insertion-point")
+    document.getElementById("canvas-insertion-point").innerHTML = ""
+    $("canvas").remove();
+
+    //document.getElementsByClassName("canvas").remove();
+    createCanvas(viewWidth,viewHeight).parent("canvas-insertion-point");
+    //canvas.parent("canvas-insertion-point")
+    
+
     renderGraphic = createGraphics(viewWidth, viewHeight);
-    for (let i =0 ; i < 100;i++) {
-        thetaXY = Math.random() * Math.PI*2
-        thetaZ = Math.random()* Math.PI*2;
-        points.array.push(Field.SpherePoint(radiusOfPointsGenerated));
-    }
-    planes = (Field.QuickHull(points));
-}
-function BoundFace(index){
-    if (index>2){
-        return index-2-1;
-    }
-    return index;
-}
-let increaseTime= true; 
-let t =0.4;
-function generateRandomColors(array,n){
-    for (let i =0; i < n; i++) { 
-        array.push("rgb(" + Math.round(Math.random()*255) + "," + Math.round(Math.random()*255) + "," + Math.round(Math.random()*255) + ")");
-    }
-    return array;
-}
-let colors = ["red","blue","green"];
-colors = generateRandomColors(colors,10000)
-console.log(colors)
-function getPointsFromPlane(plane) {
 
-    graphList = Plane.graph(plane);
+    fieldOfPoints = Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
     
-    return graphList;
+    mesh = Mesh.generateConvexMesh(fieldOfPoints,100);
+    //mesh = PrimitiveObject.cube(150);
+    mesh.triangleColor = true;
 }
 
-
-
+let t= 0;
 function draw() {
-    
+    increaseTime = hasStartBeenPressed;
     
     renderGraphic.background(255);
     
@@ -113,42 +92,8 @@ function draw() {
     renderGraphic.push()
     renderGraphic.translate(width/2,height/2);
     // do stuff here
-    if (graphConvexHull) {
-        for(let i =0;i<planes.length;i++){
-            renderGraphic.stroke("black");
-            renderGraphic.fill("black")
-            renderGraphic.stroke(colors[i]);
-            renderGraphic.fill(colors[i])
-            planePoints = getPointsFromPlane(planes[i])
-            last = undefined
-            first = undefined
-            for(let j =0;j<planePoints.length;j++){
-                graph = Vector.rotateAroundX(planePoints[j],t);
-                graph = Vector.rotateAroundY(graph,t);
-                if (j==0) {
-                    first = graph;
-                }
-                renderGraphic.circle(graph.x,graph.y,10);
-                if (j >0) {
-                    renderGraphic.line(last.x,last.y,graph.x,graph.y);
-                }
-                if (j == planePoints.length-1) {
-                    renderGraphic.stroke("black")
-                    renderGraphic.line(first.x,first.y,graph.x,graph.y);
-                    continue;
-            }
-            last = graph;
-        }
-    }
-    }
-    for(let i =0;i<points.array.length;i++){
-        renderGraphic.stroke("black");
-        renderGraphic.fill("black")
-        graph = Vector.rotateAroundX(points.array[i],t);
-        graph = Vector.rotateAroundY(graph,t);
-        renderGraphic.circle(graph.x,graph.y,2);
-        renderGraphic.textSize(7);
-    }
+    Mesh.graph(mesh,graphConvexHull,t,t,t);
+    
     renderGraphic.pop();
     if (increaseTime) {
         t+=0.01;
