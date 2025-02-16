@@ -77,7 +77,7 @@ class Mesh {
         }
         return triangles;
     }
-    static convexHullIterativeProcess(field,triangles,graphIndices,deleteSOON) {
+    static convexHullIterativeProcess(field,triangles,graphIndices) {
         triangles = [...triangles]
         let upSpaceIndices = Field.getTrianglesUpspace(field,triangles,graphIndices);
         let farthestPoint = Field.getFarthestPointFromTriangles(field,triangles,upSpaceIndices);
@@ -98,7 +98,6 @@ class Mesh {
         
         triangles = this.removeTrianglesFromArray(triangles,triangleIndicesWithPointInUpspace);
         UsefulFunction.addElementsToArray(triangles,newTriangles);
-        // triangles = this.removeTrianglesThatAreCoveredUp(field,triangles,boundaryPoints,farthestPoint,searchForDuplicateTriangles);
         
         return triangles;
     }
@@ -106,19 +105,18 @@ class Mesh {
         let unusedField = field;
         let searchToRemoveDuplicateTriangles = true;
         let triangles = undefined;
-        console.log(field)
         if (triangles == undefined) {
             triangles = [Field.calculateLargestTriangleFromField(field)];
             triangles.push(Triangle.flipNormal(triangles[0]));
         }
+        
             
         let result;
         let graphIndices = UsefulFunction.arrayOfIndices(field.array.length);
         triangles = this.convexHullIterativeProcess(field,triangles,graphIndices);
-
         for (let i =0 ; i < iterationNumber;i++) {
             result = this.convexHullIterativeProcess(field,triangles,graphIndices,iterationNumber);
-            if (result == false) return new this(field.array,triangles,[]);
+            if (result == false) return new this(field.array,triangles,false);
             triangles = result;
         }
         
@@ -126,8 +124,7 @@ class Mesh {
         
 
         
-        return new this(field.array,triangles,[]);
-        // return new this(field.array,triangles);
+        return new this(field.array,triangles,false);
         
     }
     graphNormalVectors(color,length){
@@ -159,43 +156,64 @@ class Mesh {
         }
         return vertices;
     }
-
-    graphTriangle(triangle,color) {
+    graphTriangleOutline(triangle,color) {
+        let verticesThatMakeUpTriangle = triangle.verticeReferences;
+        renderGraphic.noFill();
+        renderGraphic.stroke(color);
+        renderGraphic.triangle(this.vertices[verticesThatMakeUpTriangle[0]].x,this.vertices[verticesThatMakeUpTriangle[0]].y,this.vertices[verticesThatMakeUpTriangle[1]].x,this.vertices[verticesThatMakeUpTriangle[1]].y,this.vertices[verticesThatMakeUpTriangle[2]].x,this.vertices[verticesThatMakeUpTriangle[2]].y);
+    }
+    graphTriangleFill(triangle,color) {
         
-        let verticesThatMakeUpTriangle = triangle.verticeReferences
-        Line.graphBetweenTwoPoints(this.vertices[verticesThatMakeUpTriangle[0]],this.vertices[verticesThatMakeUpTriangle[1]],color);
-        Line.graphBetweenTwoPoints(this.vertices[verticesThatMakeUpTriangle[1]],this.vertices[verticesThatMakeUpTriangle[2]],color);
-        Line.graphBetweenTwoPoints(this.vertices[verticesThatMakeUpTriangle[2]],this.vertices[verticesThatMakeUpTriangle[0]],color);
+        let verticesThatMakeUpTriangle = triangle.verticeReferences;
+        renderGraphic.fill(color);
+        noStroke();
+        renderGraphic.triangle(this.vertices[verticesThatMakeUpTriangle[0]].x,this.vertices[verticesThatMakeUpTriangle[0]].y,this.vertices[verticesThatMakeUpTriangle[1]].x,this.vertices[verticesThatMakeUpTriangle[1]].y,this.vertices[verticesThatMakeUpTriangle[2]].x,this.vertices[verticesThatMakeUpTriangle[2]].y);
+        
+        
     }
 
     graphTriangles(triangleColor,pointDiameter,pointColor){
         for (triangle of this.triangles) {
-            for (point of triangle.verticeReferences) {
-                this.vertices[point].graph(pointDiameter,pointColor,point);
-            }
             if (triangleColor == true) {
-                this.graphTriangle(triangle,triangle.color)
+                this.graphTriangleFill(triangle,triangle.color)
+                this.graphTriangleOutline(triangle,"black")
                 continue;
             }
-            this.graphTriangle(triangle,triangleColor);
+            this.graphTriangleOutline(triangle,triangleColor);
         }
     
     }
-    static graph(mesh, graphTriangles,tX,tY,tZ){
-        let rotatedMesh = this.rotate(mesh,tX,tY,tZ)
-        rotatedMesh.graphVertices(mesh.standalonePointDiameter,mesh.standalonePointColor);
-        if (graphTriangles) {
-            rotatedMesh.graphTriangles(mesh.triangleColor,mesh.trianglePointDiameter,mesh.trianglePointColor,);
+
+    static backFaceCulling(mesh,viewVector) {
+        let visibleTriangles = [];
+        let backFaceCulledMesh = Object.assign(Object.create(Object.getPrototypeOf(mesh)), mesh)
+        backFaceCulledMesh.triangles = [];
+        for (const triangle of mesh.triangles) {
+            let isTriangleVisible = Triangle.isTriangleFacingCamera(new Field(mesh.vertices),triangle,viewVector);
+            if (!isTriangleVisible) continue;
+            backFaceCulledMesh.triangles.push(triangle);
+            
         }
-        if (!mesh.doGraphNormalVectors) {
+        return backFaceCulledMesh;
+    }
+    static graph(mesh, graphTriangles,graphVertices,graphNormalVectors){
+        console.log(mesh.triangleColor)
+        if (graphTriangles) {
+            mesh.graphTriangles(mesh.triangleColor,mesh.trianglePointDiameter,mesh.trianglePointColor);
+        } 
+        if (graphVertices) {
+            mesh.graphVertices(mesh.standalonePointDiameter,mesh.standalonePointColor);
+        }
+        if (!graphNormalVectors) {
             return
         }
-        rotatedMesh.graphNormalVectors(mesh.normalVectorColor,40);
+        mesh.graphNormalVectors(mesh.normalVectorColor,40);
     }
 
     
     static rotate(mesh, angX,angY,angZ){
-        let rotatedMesh = new this([],mesh.triangles);
+        let rotatedMesh = Object.assign(Object.create(Object.getPrototypeOf(mesh)), mesh)
+        rotatedMesh.vertices = [];
         for (const vertex of mesh.vertices) {
             rotatedMesh.vertices.push(Vector.rotateVector(vertex,angX,angY,angZ));
         }

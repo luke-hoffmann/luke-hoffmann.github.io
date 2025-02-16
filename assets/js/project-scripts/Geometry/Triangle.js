@@ -27,6 +27,11 @@ class Triangle {
         
     
     }
+    static isTriangleFacingCamera(field,triangle,viewVector) {
+        let triangleNormal = this.computeNormal(field,triangle);
+        let dotProduct = Vector.dotProduct(triangleNormal,viewVector);
+        return (dotProduct <= 0);
+    }
     static computeNormal(field,triangle){
         let vertices = field.array;
         let s1 = Vector.sub(vertices[triangle.verticeReferences[0]],vertices[triangle.verticeReferences[1]]);

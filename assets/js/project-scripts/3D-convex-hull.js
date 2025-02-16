@@ -7,22 +7,14 @@ let viewWidth = 400;
 let viewHeight = 400;
 let sF = 1;
 let mesh, canvas;
-function scalePositionToRGB(x,y,w,h){
-    return [x/(w)*255,80,y/(h)*255];
-}
-  
-  
-  
-function strokeOrFillRGB(array,filler){
-    
-  if (filler == "fill") {
-    renderGraphic.fill(array[0],array[1],array[2]);
-  }
-  if (filler == "stroke") {
-    renderGraphic.stroke(array[0],array[1],array[2]);
-  }
-}
 let hasStartBeenPressed = false;
+let triangleColor = "black";
+let doBackFaceCulling = true;
+let graphConvexHull = false;
+let graphVertices = false;
+let t = 0;
+let viewVector = new Vector(0,0,1);
+
 function startSimulation(){
     if (hasStartBeenPressed) {
         hasStartBeenPressed = false;
@@ -34,13 +26,12 @@ function startSimulation(){
     hasStartBeenPressed = true;
     loop();
     draw();
-    
 }
-let graphConvexHull = false;
+
 function reset(){
-    fieldOfPoints = Field.generateRandomFieldInSphere(170,200);
-    mesh = Mesh.generateConvexMesh(fieldOfPoints,200);
-    mesh.triangleColor = true;
+    fieldOfPoints = Field.generateRandomFieldInSphere(170,15);
+    mesh = Mesh.generateConvexMesh(fieldOfPoints,15);
+    mesh.triangleColor = triangleColor;
 
     graphConvexHull = false;
     document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
@@ -52,10 +43,9 @@ function findConvex(){
     document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
     redraw();
 }
-  
-function setup(){
-    radiusOfPointsGenerated = 200;
-    numberOfPointsGenerated = 200;
+
+
+function createCanvasSizeBasedOnDiv(){
     widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
     if (widthOfContainer < viewWidth) {
       viewWidth = widthOfContainer;
@@ -67,34 +57,60 @@ function setup(){
     }
     document.getElementById("canvas-insertion-point").innerHTML = ""
     $("canvas").remove();
-
-    //document.getElementsByClassName("canvas").remove();
     createCanvas(viewWidth,viewHeight).parent("canvas-insertion-point");
-    //canvas.parent("canvas-insertion-point")
-    
-
     renderGraphic = createGraphics(viewWidth, viewHeight);
-
-    fieldOfPoints = Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
-    
-    mesh = Mesh.generateConvexMesh(fieldOfPoints,100);
-    //mesh = PrimitiveObject.cube(150);
-    mesh.triangleColor = true;
 }
 
-let t= 0;
+function doBackFace() {
+    doBackFaceCulling = !doBackFaceCulling;
+    document.getElementById("do-back-face").innerHTML = (doBackFaceCulling ? "Stop Back-Face Culling" : "Start Back-Face Culling");
+    redraw();
+}
+function setup(){
+    radiusOfPointsGenerated = 200;
+    numberOfPointsGenerated = 300;
+
+    createCanvasSizeBasedOnDiv();
+    
+    fieldOfPoints = Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
+    mesh = Mesh.generateConvexMesh(fieldOfPoints,numberOfPointsGenerated);
+    //mesh = PrimitiveObject.cube(150);
+    mesh.triangleColor = triangleColor;
+}
+function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNormalVectors,triangleColor) {
+    rotatedMesh = Mesh.rotate(mesh,t,t,t)
+    rotatedMesh.triangleColor = triangleColor;
+    
+    
+    if (!graphConvexHull) {
+        Mesh.graph(rotatedMesh,graphConvexHull,true,false);
+        return
+    } 
+    if (doBackFaceCulling) {
+        rotatedMesh = Mesh.backFaceCulling(rotatedMesh,viewVector);
+        Mesh.graph(rotatedMesh,graphConvexHull,false,doNormalVectors);
+    }   else {
+        rotatedMesh.triangleColor = "black";
+        Mesh.graph(rotatedMesh,graphConvexHull,true,doNormalVectors);
+    }
+}
+
 function draw() {
-    increaseTime = hasStartBeenPressed;
-    
+    // --   --
     renderGraphic.background(255);
-    
     renderGraphic.scale(sF);
     renderGraphic.push()
     renderGraphic.translate(width/2,height/2);
+    // --   --
+
+    increaseTime = hasStartBeenPressed;
+    graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
     // do stuff here
-    Mesh.graph(mesh,graphConvexHull,t,t,t);
     
+    
+
     renderGraphic.pop();
+
     if (increaseTime) {
         t+=0.01;
     }
@@ -106,31 +122,14 @@ function draw() {
     image(renderGraphic, 0, 0);
 }
 
-function exportHighRes() {
-    // HighRes Export
-    sF = renderWidth/viewWidth;
-    renderGraphic = createGraphics(renderWidth, renderHeight);
-    
-    renderGraphic.background(255);
-    increaseTime = false;
-    draw();
-    noLoop();
-    save(renderGraphic, "convex-hull-test-export", 'png');
-    
-    // Reset Default
-    sF=1;
-    
-    renderGraphic = createGraphics(viewWidth, viewHeight);
-    renderGraphic.background(100);
-    draw();
-}
+
 
 // Export when key is pressed
 /*
 function keyReleased() {
-    if (key == 'e' || key == 'E') exportHighRes(width,height);
+    if (key == 'e' || key == 'E') exportHighRes(renderWidth,renderHeight,viewWidth,viewHeight,"convex-hull-test-export");
 }
-
+*/
 
 function keyPressed(){
     if (increaseTime) {
@@ -139,4 +138,4 @@ function keyPressed(){
     }
     increaseTime = true;
 }
-*/
+
