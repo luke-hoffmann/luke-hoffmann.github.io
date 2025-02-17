@@ -1,5 +1,5 @@
 .slider {
-    width:var(--p5-canvas-width);
+    width:100%;
 }
 
 math {
