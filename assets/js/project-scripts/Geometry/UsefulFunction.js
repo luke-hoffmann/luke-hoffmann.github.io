@@ -166,7 +166,17 @@ class UsefulFunction {
             return key; 
         }
     }
-
+    static randomIntBetween(x,y){
+        let change = Math.round(Math.random() *(y-x));
+        return x + change;
+    }
+    static multiplyArray(array,number){
+        let newArray = [];
+        for (const element of array) {
+            newArray.push(element*number);
+        }
+        return newArray;
+    }
 
     static randomP5Color(){
         return "rgb(" + Math.round(Math.random()*255) + "," + Math.round(Math.random()*255) + "," + Math.round(Math.random()*255) + ")";

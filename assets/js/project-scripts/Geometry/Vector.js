@@ -169,8 +169,8 @@ class Vector {
         return new this((v.x*Math.cos(theta)) -(v.y* Math.sin(theta)),(v.x*Math.sin(theta))+(v.y*Math.cos(theta)))
     }
     graph(diameter,color,index) {
-        renderGraphic.noStroke();
-        renderGraphic.fill(color);
+        color.p5NoStroke();
+        color.p5Fill();
         
         
         

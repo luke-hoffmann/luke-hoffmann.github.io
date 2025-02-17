@@ -1,8 +1,10 @@
 class Triangle {
-    constructor (verticeReferences) {
+    constructor (verticeReferences,color) {
 
         this.verticeReferences = verticeReferences;
-        this.color = UsefulFunction.randomP5Color();
+        this.color = ColorHandler.randomColorBetween(80,120,100,100,200,255);//ColorHandler.random();
+        if (color ==undefined) return;
+        this.color = color.copy();
     }
     
     static doesUpspaceContain(field,triangle,point){
@@ -28,9 +30,12 @@ class Triangle {
     
     }
     static isTriangleFacingCamera(field,triangle,viewVector) {
-        let triangleNormal = this.computeNormal(field,triangle);
-        let dotProduct = Vector.dotProduct(triangleNormal,viewVector);
+        let dotProduct = this.getDotProductBetweenNormalAndVector(field,triangle,viewVector);
         return (dotProduct <= 0);
+    }
+    static getLightLevel(field,triangle,lightingVector){
+        let dotProduct = this.getDotProductBetweenNormalAndVector(field,triangle,lightingVector);
+        return Math.max(0,dotProduct);
     }
     static computeNormal(field,triangle){
         let vertices = field.array;
@@ -77,6 +82,21 @@ class Triangle {
         }
         
     }
+    static getDotProductBetweenNormalAndVector(field,triangle,vector) {
+        let triangleNormal = this.computeNormal(field,triangle);
+        let dotProduct = Vector.dotProduct(triangleNormal,vector);
+        return dotProduct;
+    }
+
+    static getLightingLevelOfTriangles(field,triangles,lightingVector) {
+        let lightLevels = [];
+        for (const triangle of triangles) {
+            lightLevels.push(this.getLightLevel(field,triangle,lightingVector));
+        }
+        return lightLevels;
+    }
+
+
     static getTrianglesPointCount(triangles,pointCountMap,trianglePointsMap) {
         let trianglesPointCount = [];
         let count, referencedPoints;

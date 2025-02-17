@@ -1,4 +1,3 @@
-
 let renderWidth = 500;
 let renderHeight = 500;
 let renderGraphic;
@@ -8,7 +7,7 @@ let viewHeight = 400;
 let sF = 1;
 let mesh, canvas;
 let hasStartBeenPressed = false;
-let triangleColor = "black";
+let triangleColor = new ColorHandler(0,0,0);
 let doBackFaceCulling = true;
 let graphConvexHull = false;
 let graphVertices = false;
@@ -68,7 +67,7 @@ function doBackFace() {
 }
 function setup(){
     radiusOfPointsGenerated = 200;
-    numberOfPointsGenerated = 300;
+    numberOfPointsGenerated = 150;
 
     createCanvasSizeBasedOnDiv();
     
@@ -78,7 +77,8 @@ function setup(){
     mesh.triangleColor = triangleColor;
 }
 function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNormalVectors,triangleColor) {
-    rotatedMesh = Mesh.rotate(mesh,t,t,t)
+    currentMesh = Mesh.copy(mesh);
+    rotatedMesh = Mesh.rotate(currentMesh,t,t,t)
     rotatedMesh.triangleColor = triangleColor;
     
     
@@ -88,9 +88,12 @@ function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNorm
     } 
     if (doBackFaceCulling) {
         rotatedMesh = Mesh.backFaceCulling(rotatedMesh,viewVector);
+        lightingLevels = Triangle.getLightingLevelOfTriangles(new Field(rotatedMesh.vertices),rotatedMesh.triangles,new Vector(.5,-.4,-0.5))
+        console.log(lightingLevels)
+        rotatedMesh = Mesh.setBrightnessOfTrianglesToArray(rotatedMesh,lightingLevels,0.25);
         Mesh.graph(rotatedMesh,graphConvexHull,false,doNormalVectors);
     }   else {
-        rotatedMesh.triangleColor = "black";
+        rotatedMesh.triangleColor = new ColorHandler(0,0,0);
         Mesh.graph(rotatedMesh,graphConvexHull,true,doNormalVectors);
     }
 }
@@ -107,7 +110,7 @@ function draw() {
     graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
     // do stuff here
     
-    
+    console.log(mesh);
 
     renderGraphic.pop();
 
@@ -130,12 +133,4 @@ function keyReleased() {
     if (key == 'e' || key == 'E') exportHighRes(renderWidth,renderHeight,viewWidth,viewHeight,"convex-hull-test-export");
 }
 */
-
-function keyPressed(){
-    if (increaseTime) {
-        increaseTime = false;
-        return
-    }
-    increaseTime = true;
-}
 

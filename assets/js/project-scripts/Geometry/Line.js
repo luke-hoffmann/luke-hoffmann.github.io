@@ -32,13 +32,13 @@ class Line {
        return Vector.magnitude(Vector.crossProduct(this.BA,this.BC)) / Vector.magnitude(this.BC)
     }
     static graphLine(line,color){
-        renderGraphic.stroke(color);
-        renderGraphic.fill(color);
+        color.p5Stroke();
+        color.p5Fill();
         this.graphBetweenTwoPoints(line.p1,line.p2,color);
     }
     static graphBetweenTwoPoints(p1,p2,color) {
-        renderGraphic.stroke(color);
-        renderGraphic.fill(color);
+        color.p5Stroke(color);
+        color.p5Fill(color);
         renderGraphic.line(p1.x,p1.y,p2.x,p2.y);
     }
 }
