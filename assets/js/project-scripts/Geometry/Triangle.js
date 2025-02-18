@@ -44,7 +44,6 @@ class Triangle {
             lightingVector = Vector.sub(centerOfTriangle,light.position);
             lightingVector = Vector.normalize(lightingVector);
             angleBrightness = this.getDotProductBetweenNormalAndVector(field,triangle,lightingVector);
-            console.log(angleBrightness)
             observedColor = Light.calculateObservedColor(light,triangle.color);
             observedColor.multiplyByNumber(angleBrightness);
             colorArray.push(observedColor);
