@@ -177,7 +177,22 @@ class UsefulFunction {
         }
         return newArray;
     }
-
+    static divideArray(array,number){
+        if (number ==0) throw new Error("Divisor is 0, critical failure, cannot divide by zero!");
+        let newArray = [];
+        for (const element of array) {
+            newArray.push(element/number);
+        }
+        return newArray;
+    }
+    static elementWiseMultiplication(array1,array2){
+        if (array1.length != array2.length) throw new Error("Array lengths are different!");
+        let productArray = [];
+        for (let i =0 ; i < array1.length;i ++) {
+            productArray.push(array1[i] * array2[i]);
+        }
+        return productArray;
+    }
     static randomP5Color(){
         return "rgb(" + Math.round(Math.random()*255) + "," + Math.round(Math.random()*255) + "," + Math.round(Math.random()*255) + ")";
     }

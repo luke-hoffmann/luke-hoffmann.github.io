@@ -1,6 +1,9 @@
 class ColorHandler {
     constructor (red,green,blue,classToColor){
         this.classToColor = classToColor;
+        red = Math.min(Math.max(0,red),255);
+        green = Math.min(Math.max(0,green),255);
+        blue = Math.min(Math.max(0,blue),255);
         this.color = [red,green,blue];
     }
     static random(){
@@ -55,5 +58,21 @@ class ColorHandler {
     }
     copy(){
         return new this.constructor(this.color[0],this.color[1],this.color[2]);
+    }
+    static sumAndClamp(colors){
+        let outputColor = new this(0,0,0);
+        let colorElementValue;
+        for (const color of colors) {
+            for (let i =0 ; i < color.color.length;i++) {
+                outputColor.color[i] += color.color[i];
+            }
+        }
+        for (let i =0 ; i < outputColor.color.length;i++) {
+            colorElementValue = outputColor.color[i];
+            if (colorElementValue >255) colorElementValue = 255;
+            if (colorElementValue < 0) colorElementValue = 0;
+            outputColor.color[i] = colorElementValue;
+        }
+        return outputColor;
     }
 }

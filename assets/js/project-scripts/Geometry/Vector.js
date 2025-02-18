@@ -114,9 +114,9 @@ class Vector {
      * @returns The 2D or 3D Vector that has the same direction as v but a magnitude of 1.
      */
     static normalize(v){
-        this.mag = Math.sqrt( (v.x **2) + (v.y **2) + (v.z **2));
+        let mag = Math.sqrt( (v.x **2) + (v.y **2) + (v.z **2));
         
-        return new this(v.x/this.mag,v.y/this.mag,v.z/this.mag);
+        return new this(v.x/mag,v.y/mag,v.z/mag);
     }
 
     /**

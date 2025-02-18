@@ -2,7 +2,7 @@ class Triangle {
     constructor (verticeReferences,color) {
 
         this.verticeReferences = verticeReferences;
-        this.color = ColorHandler.randomColorBetween(80,120,100,100,200,255);//ColorHandler.random();
+        this.color = new ColorHandler(160,82,45) //ColorHandler.randomColorBetween(226,234,135,182,67,118);//ColorHandler.random();
         if (color ==undefined) return;
         this.color = color.copy();
     }
@@ -33,10 +33,34 @@ class Triangle {
         let dotProduct = this.getDotProductBetweenNormalAndVector(field,triangle,viewVector);
         return (dotProduct <= 0);
     }
-    static getLightLevel(field,triangle,lightingVector){
-        let dotProduct = this.getDotProductBetweenNormalAndVector(field,triangle,lightingVector);
-        return Math.max(0,dotProduct);
+
+    static getColorOfTriangle(field,triangle,lights){
+        let light,lightingVector,observedColor;
+        let centerOfTriangle = this.computeCentroid(field,triangle);
+        let colorArray = [];
+        let angleBrightness;
+        for (let i =0; i < lights.length;i++) {
+            light = lights[i];
+            lightingVector = Vector.sub(centerOfTriangle,light.position);
+            lightingVector = Vector.normalize(lightingVector);
+            angleBrightness = this.getDotProductBetweenNormalAndVector(field,triangle,lightingVector);
+            console.log(angleBrightness)
+            observedColor = Light.calculateObservedColor(light,triangle.color);
+            observedColor.multiplyByNumber(angleBrightness);
+            colorArray.push(observedColor);
+        }
+        return ColorHandler.sumAndClamp(colorArray);
     }
+
+    static getColorOfTriangles(field,triangles,lights) {
+        console.log(field,triangles,lights)
+        let colors = [];
+        for (const triangle of triangles) {
+            colors.push(this.getColorOfTriangle(field,triangle,lights));
+        }
+        return colors;
+    }
+
     static computeNormal(field,triangle){
         let vertices = field.array;
         let s1 = Vector.sub(vertices[triangle.verticeReferences[0]],vertices[triangle.verticeReferences[1]]);
@@ -88,13 +112,7 @@ class Triangle {
         return dotProduct;
     }
 
-    static getLightingLevelOfTriangles(field,triangles,lightingVector) {
-        let lightLevels = [];
-        for (const triangle of triangles) {
-            lightLevels.push(this.getLightLevel(field,triangle,lightingVector));
-        }
-        return lightLevels;
-    }
+    
 
 
     static getTrianglesPointCount(triangles,pointCountMap,trianglePointsMap) {

@@ -11,6 +11,10 @@ let triangleColor = new ColorHandler(0,0,0);
 let doBackFaceCulling = true;
 let graphConvexHull = false;
 let graphVertices = false;
+let lights = [];
+lights.push(new Light(new ColorHandler(255,255,255),new Vector(0,100000,0),1));
+lights.push(new Light(new ColorHandler(255,255,255),new Vector(10000,0,5000),1))
+lights.push(new Light(new ColorHandler(0,0,255),new Vector(-10000,0,5000),1))
 let t = 0;
 let viewVector = new Vector(0,0,1);
 
@@ -67,12 +71,13 @@ function doBackFace() {
 }
 function setup(){
     radiusOfPointsGenerated = 200;
-    numberOfPointsGenerated = 150;
+    numberOfPointsGenerated = 200;
 
     createCanvasSizeBasedOnDiv();
     
     fieldOfPoints = Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
     mesh = Mesh.generateConvexMesh(fieldOfPoints,numberOfPointsGenerated);
+    mesh.position = new Vector(0,0,0);
     //mesh = PrimitiveObject.cube(150);
     mesh.triangleColor = triangleColor;
 }
@@ -88,9 +93,8 @@ function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNorm
     } 
     if (doBackFaceCulling) {
         rotatedMesh = Mesh.backFaceCulling(rotatedMesh,viewVector);
-        lightingLevels = Triangle.getLightingLevelOfTriangles(new Field(rotatedMesh.vertices),rotatedMesh.triangles,new Vector(.5,-.4,-0.5))
-        console.log(lightingLevels)
-        rotatedMesh = Mesh.setBrightnessOfTrianglesToArray(rotatedMesh,lightingLevels,0.25);
+        colors = Triangle.getColorOfTriangles(new Field(rotatedMesh.vertices),rotatedMesh.triangles,lights)
+        rotatedMesh = Mesh.setColorOfTriangles(rotatedMesh,colors);
         Mesh.graph(rotatedMesh,graphConvexHull,false,doNormalVectors);
     }   else {
         rotatedMesh.triangleColor = new ColorHandler(0,0,0);
@@ -109,8 +113,6 @@ function draw() {
     increaseTime = hasStartBeenPressed;
     graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
     // do stuff here
-    
-    console.log(mesh);
 
     renderGraphic.pop();
 

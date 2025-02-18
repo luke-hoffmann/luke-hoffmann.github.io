@@ -49,17 +49,15 @@ class Mesh {
             this.triangles = [];
         }
     }
-    static setBrightnessOfTrianglesToArray(mesh,array,ambientLight){
-        if (ambientLight == undefined) {
-            ambientLight = 0;
-        }
-        if (array.length != mesh.triangles.length) throw new Error("Array size mismatch");
+    
+    static setColorOfTriangles(mesh,colors){
+        if (colors.length != mesh.triangles.length) throw new Error("Array size mismatch");
         let newMesh = this.copy(mesh);
         let triangles = [...newMesh.triangles];
-        for (let i = 0 ; i < array.length;i++) {
-            let brightness = array[i];
+        for (let i = 0 ; i < colors.length;i++) {
+            let color = colors[i];
             
-            triangles[i].color.multiplyByNumber(brightness+ambientLight);
+            triangles[i].color = color;
             
         }
         newMesh.triangles = triangles;
