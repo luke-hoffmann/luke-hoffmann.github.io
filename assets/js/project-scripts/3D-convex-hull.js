@@ -12,9 +12,12 @@ let doBackFaceCulling = true;
 let graphConvexHull = false;
 let graphVertices = false;
 let lights = [];
+
 lights.push(new Light(new ColorHandler(255,255,255),new Vector(0,100000,0),1));
-lights.push(new Light(new ColorHandler(255,255,255),new Vector(10000,0,5000),1))
-lights.push(new Light(new ColorHandler(0,0,255),new Vector(-10000,0,5000),1))
+lights.push(new Light(new ColorHandler(255,0,0),new Vector(10000,0,1000),1))
+lights.push(new Light(new ColorHandler(0,0,255),new Vector(-10000,0,10000),1))
+let lightingPlot = new LightingPlot(viewWidth,500,viewHeight,[],lights);
+lightingPlot.determinePositionOfItems(50000,500000,50000);
 let t = 0;
 let viewVector = new Vector(0,0,1);
 
@@ -69,6 +72,7 @@ function doBackFace() {
     document.getElementById("do-back-face").innerHTML = (doBackFaceCulling ? "Stop Back-Face Culling" : "Start Back-Face Culling");
     redraw();
 }
+
 function setup(){
     radiusOfPointsGenerated = 200;
     numberOfPointsGenerated = 200;
@@ -107,13 +111,17 @@ function draw() {
     renderGraphic.background(255);
     renderGraphic.scale(sF);
     renderGraphic.push()
+
+    //lightingPlot.graphPlot();
+    //lightingPlot.graphLights();
+
     renderGraphic.translate(width/2,height/2);
     // --   --
 
     increaseTime = hasStartBeenPressed;
     graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
     // do stuff here
-
+    
     renderGraphic.pop();
 
     if (increaseTime) {

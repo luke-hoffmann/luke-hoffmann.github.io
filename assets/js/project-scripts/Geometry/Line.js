@@ -39,6 +39,6 @@ class Line {
     static graphBetweenTwoPoints(p1,p2,color) {
         color.p5Stroke(color);
         color.p5Fill(color);
-        renderGraphic.line(p1.x,p1.y,p2.x,p2.y);
+        renderGraphic.line(p1.x,p1.z,p2.x,p2.z);
     }
 }

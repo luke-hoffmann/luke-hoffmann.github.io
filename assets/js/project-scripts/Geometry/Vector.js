@@ -174,13 +174,16 @@ class Vector {
         
         
         
-        renderGraphic.circle(this.x,this.y,diameter)
+        renderGraphic.circle(this.x,this.z,diameter)
         if (index== undefined) return;
     
     }
 
     labelPosition(index){
         renderGraphic.text(index,this.x + 10,this.y + 10)
+    }
+    copy(){
+        return new this.constructor(this.x,this.y,this.z);
     }
 }
 
