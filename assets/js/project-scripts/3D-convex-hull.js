@@ -13,9 +13,7 @@ let graphConvexHull = false;
 let graphVertices = false;
 let lights = [];
 
-lights.push(new Light(new ColorHandler(255,255,255),new Vector(0,100000,0),1));
-lights.push(new Light(new ColorHandler(255,0,0),new Vector(10000,0,1000),1))
-lights.push(new Light(new ColorHandler(0,0,255),new Vector(-10000,0,10000),1))
+lights.push(new Light(new ColorHandler(0,255,255),new Vector(0,20000,0),1))
 let lightingPlot = new LightingPlot(viewWidth,500,viewHeight,[],lights);
 lightingPlot.determinePositionOfItems(50000,500000,50000);
 let t = 0;
@@ -87,7 +85,7 @@ function setup(){
 }
 function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNormalVectors,triangleColor) {
     currentMesh = Mesh.copy(mesh);
-    rotatedMesh = Mesh.rotate(currentMesh,t,t,t)
+    rotatedMesh = Mesh.rotate(currentMesh,t,t,0)
     rotatedMesh.triangleColor = triangleColor;
     
     
