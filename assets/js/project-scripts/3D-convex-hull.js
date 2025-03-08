@@ -13,9 +13,10 @@ let graphConvexHull = false;
 let graphVertices = false;
 let lights = [];
 
-lights.push(new Light(new ColorHandler(0,255,255),new Vector(0,20000,0),1))
-let lightingPlot = new LightingPlot(viewWidth,500,viewHeight,[],lights);
-lightingPlot.determinePositionOfItems(50000,500000,50000);
+lights.push(new Light(new ColorHandler(255,0,0),new Vector(2000000,0,0),1.5))
+lights.push(new Light(new ColorHandler(0,0,255),new Vector(0,2000000,0),1.5))
+lights.push(new Light(new ColorHandler(75,170,86),new Vector(0,0,2000000),0.6))
+
 let t = 0;
 let viewVector = new Vector(0,0,1);
 
@@ -33,12 +34,6 @@ function startSimulation(){
 }
 
 function reset(){
-    fieldOfPoints = Field.generateRandomFieldInSphere(170,15);
-    mesh = Mesh.generateConvexMesh(fieldOfPoints,15);
-    mesh.triangleColor = triangleColor;
-
-    graphConvexHull = false;
-    document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
     setup();
     redraw();
 }
@@ -73,14 +68,14 @@ function doBackFace() {
 
 function setup(){
     radiusOfPointsGenerated = 200;
-    numberOfPointsGenerated = 200;
+    numberOfPointsGenerated = 300;
 
     createCanvasSizeBasedOnDiv();
     
     fieldOfPoints = Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
     mesh = Mesh.generateConvexMesh(fieldOfPoints,numberOfPointsGenerated);
+   
     mesh.position = new Vector(0,0,0);
-    //mesh = PrimitiveObject.cube(150);
     mesh.triangleColor = triangleColor;
 }
 function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNormalVectors,triangleColor) {
@@ -93,6 +88,7 @@ function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNorm
         Mesh.graph(rotatedMesh,graphConvexHull,true,false);
         return
     } 
+
     if (doBackFaceCulling) {
         rotatedMesh = Mesh.backFaceCulling(rotatedMesh,viewVector);
         colors = Triangle.getColorOfTriangles(new Field(rotatedMesh.vertices),rotatedMesh.triangles,lights)
@@ -103,6 +99,9 @@ function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNorm
         Mesh.graph(rotatedMesh,graphConvexHull,true,doNormalVectors);
     }
 }
+function getEllipticalPos(t,radius){
+    return new Vector(Math.cos(t)*radius,0,Math.sin(t)*radius)
+}
 
 function draw() {
     // --   --
@@ -110,8 +109,6 @@ function draw() {
     renderGraphic.scale(sF);
     renderGraphic.push()
 
-    //lightingPlot.graphPlot();
-    //lightingPlot.graphLights();
 
     renderGraphic.translate(width/2,height/2);
     // --   --
@@ -119,7 +116,6 @@ function draw() {
     increaseTime = hasStartBeenPressed;
     graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
     // do stuff here
-    
     renderGraphic.pop();
 
     if (increaseTime) {

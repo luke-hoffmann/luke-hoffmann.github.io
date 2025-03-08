@@ -159,7 +159,6 @@ class Mesh {
     }
     graphVertices(diameter,color){
         for (const vertex of this.vertices) {
-            
             vertex.graph(diameter,color);
         }
     }
@@ -170,30 +169,15 @@ class Mesh {
         }
         return vertices;
     }
-    graphTriangleOutline(triangle,color) {
-        let verticesThatMakeUpTriangle = triangle.verticeReferences;
-        color.p5NoFill();
-        color.p5Stroke();
-        renderGraphic.triangle(this.vertices[verticesThatMakeUpTriangle[0]].x,this.vertices[verticesThatMakeUpTriangle[0]].y,this.vertices[verticesThatMakeUpTriangle[1]].x,this.vertices[verticesThatMakeUpTriangle[1]].y,this.vertices[verticesThatMakeUpTriangle[2]].x,this.vertices[verticesThatMakeUpTriangle[2]].y);
-    }
-    graphTriangleFill(triangle,color) {
-        
-        let verticesThatMakeUpTriangle = triangle.verticeReferences;
-        color.p5Fill();
-        color.p5NoStroke();
-        renderGraphic.triangle(this.vertices[verticesThatMakeUpTriangle[0]].x,this.vertices[verticesThatMakeUpTriangle[0]].y,this.vertices[verticesThatMakeUpTriangle[1]].x,this.vertices[verticesThatMakeUpTriangle[1]].y,this.vertices[verticesThatMakeUpTriangle[2]].x,this.vertices[verticesThatMakeUpTriangle[2]].y);
-        
-        
-    }
-
-    graphTriangles(triangleColor,pointDiameter,pointColor){
+    
+    graphTriangles(triangleColor,pointDiameter,pointColor,lineWeight){
         for (triangle of this.triangles) {
             if (triangleColor == true) {
-                this.graphTriangleFill(triangle,triangle.color)
-                this.graphTriangleOutline(triangle,new ColorHandler(0,0,0))
+                Triangle.graphTriangleFill(this.vertices, triangle, triangle.color);
+                Triangle.graphTriangleOutline(this.vertices, triangle, new ColorHandler(0,0,0), lineWeight);
                 continue;
             }
-            this.graphTriangleOutline(triangle,triangleColor);
+            Triangle.graphTriangleOutline(this.vertices,triangle,triangleColor,1);
         }
     
     }
@@ -211,12 +195,13 @@ class Mesh {
         return backFaceCulledMesh;
     }
     static graph(mesh, graphTriangles,graphVertices,graphNormalVectors){
-        if (graphTriangles) {
-            mesh.graphTriangles(mesh.triangleColor,mesh.trianglePointDiameter,mesh.trianglePointColor);
-        } 
         if (graphVertices) {
             mesh.graphVertices(mesh.standalonePointDiameter,mesh.standalonePointColor);
         }
+        if (graphTriangles) {
+            mesh.graphTriangles(mesh.triangleColor,mesh.trianglePointDiameter,mesh.trianglePointColor,1);
+        } 
+        
         if (!graphNormalVectors) {
             return
         }
@@ -226,9 +211,9 @@ class Mesh {
     
     static rotate(mesh, angX,angY,angZ){
         let rotatedMesh = this.copy(mesh);
-        rotatedMesh.vertices = [];
-        for (const vertex of mesh.vertices) {
-            rotatedMesh.vertices.push(Vector.rotateVector(vertex,angX,angY,angZ));
+        for (let i = 0; i < rotatedMesh.vertices.length;i++) {
+            let vertex = rotatedMesh.vertices[i];
+            rotatedMesh.vertices[i] = (Vector.rotateVector(vertex,angX,angY,angZ));
         }
         return rotatedMesh;
     }
@@ -239,6 +224,12 @@ class Mesh {
             // Create a new Triangle instance for each element in the triangles array
             return new Triangle(triangle.verticeReferences, triangle.color);
         });
+        newMesh.vertices = mesh.vertices.map(vertex => {
+            // Create a new Triangle instance for each element in the triangles array
+            return new Vector(vertex.x,vertex.y,vertex.z);
+        });
+
+
         return newMesh;
     }
 }

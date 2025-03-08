@@ -73,14 +73,15 @@ class Vector {
     }
 
 
-
+    
     static generateVectorInSphere(mag){
+        
         mag = Math.random()*mag*mag*mag;
         mag = Math.cbrt(mag)
         let d = 2;
         let x,y,z;
         while (d > 1.0) {
-    
+            console.log(1);
             x = (Math.random()*2)-1
             y = (Math.random()*2)-1
             z = (Math.random()*2)-1;
@@ -89,7 +90,7 @@ class Vector {
         return new Vector(x*mag,y*mag,z*mag);
     
     }
-
+    
 
     static magnitude(v){
         return Math.sqrt((v.x**2)+(v.y**2)+(v.z**2))
@@ -174,7 +175,7 @@ class Vector {
         
         
         
-        renderGraphic.circle(this.x,this.z,diameter)
+        renderGraphic.circle(this.x,this.y,diameter)
         if (index== undefined) return;
     
     }

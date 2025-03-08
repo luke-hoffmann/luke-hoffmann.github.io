@@ -2,7 +2,7 @@ class Triangle {
     constructor (verticeReferences,color) {
 
         this.verticeReferences = verticeReferences;
-        this.color = ColorHandler.randomColorBetween(226,234,135,182,67,118);//ColorHandler.random();
+        this.color = ColorHandler.randomColorBetween(90,234,100,110,67,150);//ColorHandler.random();
         if (color ==undefined) return;
         this.color = color.copy();
     }
@@ -52,7 +52,6 @@ class Triangle {
     }
 
     static getColorOfTriangles(field,triangles,lights) {
-        console.log(field,triangles,lights)
         let colors = [];
         for (const triangle of triangles) {
             colors.push(this.getColorOfTriangle(field,triangle,lights));
@@ -244,5 +243,26 @@ class Triangle {
             outputTriangles.push(triangles[index]);
         }
         return outputTriangles;
+    }
+
+
+
+    static graphTriangleOutline(vertices,triangle,color,lineWeight) {
+        let verticesThatMakeUpTriangle = triangle.verticeReferences;
+        color.p5NoFill();
+        color.p5Stroke();
+        
+        renderGraphic.strokeWeight(lineWeight);
+        renderGraphic.strokeJoin(ROUND);
+        renderGraphic.triangle(vertices[verticesThatMakeUpTriangle[0]].x,vertices[verticesThatMakeUpTriangle[0]].y,vertices[verticesThatMakeUpTriangle[1]].x,vertices[verticesThatMakeUpTriangle[1]].y,vertices[verticesThatMakeUpTriangle[2]].x,vertices[verticesThatMakeUpTriangle[2]].y);
+    }
+    static graphTriangleFill(vertices,triangle,color) {
+        
+        let verticesThatMakeUpTriangle = triangle.verticeReferences;
+        color.p5Fill();
+        color.p5NoStroke();
+        renderGraphic.triangle(vertices[verticesThatMakeUpTriangle[0]].x,vertices[verticesThatMakeUpTriangle[0]].y,vertices[verticesThatMakeUpTriangle[1]].x,vertices[verticesThatMakeUpTriangle[1]].y,vertices[verticesThatMakeUpTriangle[2]].x,vertices[verticesThatMakeUpTriangle[2]].y);
+        
+        
     }
 }
