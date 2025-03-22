@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/assets/css/global.css"></link>
     <link rel="stylesheet" href="/assets/css/includes/p5js-canvas-block.css"></link>
     <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/p5js-project-post.css"></link>
+    <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/math-ml.css"></link>
+    <link rel="stylesheet" href="/assets/css/includes/project-buttons.css"></link>
     {% if page.projectCSS %}
         {% for stylesheet in page.projectCSS %}
         <link rel="stylesheet" href="{{stylesheet}}"></link>
@@ -32,8 +34,10 @@
     {% include p5js-canvas.html %}
    
 
-    <div class="vertical-space" id="canvas-bottom-of-page"></div>
-   
+    <div class="vertical-space" id="canvas-bottom"></div>
+    {% if page.projectMathML %}
+        {% include {{page.projectMathML}} %}
+    {% endif %}
     
     {% if page.projectScripts %}
         {% for script in page.projectScripts %}
