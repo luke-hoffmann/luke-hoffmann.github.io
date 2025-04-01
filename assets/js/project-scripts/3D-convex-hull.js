@@ -13,9 +13,9 @@ let graphConvexHull = false;
 let graphVertices = false;
 let lights = [];
 
-lights.push(new Light(new ColorHandler(255,0,0),new Vector(2000000,0,0),1.5))
-lights.push(new Light(new ColorHandler(0,0,255),new Vector(0,2000000,0),1.5))
-lights.push(new Light(new ColorHandler(75,170,86),new Vector(0,0,2000000),0.6))
+lights.push(new Light(new ColorHandler(255,0,0),new Vector(2000000,0,0),1))
+//lights.push(new Light(new ColorHandler(0,0,255),new Vector(0,2000000,0),0.3))
+lights.push(new Light(new ColorHandler(0,255,0),new Vector(0,0,2000000),0.6))
 
 let t = 0;
 let viewVector = new Vector(0,0,1);

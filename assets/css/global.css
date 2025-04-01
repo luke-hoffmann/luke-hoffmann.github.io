@@ -46,3 +46,10 @@ body {
     justify-content: space-evenly;
     flex-direction: column;
 }
+
+h1, h2, h3{
+
+    font-family: var(--primary-font-family);
+    font-weight: normal;
+}
+

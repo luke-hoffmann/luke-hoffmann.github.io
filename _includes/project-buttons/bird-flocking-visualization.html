@@ -1,4 +1,24 @@
-<div class="horizontal-space-evenly" id="project-buttons">
-    <button class='reset' type="button" onclick="reset()">Reset</button>
-    <button id="play-button"type="button" class="reset" onclick="startSimulation()">Play</button>
+<div class="vertical-space-evenly" id="project-buttons">
+    <div class="horizontal-space-evenly">
+        <button class='reset' type="button" onclick="reset()">Reset</button>
+        <button id="play-button"type="button" class="reset" onclick="startSimulation()">Play</button>
+    </div>
+    <div class="horizontal-space-evenly">
+    Alignment
+        <div class="slidecontainer">
+        <input oninput='updateFlockingParameters()' type="range" min="0" max="4" value="1" step="0.01" class="slider" id="alignment-slider">
+        </div>
+    </div>
+    <div class="horizontal-space-evenly">
+        Cohesion
+        <div class="slidecontainer">
+            <input oninput='updateFlockingParameters()' type="range" min="0" max="4" value="1" step="0.01" class="slider" id="cohesion-slider">
+        </div>
+    </div>
+    <div class="horizontal-space-evenly">
+        Seperation
+        <div class="slidecontainer">
+            <input oninput='updateFlockingParameters()' type="range" min="0" max="4" value="1.34" step="0.01" class="slider" id="seperation-slider">
+        </div>
+    </div>
 </div>
