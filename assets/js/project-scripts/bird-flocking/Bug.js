@@ -13,7 +13,7 @@ class Bug {
     this.position = position;
     this.velocity = velocity;
     if (position == undefined) {
-    this.position = createVector(Math.random()*widthScreen, Math.random()*heightScreen);
+    this.position = createVector(Math.random()*VIEW_WIDTH, Math.random()*VIEW_HEIGHT);
     }
     if (velocity == undefined) {
     this.velocity = p5.Vector.random2D();
@@ -30,53 +30,44 @@ class Bug {
 
   draw() {
     this.direction = this.velocity.normalize();
-    renderGraphic.stroke(0);
-    renderGraphic.noFill();
-    if (lookNice) {
-    strokeOrFillRGB([this.position.x/widthToRGB,this.position.y/heightToRGB,0],"fill")
-    renderGraphic.stroke(0);
-    } 
-    if (lookNice == true) {
-        this.shiftedX = this.position.x+ (Math.cos(this.direction.heading() + (90 * radiansToDegrees)) *this.radius/2);
-        this.shiftedY = this.position.y+ (Math.sin(this.direction.heading() + (90 * radiansToDegrees)) *this.radius/2);
-        this.topX =this.position.x+ (Math.cos(this.direction.heading()) *10);
-        this.topY =this.position.y+ (Math.sin(this.direction.heading()) *10);
-        this.top  = createVector(this.topX,this.topY)
-        this.left = createVector(this.shiftedX,this.shiftedY);
-        this.shiftedX = this.position.x+ (Math.cos(this.direction.heading() + (-90 * radiansToDegrees)) *this.radius/2);
-        this.shiftedY = this.position.y+ (Math.sin(this.direction.heading() + (-90 * radiansToDegrees)) *this.radius/2);
-        this.right = createVector(this.shiftedX,this.shiftedY);
-
-        renderGraphic.beginShape()
-        renderGraphic.vertex(this.left.x,this.left.y);
-        renderGraphic.vertex(this.top.x,this.top.y,);
-        renderGraphic.vertex(this.right.x,this.right.y)
-        renderGraphic.endShape();
-    }
-    renderGraphic.circle(this.position.x,this.position.y,this.radius);
-    if (drawCones) {
-        this.headingAngle = this.velocity.heading();
-        this.smallAngle = (sizeOfViewCone/2)*degreesToRadians;
-        this.left = createVector((Math.cos(this.headingAngle-this.smallAngle)*sizeOfDrawCone)+this.position.x,(Math.sin(this.headingAngle-(this.smallAngle))*sizeOfDrawCone)+this.position.y)
-        renderGraphic.line(this.position.x,this.position.y,this.left.x,this.left.y)
-        this.right = createVector((Math.cos(this.headingAngle+(this.smallAngle))*sizeOfDrawCone)+this.position.x,(Math.sin(this.headingAngle+(this.smallAngle))*sizeOfDrawCone)+this.position.y)
-        renderGraphic.line(this.position.x,this.position.y,this.right.x,this.right.y)
+    stroke(0);
+    noFill();
+    strokeOrFillRGB([this.position.x/WIDTH_TO_RGB,this.position.y/HEIGHT_TO_RGB,0],"fill")
+    stroke(0);
+    
+    this.shiftedX = this.position.x+ (Math.cos(this.direction.heading() + (90 * RADIAN_TO_DEGREE)) *this.radius/2);
+    this.shiftedY = this.position.y+ (Math.sin(this.direction.heading() + (90 * RADIAN_TO_DEGREE)) *this.radius/2);
+    this.topX =this.position.x+ (Math.cos(this.direction.heading()) *10);
+    this.topY =this.position.y+ (Math.sin(this.direction.heading()) *10);
+    this.top  = createVector(this.topX,this.topY)
+    this.left = createVector(this.shiftedX,this.shiftedY);
+    this.shiftedX = this.position.x+ (Math.cos(this.direction.heading() + (-90 * RADIAN_TO_DEGREE)) *this.radius/2);
+    this.shiftedY = this.position.y+ (Math.sin(this.direction.heading() + (-90 * RADIAN_TO_DEGREE)) *this.radius/2);
+    this.right = createVector(this.shiftedX,this.shiftedY)
+    beginShape()
+    vertex(this.left.x,this.left.y);
+    vertex(this.top.x,this.top.y,);
+    vertex(this.right.x,this.right.y)
+    endShape();
+  
+    circle(this.position.x,this.position.y,this.radius);
+    
         
-    } 
+    
   
     this.velocity.add(this.acceleration)
     this.velocity.limit(this.maxSpeed)
     this.position.add(this.velocity);
     if (this.position.x < 0) {
-      this.position.x = widthScreen;
+      this.position.x = VIEW_WIDTH;
     }
-    if (this.position.x > widthScreen) {
+    if (this.position.x > VIEW_WIDTH) {
       this.position.x = 0;
     }
     if (this.position.y < 0) {
-      this.position.y = heightScreen;
+      this.position.y = VIEW_HEIGHT;
     }
-    if (this.position.y > heightScreen) {
+    if (this.position.y > VIEW_HEIGHT) {
       this.position.y = 0;
     }
     this.acceleration = createVector(0,0);
