@@ -84,6 +84,7 @@ function draw() {
     }
     bugs[i].flocking(flock);
     bugs[i].draw();
+    bugs[i].kinematics();
     
   }
   

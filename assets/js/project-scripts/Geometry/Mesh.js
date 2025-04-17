@@ -232,4 +232,27 @@ class Mesh {
 
         return newMesh;
     }
+
+
+    static graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNormalVectors,triangleColor) {
+        let currentMesh = Mesh.copy(mesh);
+        let rotatedMesh = Mesh.rotate(currentMesh,t,t,0)
+        rotatedMesh.triangleColor = triangleColor;
+        
+        
+        if (!graphConvexHull) {
+            Mesh.graph(rotatedMesh,graphConvexHull,true,false);
+            return
+        } 
+    
+        if (doBackFaceCulling) {
+            rotatedMesh = Mesh.backFaceCulling(rotatedMesh,viewVector);
+            let colors = Triangle.getColorOfTriangles(new Field(rotatedMesh.vertices),rotatedMesh.triangles,lights)
+            rotatedMesh = Mesh.setColorOfTriangles(rotatedMesh,colors);
+            Mesh.graph(rotatedMesh,graphConvexHull,false,doNormalVectors);
+        }   else {
+            rotatedMesh.triangleColor = new ColorHandler(0,0,0);
+            Mesh.graph(rotatedMesh,graphConvexHull,true,doNormalVectors);
+        }
+    }
 }

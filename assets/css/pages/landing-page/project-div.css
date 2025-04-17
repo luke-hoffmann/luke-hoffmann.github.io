@@ -23,6 +23,7 @@
     height: var(--image-height);
     display: block;
     image-resolution: 100dpi;
+    
     will-change: transform, opacity;
 }
 

@@ -78,30 +78,9 @@ function setup(){
     mesh.position = new Vector(0,0,0);
     mesh.triangleColor = triangleColor;
 }
-function graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,doNormalVectors,triangleColor) {
-    currentMesh = Mesh.copy(mesh);
-    rotatedMesh = Mesh.rotate(currentMesh,t,t,0)
-    rotatedMesh.triangleColor = triangleColor;
-    
-    
-    if (!graphConvexHull) {
-        Mesh.graph(rotatedMesh,graphConvexHull,true,false);
-        return
-    } 
 
-    if (doBackFaceCulling) {
-        rotatedMesh = Mesh.backFaceCulling(rotatedMesh,viewVector);
-        colors = Triangle.getColorOfTriangles(new Field(rotatedMesh.vertices),rotatedMesh.triangles,lights)
-        rotatedMesh = Mesh.setColorOfTriangles(rotatedMesh,colors);
-        Mesh.graph(rotatedMesh,graphConvexHull,false,doNormalVectors);
-    }   else {
-        rotatedMesh.triangleColor = new ColorHandler(0,0,0);
-        Mesh.graph(rotatedMesh,graphConvexHull,true,doNormalVectors);
-    }
-}
-function getEllipticalPos(t,radius){
-    return new Vector(Math.cos(t)*radius,0,Math.sin(t)*radius)
-}
+
+
 
 function draw() {
     // --   --
@@ -114,7 +93,7 @@ function draw() {
     // --   --
 
     increaseTime = hasStartBeenPressed;
-    graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
+    Mesh.graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
     // do stuff here
     renderGraphic.pop();
 
