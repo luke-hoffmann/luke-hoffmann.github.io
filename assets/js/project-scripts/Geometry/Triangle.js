@@ -2,7 +2,7 @@ class Triangle {
     constructor (verticeReferences,color) {
 
         this.verticeReferences = verticeReferences;
-        this.color = ColorHandler.randomColorBetween(90,234,100,110,67,150);//ColorHandler.random();
+        this.color = ColorHandler.randomColorAtWithGeneralRadius(210,60,140,40);
         if (color ==undefined) return;
         this.color = color.copy();
     }

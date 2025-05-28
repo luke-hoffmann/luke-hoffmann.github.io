@@ -51,6 +51,12 @@ class ColorHandler {
     static randomColorBetween(red1,red2,green1,green2,blue1,blue2){
         return new this (UsefulFunction.randomIntBetween(red1,red2),UsefulFunction.randomIntBetween(green1,green2),UsefulFunction.randomIntBetween(blue1,blue2));
     }
+    static randomColorAtWithGeneralRadius(redAt,greenAt,blueAt,radius){
+        return this.randomColorAtWithRadius(redAt,greenAt,blueAt,radius,radius,radius);
+    }
+    static randomColorAtWithRadius(redAt,greenAt,blueAt,redRad,greenRad,blueRad) {
+        return this.randomColorBetween(redAt-(redRad/2),redAt+(redRad/2),greenAt-(greenRad/2),greenAt+(greenRad/2),blueAt-(blueRad/2),blueAt+(blueRad/2));
+    }
     addNumber(number) {
         for (let i =0; i < this.color.length;i++) {
             this.color[i] = this.color[i] + number;
