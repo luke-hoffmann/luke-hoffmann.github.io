@@ -4,7 +4,7 @@ title: "First Week of College"
 blogTitle: "First Week of College"
 date: 2025-09-20
 ---
-
+![/assets/images/blog/first-week/luke-pointing-fridge.png](/assets/images/blog/first-week/luke-pointing-fridge.png)
 Went to Red Bricks (some dorms) and saw people rolling down a steep hill in the move-in carts.
 
 
