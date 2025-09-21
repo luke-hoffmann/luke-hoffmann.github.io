@@ -30,6 +30,14 @@ Went to Sand Dunes and had a bonfire with a lot of people. Went back to dorm roo
 
 ---
 
+### Dorm Tour - Click Image below to watch video of dorm tour
+
+[![IMAGE ALT TEXT HERE](/assets/images/blog/first-week/video-thumbnail.jpg)](https://www.youtube.com/shorts/U8rCLW6Xp3U)
+
+
+
+---
+
 ### 8/16/2025 CAED Shop Tech Training
 Using beautiful CNC machines like a HAAS CNC Machine.
 Access to machines such as:
@@ -100,8 +108,8 @@ Played some beach volleyball at the sand courts 400 ft from my dorm building.
 ![/assets/images/blog/first-week/hanging-out-1.png](/assets/images/blog/first-week/hanging-out-1.png)
 Sammy from San Diego, Sophia from SLO, Owen from LA area, plus some other tag-alongs.
 
-  One night the 4 of us stayed up till 2:30 playing Mario Kart and talking.  
-  Another night we were at dinner, with Quinn as well, and I suggested we hike to the top of a nearby mountain. There is a "P" made out of concrete on the hill above campus, and so it's a popular hike. I suggested we go to the very top of the mountain. So we did. I brought headlamps because I knew we would be hiking back in the dark. We saw a tarantula.
+  - One night the 4 of us stayed up till 2:30 playing Mario Kart and talking.  
+  - Another night we were at dinner, with Quinn as well, and I suggested we hike to the top of a nearby mountain. There is a "P" made out of concrete on the hill above campus, and so it's a popular hike. I suggested we go to the very top of the mountain. So we did. I brought headlamps because I knew we would be hiking back in the dark. We saw a tarantula.
 
   ![/assets/images/blog/first-week/night-hike-to-p.png](/assets/images/blog/first-week/night-hike-to-p.png)
 
