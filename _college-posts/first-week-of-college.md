@@ -69,10 +69,14 @@ Went for a run today at 7:30 am with my roommates. They are pretty quick.
 ---
 
 ### First day of classes
-  Introduction to theatre is a pretty large class, 200 students, 4 TAs, and one teacher.
-    I met a girl named Izzy in that class, she has her pilot's license and is studying Mechanical Engineering. She asked for my phone number so we could study together.
-  Calc 3 was good. Professor Medina is a nice lady, I like her approach to the class.
-    Connected with a guy named Elan in my class, we exchanged phone numbers. After class, we studied together in our dorm's study space. Did the calc homework. Went to the professor's office hours together to ask some questions. He is from Santa Cruz, and is going to study computer engineering.
+  * Introduction to theatre is a pretty large class, 200 students, 4 TAs, and one teacher.
+    - I met a girl named Izzy in that class, she has her pilot's license and is studying Mechanical Engineering. She asked for my phone number so we could study together.
+  * Calc 3 was good: Professor Medina is a nice lady, I like her approach to the class.
+    - Connected with a guy named Elan in my class, we exchanged phone numbers. 
+    - After class, we studied together in our dorm's study space. 
+    - Did the calc homework. 
+    - Went to the professor's office hours together to ask some questions. 
+    - He is from Santa Cruz, and is going to study computer engineering.
 
 ---
 
