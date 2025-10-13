@@ -17,7 +17,7 @@
     {% include header.html %}
     <div class="horizontal-center" id="blog-return-div">
     <div  id="blog-return">
-        <a id="more-college">More College Posts</a>
+        <a id="more-college" href="/../college-updates/index.html">More College Posts</a>
     </div>
     </div>
     <div class="horizontal-center" id="explanation-div">
@@ -28,10 +28,18 @@
                 </span>
         </div>
     </div>
+
+    <div class="horizontal-center" id="blog-return-div">
+    <div  id="blog-return">
+        <a id="more-college" href="/../college-updates/index.html">More College Posts</a>
+    </div>
+    </div>
     {% if page.customScripts %}
         {% for script in page.customScripts %}
         <script src="{{script}}"></script>
         {% endfor %}
     {% endif %}
+
+    
 </body>
 </html>
