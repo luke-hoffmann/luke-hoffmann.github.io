@@ -1,8 +1,8 @@
 ---
 layout: blog
-title: "September 20th -> October 6th"
-blogTitle: "September 20th to October 6th"
-date: 2025-10-06
+title: "September 20th -> October 12th"
+blogTitle: "September 20th to October 12th"
+date: 2025-10-12
 ---
 
 
