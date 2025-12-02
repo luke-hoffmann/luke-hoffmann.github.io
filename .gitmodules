@@ -1,0 +1,3 @@
+[submodule "assets/js/Geometry"]
+	path = assets/js/Geometry
+	url = https://github.com/luke-hoffmann/geometry
