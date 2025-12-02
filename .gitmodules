@@ -1,3 +1,6 @@
 [submodule "assets/js/Geometry"]
 	path = assets/js/Geometry
 	url = https://github.com/luke-hoffmann/geometry
+[submodule "assets/js/Color-Handler"]
+	path = assets/js/Color-Handler
+	url = https://github.com/luke-hoffmann/Color-Handler
