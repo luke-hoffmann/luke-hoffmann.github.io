@@ -7,17 +7,18 @@
     projectTitle: 3D Convex Hull Visualization
     projectDescription: project-paragraphs/p5js/3D-convex.html
     projectButtons: project-buttons/3D-convex.html
-    projectMathML:
-
+     
     projectScripts: 
-        - /assets/js/p5js/p5.min.js
-        - /assets/js/project-scripts/Geometry/UsefulFunction.js
-        - /assets/js/p5js/ColorHandler.js
+        - src: /assets/js/p5js/p5.min.js
+          module: false
 
+        - src: /assets/js/jquery/jquery-3.7.1.min.js
+          module: false
 
-        - /assets/js/jquery/jquery-3.7.1.min.js
+        - src: /assets/js/project-scripts/exportHighRes.js
+          module: false
+          
+        - src: /assets/js/project-scripts/3D-convex-hull.js
+          module: true
 
-        - /assets/js/project-scripts/exportHighRes.js
-        
-        - /assets/js/project-scripts/3D-convex-hull.js
 ---
