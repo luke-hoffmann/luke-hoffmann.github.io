@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luke Hoffmann - Bird Flocking</title>
+    <link rel="stylesheet" href="/assets/css/global.css"></link>
+    <link rel="stylesheet" href="/assets/css/includes/p5js-canvas-block.css"></link>
+    <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/p5js-project-post.css"></link>
+    <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/math-ml.css"></link>
+    <link rel="stylesheet" href="/assets/css/includes/project-buttons.css"></link>
+    
+        
+        <link rel="stylesheet" href="/assets/css/includes/project-buttons.css"></link>
+        
+    
+</head>
+<body>
+    <link rel="stylesheet" href="/assets/css/includes/header.css"></link>
+    <div class="header">
+        <div class="sub-div">
+                <div class="text" id="left">
+                    <a href="">
+                    Luke Hoffmann
+                    </a>
+
+                </div>
+            
+        </div>
+        <div class="sub-div">
+
+                <div class="text take-away-to-projects" id="middle" >
+                    <a href="/index.html" id="middle">
+                    Online Portfolio
+                    </a>
+                </div>
+        </div>
+        <div class="sub-div">
+
+                <div class="text" id="right">
+                    <a href="">
+                        Contact
+                    </a>
+                </div>
+        </div>
+    </div>
+<div class="vertical-space" id="title-bottom"></div>
+    <div class="horizontal-center" id="explanation-div">
+        <div id="explanation-wrapper">
+            <span class="project-title">Bird Flocking Visualization</span>
+                <span class="project-paragraph">
+                    <p>
+    Depending on where you live, you may see flocks of birds flying overhead daily. They clump together in flocks, and when migrating for the winter, fly in a V shaped pattern. This seemingly random behavior has a cohesive nature to it. The birds, without communicating, can travel in the same direction, without hitting each other. </p>
+<p>
+    I think this natural flocking behavior is really cool. So, when I learned about a way for modeling this flocking, I jumped into action to start building a model. The person who captured the behavior of flocking birds is Craig Reynolds, a computer graphics expert. 
+</p>
+<p>
+    His model described the flocking of birds in the following three different parts: 
+
+    <ul>
+        <li> <b>Cohesion</b> – Each bird will move towards the average position of its neighboring birds</li>
+        <li> <b>Separation</b> – Each bird will move away the average position of its neighboring birds</li>
+        <li> <b>Alignment</b> – Each bird will face in the direction of its neighboring birds</li>
+    </ul>
+</p>
+<p>
+    I have depicted these three parts in this web graphic. The <b>Generate Birds</b> button can be used to generate a random distribution of birds with random positions and headings. The <b>Play</b> button is used to simulate the passage of time, as the birds display their flocking behavior.
+</p>
+                </span>
+        </div>
+    </div>
+    
+    <div class="vertical-space" id="paragraph-canvas"></div>
+    <div class="horizontal-center" id="p5-canvas-center">
+    <div id="p5-canvas-container">
+        <div class="horizontal-center">
+            <div class="p5-canvas-div" id="canvas-insertion-point">
+            <!-- p5.js canvas will be inserted here -->
+            </div>
+            
+        </div>
+        <div class="vertical-space-evenly" id="project-buttons">
+    <div class="horizontal-space-evenly">
+        <button class='reset' type="button" onclick="reset()">Reset</button>
+        <button id="play-button"type="button" class="reset" onclick="startSimulation()">Play</button>
+    </div>
+    <div class="horizontal-space-evenly">
+    Alignment
+        <div class="slidecontainer">
+        <input oninput='updateFlockingParameters()' type="range" min="0" max="4" value="1" step="0.01" class="slider" id="alignment-slider">
+        </div>
+    </div>
+    <div class="horizontal-space-evenly">
+        Cohesion
+        <div class="slidecontainer">
+            <input oninput='updateFlockingParameters()' type="range" min="0" max="4" value="1" step="0.01" class="slider" id="cohesion-slider">
+        </div>
+    </div>
+    <div class="horizontal-space-evenly">
+        Seperation
+        <div class="slidecontainer">
+            <input oninput='updateFlockingParameters()' type="range" min="0" max="4" value="1.34" step="0.01" class="slider" id="seperation-slider">
+        </div>
+    </div>
+</div>
+        
+        
+    </div>
+</div>
+
+   
+
+    <div class="vertical-space" id="canvas-bottom"></div>
+    
+    
+    
+        
+        <script  src="/assets/js/p5js/p5.min.js"></script>
+        
+        <script  src="/assets/js/project-scripts/bird-flocking/config.js"></script>
+        
+        <script  src="/assets/js/project-scripts/bird-flocking/UsefulFunction.js"></script>
+        
+        <script  src="/assets/js/project-scripts/bird-flocking/Bug.js"></script>
+        
+        <script  src="/assets/js/project-scripts/bird-flocking/bird-flocking-visualization.js"></script>
+        
+    
+</body>
+
+</html>

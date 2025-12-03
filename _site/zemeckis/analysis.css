@@ -1,0 +1,100 @@
+/* Base page styles like your homepage */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+      color: #222;
+    }
+#return-home :hover {
+  cursor: pointer;
+  color:#fdfdfd;
+}
+#return-home {
+  text-decoration: none;
+  color:#fdfdfd;
+}
+    /* Header with Delorean gif and overlay like homepage */
+    /* Remove or comment out previous .main-header styles */
+
+.simple-header {
+  background-color: #f8f1d4; /* very light warm cream */
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 3px solid #d4af37; /* warm gold underline */
+}
+
+.simple-header h1 {
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: #b8860b; /* darker warm gold */
+  margin: 0;
+  /* no animation or glow */
+}
+
+    @keyframes pulseGlow {
+      0% {
+        text-shadow:
+          0 0 5px #d4af37,
+          0 0 10px #d4af37,
+          0 0 15px #b8860b;
+      }
+      100% {
+        text-shadow:
+          0 0 8px #d4af37,
+          0 0 14px #d4af37,
+          0 0 20px #b8860b;
+      }
+    }
+
+    /* Secondary header bar with back button, matching site style */
+    header.sub-header {
+      background: #d4af37; /* gold bar */
+      padding: 12px 20px;
+      text-align: right;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+    header.sub-header a {
+      color: #2e2e2e; /* dark text */
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    header.sub-header a:hover {
+      color: #4d4d4d;
+    }
+
+    /* Content sections - same styling as homepage */
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      border-bottom: 1px solid #eee;
+    }
+
+    h1, h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .questions {
+      background: #fff9e6; /* very light warm bg */
+      border-left: 5px solid #d4af37;
+      padding: 15px 20px;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+
+
+    footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}

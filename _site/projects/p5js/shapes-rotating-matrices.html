@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luke Hoffmann - Rotation of Shapes</title>
+    <link rel="stylesheet" href="/assets/css/global.css"></link>
+    <link rel="stylesheet" href="/assets/css/includes/p5js-canvas-block.css"></link>
+    <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/p5js-project-post.css"></link>
+    <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/math-ml.css"></link>
+    <link rel="stylesheet" href="/assets/css/includes/project-buttons.css"></link>
+    
+        
+        <link rel="stylesheet" href="/assets/css/includes/project-buttons.css"></link>
+        
+    
+</head>
+<body>
+    <link rel="stylesheet" href="/assets/css/includes/header.css"></link>
+    <div class="header">
+        <div class="sub-div">
+                <div class="text" id="left">
+                    <a href="">
+                    Luke Hoffmann
+                    </a>
+
+                </div>
+            
+        </div>
+        <div class="sub-div">
+
+                <div class="text take-away-to-projects" id="middle" >
+                    <a href="/index.html" id="middle">
+                    Online Portfolio
+                    </a>
+                </div>
+        </div>
+        <div class="sub-div">
+
+                <div class="text" id="right">
+                    <a href="">
+                        Contact
+                    </a>
+                </div>
+        </div>
+    </div>
+<div class="vertical-space" id="title-bottom"></div>
+    <div class="horizontal-center" id="explanation-div">
+        <div id="explanation-wrapper">
+            <span class="project-title">Rotation of Shapes using Matrices</span>
+                <span class="project-paragraph">
+                    <p>  
+    Throughout computer graphics, many different shapes of objects are used. Primitive shapes, such as cubes, prisms, cylinders, spheres and others are used to create more complex structures. When an animation is created, the need to rotate and reorient those shapes becomes important. Viewing a cube from the same angle, all the time would be boring. 
+</p>
+<p>
+    There exists a method that allows the rotation of many points. This method uses rotation matrices. I wont go into the math behind these matrices, but all you need to know is the following: if you have a point (x, y, z), you can use a rotational matrix to rotate that point around the x, y and z axes. Then, if you want to rotate a whole object, like a cube, you can represent each corner of the cube as a point and from there individually rotate each point.
+</p>
+<p>
+    I have shown this process for rotating shapes below. You can use the <b>Play</b> button to start the rotation of the shape: every second the shape will be rotated more and more. You can use the <b>Pause</b> button to pause the rotation.
+</p>
+
+                </span>
+        </div>
+    </div>
+    
+    <div class="vertical-space" id="paragraph-canvas"></div>
+    <div class="horizontal-center" id="p5-canvas-center">
+    <div id="p5-canvas-container">
+        <div class="horizontal-center">
+            <div class="p5-canvas-div" id="canvas-insertion-point">
+            <!-- p5.js canvas will be inserted here -->
+            </div>
+            
+        </div>
+        <div class="horizontal-space-evenly" id="project-buttons">
+    <button id="play-button"type="button" class="reset" onclick="startSimulation()">Play</button>
+</div>
+        
+        
+    </div>
+</div>
+
+   
+
+    <div class="vertical-space" id="canvas-bottom"></div>
+    
+    
+    
+        
+        <script  src="/assets/js/p5js/p5.min.js"></script>
+        
+        <script  src="/assets/js/project-scripts/shapes-rotating-matrices.js"></script>
+        
+    
+</body>
+
+</html>

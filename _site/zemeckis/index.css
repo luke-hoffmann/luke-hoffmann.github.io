@@ -1,0 +1,159 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #fdfdfd;
+  color: #222;
+}
+#return-home :hover {
+  cursor: pointer;
+  color:#fdfdfd;
+}
+#return-home {
+  text-decoration: none;
+  color:#fdfdfd;
+}
+header {
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  background: url('images/delorean.gif') no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Add a semi-transparent black overlay */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);  /* black with 50% opacity */
+  z-index: 0;
+}
+
+/* Ensure text is above the overlay */
+header h1, header p {
+  position: relative;
+  z-index: 1;
+}
+header h1 {
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  color: #d4af37; /* Warm gold */
+  text-shadow:
+    0 0 5px #d4af37,
+    0 0 10px #d4af37,
+    0 0 15px #b8860b;
+  animation: pulseGlow 3s infinite alternate ease-in-out;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #f5deb3; /* Wheat */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Georgia', serif;
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow:
+      0 0 5px #d4af37,
+      0 0 10px #d4af37,
+      0 0 15px #b8860b;
+  }
+  100% {
+    text-shadow:
+      0 0 8px #d4af37,
+      0 0 14px #d4af37,
+      0 0 20px #b8860b;
+  }
+}
+
+
+
+.center-image {
+  margin: 20px auto;
+  display: block;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+.film-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.film-grid div {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 360px; /* Ensures equal height */
+}
+
+.film-grid img {
+  width: 100%;
+  height: 300px;         /* Fix all posters to same height */
+  object-fit: cover;     /* Crop/fill the image neatly */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+.film-grid p {
+  font-size: 0.9em;
+  color: #333;
+  margin: 0;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+
+/* Feather Animation */
+.feather {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  width: 40px;
+  animation: floatDown 12s linear infinite;
+  opacity: 0;
+}
+
+@keyframes floatDown {
+  0% { top: -100px; opacity: 0; }
+  10% { opacity: 1; }
+  100% { top: 100vh; opacity: 0; }
+}
