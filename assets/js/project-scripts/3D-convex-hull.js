@@ -1,4 +1,4 @@
-import {Vector, Light, ColorHandler, Mesh, PrimitiveObject,Field} from './../Geometry/src/index.js';
+import {Vector, Light, ColorHandler, Mesh, PrimitiveObject, Field} from './../Geometry/src/index.js';
 let renderWidth = 500;
 let renderHeight = 500;
 let renderGraphic;

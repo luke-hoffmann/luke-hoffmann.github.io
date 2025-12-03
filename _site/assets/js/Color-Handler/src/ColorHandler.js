@@ -1,4 +1,4 @@
-import { UsefulFunction } from "./UsefulFunction.js"
+import { UsefulFunction } from "../Useful-Function/src/UsefulFunction.js"
 export class ColorHandler {
     constructor (red,green,blue,classToColor){
         this.classToColor = classToColor;
