@@ -66,6 +66,7 @@ function createCanvasSizeBasedOnDiv(){
     $("canvas").remove();
     createCanvas(viewWidth,viewHeight).parent("canvas-insertion-point");
     renderGraphic = createGraphics(viewWidth, viewHeight);
+    window.renderGraphic = renderGraphic;
 }
 
 function doBackFace() {
@@ -80,8 +81,8 @@ function setup(){
     createCanvasSizeBasedOnDiv();
     
     var fieldOfPoints = Geometry.Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
-    var mesh = Geometry.Mesh.generateConvexMesh(fieldOfPoints,numberOfPointsGenerated);
-   
+    mesh = Geometry.Mesh.generateConvexMesh(fieldOfPoints,numberOfPointsGenerated);
+    console.log
     mesh.position = new Geometry.Vector(0,0,0);
     mesh.triangleColor = triangleColor;
 }
@@ -99,7 +100,8 @@ function draw() {
     renderGraphic.translate(width/2,height/2);
     // --   --
 
-    increaseTime = hasStartBeenPressed;
+    var increaseTime = hasStartBeenPressed;
+    console.log(mesh);
     Geometry.Mesh.graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
     // do stuff here
     renderGraphic.pop();
