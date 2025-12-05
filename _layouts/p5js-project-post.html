@@ -45,9 +45,9 @@
     {% if page.projectScripts %}
         {% for script in page.projectScripts %}
         {% if script.module %}
-            <script  type="module" src="{{script.src}}"></script>
+            <script  type="module" src="{{script.src}}?v={{ site.time | date: '%s' }}"></script>
         {% else %}
-        <script  src="{{script.src}}"></script>
+        <script  src="{{script.src}}?v={{ site.time | date: '%s' }}"></script>
         {% endif %}
         {% endfor %}
     {% endif %}

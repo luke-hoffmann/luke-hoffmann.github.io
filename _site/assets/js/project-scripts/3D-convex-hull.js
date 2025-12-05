@@ -1,4 +1,5 @@
-import {Vector, Light, ColorHandler, Mesh, PrimitiveObject, Field} from './../Geometry/src/index.js';
+import * as Geometry from "../Geometry/src/index.js";
+import { ColorHandler } from "../Color-Handler/src/ColorHandler.js";
 let renderWidth = 500;
 let renderHeight = 500;
 let renderGraphic;
@@ -14,12 +15,16 @@ let graphConvexHull = false;
 let graphVertices = false;
 let lights = [];
 
-lights.push(new Light(new ColorHandler(255,255,255),new Vector(2000000,0,0),1))
-lights.push(new Light(new ColorHandler(255,255,255),new Vector(0,2000000,0),0.4))
-lights.push(new Light(new ColorHandler(255,255,255),new Vector(0,0,2000000),0.6))
+let radiusOfPointsGenerated = 200;
+let numberOfPointsGenerated = 50;
+
+
+lights.push(new Geometry.Light(new ColorHandler(255,255,255),new Geometry.Vector(2000000,0,0),1))
+lights.push(new Geometry.Light(new ColorHandler(255,255,255),new Geometry.Vector(0,2000000,0),0.4))
+lights.push(new Geometry.Light(new ColorHandler(255,255,255),new Geometry.Vector(0,0,2000000),0.6))
 
 let t = 0;
-let viewVector = new Vector(0,0,1);
+let viewVector = new Geometry.Vector(0,0,1);
 
 function startSimulation(){
     if (hasStartBeenPressed) {
@@ -33,20 +38,22 @@ function startSimulation(){
     loop();
     draw();
 }
-
+window.startSimulation = startSimulation;
 function reset(){
     setup();
     redraw();
 }
+window.reset = reset;
 function findConvex(){
     graphConvexHull = !graphConvexHull;
     document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
     redraw();
 }
 
+window.findConvex = findConvex;
 
 function createCanvasSizeBasedOnDiv(){
-    widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
+    var widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
     if (widthOfContainer < viewWidth) {
       viewWidth = widthOfContainer;
       viewHeight = widthOfContainer;
@@ -66,22 +73,21 @@ function doBackFace() {
     document.getElementById("do-back-face").innerHTML = (doBackFaceCulling ? "Stop Back-Face Culling" : "Start Back-Face Culling");
     redraw();
 }
-
+window.doBackFace = doBackFace;
 function setup(){
-    radiusOfPointsGenerated = 200;
-    numberOfPointsGenerated = 50;
+    
 
     createCanvasSizeBasedOnDiv();
     
-    fieldOfPoints = Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
-    mesh = Mesh.generateConvexMesh(fieldOfPoints,numberOfPointsGenerated);
+    var fieldOfPoints = Geometry.Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
+    var mesh = Geometry.Mesh.generateConvexMesh(fieldOfPoints,numberOfPointsGenerated);
    
-    mesh.position = new Vector(0,0,0);
+    mesh.position = new Geometry.Vector(0,0,0);
     mesh.triangleColor = triangleColor;
 }
 
 
-
+window.setup = setup;
 
 function draw() {
     // --   --
@@ -94,7 +100,7 @@ function draw() {
     // --   --
 
     increaseTime = hasStartBeenPressed;
-    Mesh.graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
+    Geometry.Mesh.graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
     // do stuff here
     renderGraphic.pop();
 
@@ -109,3 +115,4 @@ function draw() {
     image(renderGraphic, 0, 0);
 }
 
+window.draw=draw;   
