@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robert Zemeckis - Tribute</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+  .feather {
+    position: absolute;
+    width: 150px;
+    top: 0px;
+  }
+</style>
+<style>
+  #spawnButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  #spawnButton:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+</style>
+
+
+</head>
+<body>
+    <header>
+        <h1>The Vision of Robert Zemeckis</h1>
+        <p>Director | Innovator | Storyteller</p>
+    </header>
+    
+  <section id="spawn-feather">
+    <button id="spawnButton" onclick="spawnFeather()">Spawn Feather</button>
+
+    <script src="feather.js"></script>
+
+  </section>
+  <section id="about">
+    <h2>About Robert Zemeckis</h2>
+    <p>Robert Zemeckis is a ground-breaking filmmaker who blends cutting-edge visual effects with heartfelt stories. Each of his works of film set the bar high for filmmakers to come, and ensure that movies are exciting each and every time you watch them.</p>
+  </section>
+  <section>
+    <p style="text-align:center; margin: 20px;">
+  <a href="analysis.html" style="font-size:25px;font-weight: bold; text-decoration: none; color: #0077cc;">
+    Read Luke Hoffmann's Written Analysis
+  </a>
+</p>
+<p style="text-align:center; margin: 20px;">
+  <a href="pdf-viewer.html"  style="font-size:25px;font-weight: bold; text-decoration: none; color: #0077cc;">
+    View Luke Hoffmann's Robert Zemeckis Presentation
+  </a>
+</p>
+
+  </section>
+  <section id="films">
+    <h2 style="text-align: center;">Key Films</h2>
+    <div class="film-grid">
+        <div>
+            <img src="images/back-to-the-future.jpg" alt="Back to the Future poster">
+            <p><strong>Back to the Future (1985)</strong><br>A classic sci-fi adventure that brings a boy back in time.</p>
+        </div>
+        <div>
+            <img src="images/forrest-gump.jpg" alt="Forrest Gump poster">
+            <p><strong>Forrest Gump (1994)</strong><br>A recollection of a man's life that uses visual effects to place him through time.</p>
+        </div>
+        <div>
+            <img src="images/the-polar-express.jpg" alt="The Polar Express poster">
+            <p><strong>The Polar Express (2004)</strong><br>A revolutionary film that used full body motions capture to spread Christmas spirit.</p>
+        </div>
+        <div>
+            <img src="images/contact.jpg" alt="Contact movie poster">
+            <p><strong>Contact (1997)</strong><br>A sci-fi story about humanities first encounters with extra-terrestrial life, blends themes of aliens and religion.</p>
+        </div>
+        <div>
+            <img src="images/castaway.jpg" alt="Cast Away movie poster">
+            <p><strong>Cast Away (2000)</strong><br>A lonely and sad story of Tom Hanks' character who survives on a deserted island after his plane crash.</p>
+        </div>
+
+        <div>
+            <img src="images/flight.jpg" alt="Flight movie poster">
+            <p><strong>Flight (2012)</strong><br>A story of an alcoholic pilot who saves the day, when mechanical trouble strikes. Stars Denzel Washington.</p>
+        </div>
+    </div>
+  </section>
+
+  
+
+  <footer>
+    <p>
+        Made for AP English Literature by Luke Hoffmann | © 2025 <br>
+
+        <span style="text-align:center; font-size:0.8em; color:#666; padding:10px;">
+        <!--Created with assistance from ChatGPT by OpenAI-->
+
+    </span>
+    </p>
+    <p>
+      <a id="return-home" href="../index.html"><b> Return to Luke Hoffmann's Portfolio</b> </a>
+    </p>
+    
+  </footer>
+  
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+#control-buttons {
+    width:100%;
+}
+.reset {
+    
+    height:60px;
+    width:22%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+@media only screen and (max-width: 500px) {
+    .reset {
+        font-size: 15px;
+    }
+}

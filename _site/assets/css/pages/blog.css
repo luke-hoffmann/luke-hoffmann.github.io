@@ -1,0 +1,58 @@
+
+.project-title {
+    height:auto;
+    text-align: center;
+    font-family: var(--primary-font-family);
+    font-size:1.7em;
+    display: block;
+}
+.project-paragraph p {
+    text-align: justify;
+    text-indent: 0px;
+}
+.horizontal-center#blog-return-div {
+    width:100%;
+}
+#blog-return{
+    width:300px;
+    height:10vh;
+    text-align: center;
+    background-color: 95% grey;
+}
+#more-college {
+    text-align: center;
+    font-size: 30px;
+}
+.horizontal-center#explanation-div, .project-title{
+    width: 100%;
+}
+
+#explanation-div #explanation-wrapper {
+    font-size:18px;
+    width:700px;
+}
+#canvas-bottom-of-page {
+    height:75px;
+}
+
+@media only screen and (max-width: 700px) {
+    .project-title {
+        font-size:1.7em;
+        
+    }
+    #explanation-div #explanation-wrapper {
+        width:90%;
+    }
+}
+
+ul, li {
+    text-align: left;
+}
+
+.vertical-space#canvas-bottom {
+    height:40px;
+}
+
+img {
+    width:100%;
+}
