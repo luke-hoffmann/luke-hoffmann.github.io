@@ -41,7 +41,11 @@
     
     {% if page.projectScripts %}
         {% for script in page.projectScripts %}
-        <script  src="{{script}}"></script>
+            {% if script.module%}
+                <script  type='module'src="{{script.src}}"></script>
+            {% else %}
+            <script  src="{{script.src}}"></script>
+            {%endif%}
         {% endfor %}
     {% endif %}
 </body>

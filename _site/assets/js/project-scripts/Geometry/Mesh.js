@@ -96,7 +96,7 @@ class Mesh {
         let upSpaceIndices = Field.getTrianglesUpspace(field,triangles,graphIndices);
         let farthestPoint = Field.getFarthestPointFromTriangles(field,triangles,upSpaceIndices);
         if (farthestPoint === false) {
-            
+            console.log("TEST")
             return false;
         }
         let triangleIndicesWithPointInUpspace = Field.getTrianglesWithPointInUpspace(field,triangles,farthestPoint);
