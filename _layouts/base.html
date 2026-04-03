@@ -1,0 +1,16 @@
+{%include header.html%}
+    {{content}}
+    {% if layout.layoutScripts%} 
+        {% for script in layout.layoutScripts %}
+        <script src="{{script}}"></script>
+        {% endfor %}
+    {% endif %}
+
+    {% if page.customScripts %}
+        {% for script in page.customScripts %}
+        <script src="{{script}}"></script>
+        {% endfor %}
+    {% endif %}
+
+{% include footer.html %}
+

@@ -1,0 +1,13 @@
+---
+title: Luke's Blog
+layout: base
+---
+
+<div class="py-[10vh] w-full flex flex-col items-center ">
+  {% for post in site.college %}
+    <a class="text-[2.5em] text-obsidian-100 font-bold underline transition duration-200 ease-in-out hover:text-cobalt-50" href="{{ post.url }}">{{ post.title }}</a>
+    <span class="text-[1.3em] italic">{{ post.date | date: "%B %-d, %Y" }}</span>
+  {% endfor %}
+</div>
+
+

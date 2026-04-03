@@ -1,29 +1,47 @@
-<link rel="stylesheet" href="/assets/css/includes/header.css"></link>
-    <div class="header">
-        <div class="sub-div">
-                <div class="text" id="left">
-                    <a href="">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description }}">
+    <title>{{page.title}} - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Signika+Negative:wght@400&family=Yrsa:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    
+    {%if layout.layoutCSS%}
+        {% for stylesheet in layout.layoutCSS %}
+        <link rel="stylesheet" href="{{stylesheet}}">
+        {% endfor %}
+    {%endif%}
+    {% if page.customCSS %}
+        {% for stylesheet in page.customCSS %}
+        <link rel="stylesheet" href="{{stylesheet}}">
+        {% endfor %}
+    {% endif %}
+    {%include favicon-icon-include.html%}
+</head>
+<body class="bg-cobalt-25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <div class="z-10000 grid grid-cols-[25%_50%_25%] items-center header h-navbar-height bg-obsidian-100 w-full fixed">
+        <div class="flex justify-center">
+            <!-- <a class="font-alef text-cobalt-25" href="/contact">
+            Contact
+            </a> -->
+        </div>
+        <div class="flex justify-center items-center">
+                    <a class="inline-block transition duration-200 ease-in-out hover:text-cobalt-75 font-alef text-cobalt-25 text-center text-[2em]"href="/">
                     Luke Hoffmann
                     </a>
-
-                </div>
-            
         </div>
-        <div class="sub-div">
-
-                <div class="text take-away-to-projects" id="middle" >
-                    <a href="/index.html" id="middle">
-                    Online Portfolio
-                    </a>
-                </div>
-        </div>
-        <div class="sub-div">
-
-                <div class="text" id="right">
-                    <a href="">
-                        Contact
-                    </a>
-                </div>
+        <div class="gap-3 flex direction-row justify-evenly items-center w-1/2 h-full">
+            <a class="transition duration-200 ease-in-out hover:scale-112 h-3/8 aspect-square" href="https://github.com/luke-hoffmann">
+                    <img src="/assets/images/icons/github.svg">
+            </a>
+            <a class="transition duration-200 ease-in-out hover:scale-112 h-3/8 aspect-square" href="https://linkedin.com/in/lukeh351">
+                    <img src="/assets/images/icons/linkedin.svg">
+            </a>
         </div>
     </div>
-<div class="vertical-space" id="title-bottom"></div>
+<div class="flex flex-col items-center pt-navbar-height">
+

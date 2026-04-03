@@ -1,110 +1,97 @@
-let renderWidth = 500;
-let renderHeight = 500;
-let renderGraphic;
-let ogWidth = 400;
-let viewWidth = 400;
-let viewHeight = 400;
-let sF = 1;
-let mesh, canvas;
-let hasStartBeenPressed = false;
-let triangleColor = new ColorHandler(0,0,0);
-let doBackFaceCulling = true;
+let screenSize;
+let doAnimation = false;
 let graphConvexHull = false;
-let graphVertices = false;
+let showWireFrame = false;
+// new
+let entities = [];
+
 let lights = [];
+lights.push(new geometry.PointLight(new colorhandler.ColorHandler(0,255,0),1000000, new geometry.Vector(0,0,1000),100));
+lights.push(new geometry.DirectionalLight(new colorhandler.ColorHandler(255,0,0),1000, new geometry.Vector(0,-1,0)));
+lights.push(new geometry.DirectionalLight(new colorhandler.ColorHandler(255,255,0),1000, new geometry.Vector(0,1,0)));
 
-lights.push(new Light(new ColorHandler(255,255,255),new Vector(2000000,0,0),1))
-lights.push(new Light(new ColorHandler(255,255,255),new Vector(0,2000000,0),0.4))
-lights.push(new Light(new ColorHandler(255,255,255),new Vector(0,0,2000000),0.6))
+let renderer;
+let cameraPB = new geometry.PhysicsBody(new geometry.Vector(0,0,-1200))
+let camera = new geometry.Camera(cameraPB,new geometry.Vector(0,0,1),90,400,0);
 
-let t = 0;
-let viewVector = new Vector(0,0,1);
+let cameraMover = new geometry.CameraMover(new geometry.Vector(1000,0,-2000),new geometry.Vector(0,0,1),new geometry.Vector(0,0,0),new geometry.Vector(0,0,0));
+
+
+let i =0;
+
+
+function setDoSimulation(boolean ) {
+    doAnimation = boolean;
+    document.getElementById("play-button").innerHTML = (doAnimation ? "Pause" :  "Play") + " Simulation";
+}
 
 function startSimulation(){
-    if (hasStartBeenPressed) {
-        hasStartBeenPressed = false;
-        document.getElementById("play-button").innerHTML = "Play";
-        noLoop();
+    setDoSimulation(!doAnimation);
+    
+    if (doAnimation) {
+        loop();
         return
     }
-    document.getElementById("play-button").innerHTML = "Pause";
-    hasStartBeenPressed = true;
-    loop();
-    draw();
+    noLoop();
 }
 
-function reset(){
-    setup();
-    redraw();
-}
 function findConvex(){
     graphConvexHull = !graphConvexHull;
     document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
-    redraw();
 }
 
 
-function createCanvasSizeBasedOnDiv(){
-    widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
-    if (widthOfContainer < viewWidth) {
-      viewWidth = widthOfContainer;
-      viewHeight = widthOfContainer;
-      radiusOfPointsGenerated = 130;
+
+window.documentWasResized = function() {
+    setDoSimulation(false);
+    console.log(":hwad")
+}
+
+
+let cameraSpotTracker; 
+let scene;
+
+function setup () {
+    setDoSimulation(doAnimation);
+    createCanvasSizeBasedOnDiv()
+    console.log(width)
+    entities=[]
+    pos = new geometry.PhysicsBody(new geometry.Vector(0,0,0));
+    entity = geometry.Entity.randomConvexEntityWithColors(110/width,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
+    entities.push(entity)
+    scene = new geometry.Scene(entities,lights);
+    screenSize = new geometry.Vector(width,height);
+    console.log(width)
+    renderer = new geometry.p5Renderer(scene,screenSize,camera, new geometry.RenderParameters({
+      doVertices: true,
+      doTriangles: true,
+      isPerspective:true,
+      doBackFaceCulling:true,
+      pointRadius: 3,
+      isWindingOrderBackFaceCulling: true,
+      doNormalVectors: false,
+      normalVectorLength: 40,
+      doOutline : true,
+      showLights : false,
+      doFill: false,
+      colorOfVertices: new colorhandler.ColorHandler(0,0,0)
+    }),window);
+    cameraSpotTracker = new geometry.CameraSpotTracker(new geometry.Vector(0,0,0), 100000/(width**2),0,0);
+    renderer.renderParameters.doTriangles = graphConvexHull;
+};
+
+
+function draw () {
+    i+=0.01;
+    if(!doAnimation) {
+        noLoop()
     }
-    if (ogWidth != viewWidth) {
-        radiusOfPointsGenerated = 130;
-    }
-    document.getElementById("canvas-insertion-point").innerHTML = ""
-    $("canvas").remove();
-    createCanvas(viewWidth,viewHeight).parent("canvas-insertion-point");
-    renderGraphic = createGraphics(viewWidth, viewHeight);
-}
-
-function doBackFace() {
-    doBackFaceCulling = !doBackFaceCulling;
-    document.getElementById("do-back-face").innerHTML = (doBackFaceCulling ? "Stop Back-Face Culling" : "Start Back-Face Culling");
-    redraw();
-}
-
-function setup(){
-    radiusOfPointsGenerated = 200;
-    numberOfPointsGenerated = 50;
-
-    createCanvasSizeBasedOnDiv();
+    clear()
+    cameraSpotTracker.mouseInputRotate(1,0,0,0);
+    renderer.camera = cameraSpotTracker.update(renderer.camera);
+    const light_pos = new geometry.Vector(Math.cos(i)*2000, 100, Math.sin(i)*2000);
+    renderer.setSceneLightPos(light_pos,0);
+    renderer.graph();
     
-    fieldOfPoints = Field.generateRandomFieldInSphere(radiusOfPointsGenerated,numberOfPointsGenerated);
-    mesh = Mesh.generateConvexMesh(fieldOfPoints,numberOfPointsGenerated);
-   
-    mesh.position = new Vector(0,0,0);
-    mesh.triangleColor = triangleColor;
-}
-
-
-
-
-function draw() {
-    // --   --
-    renderGraphic.background(255);
-    renderGraphic.scale(sF);
-    renderGraphic.push()
-
-
-    renderGraphic.translate(width/2,height/2);
-    // --   --
-
-    increaseTime = hasStartBeenPressed;
-    Mesh.graphConvexHullOnCanvas(mesh,t,graphConvexHull,doBackFaceCulling,false,true);
-    // do stuff here
-    renderGraphic.pop();
-
-    if (increaseTime) {
-        t+=0.01;
-    }
-    if(!hasStartBeenPressed) {
-        noLoop();
-        image(renderGraphic, 0, 0);
-        return
-    }
-    image(renderGraphic, 0, 0);
-}
-
+    renderer.renderParameters.doTriangles = graphConvexHull;
+};

@@ -1,49 +1,37 @@
 ---
-
+    layout: base
+    layoutScripts: 
+        - /assets/js/project-scripts/canvasSetup.js
 ---
+    <div class="w-full h-[4vh]"></div>
+    <div class=" w-full flex flex-col items-center">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{page.title}}</title>
-    <link rel="stylesheet" href="/assets/css/global.css"></link>
-    <link rel="stylesheet" href="/assets/css/includes/p5js-canvas-block.css"></link>
-    <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/p5js-project-post.css"></link>
-    <link rel="stylesheet" href="/assets/css/pages/p5js-project-post/math-ml.css"></link>
-    <link rel="stylesheet" href="/assets/css/includes/project-buttons.css"></link>
-    {% if page.projectCSS %}
-        {% for stylesheet in page.projectCSS %}
-        <link rel="stylesheet" href="{{stylesheet}}"></link>
-        {% endfor %}
-    {% endif %}
-</head>
-<body>
-    {% include header.html %}
-    <div class="horizontal-center" id="explanation-div">
-        <div id="explanation-wrapper">
-            <span class="project-title">{{page.projectTitle}}</span>
-                <span class="project-paragraph">
-                    {% include {{page.projectDescription}} %}
-                </span>
+    
+        <div class="alef-bold text-[2em]">
+            {{page.projectTitle}}
+        </div>
+        <div class="w-full h-[2vh]"></div>
+        <div class="w-3/8">
+            <div class="w-full" id="canvas-insertion-point">
+            <!-- p5.js canvas will be inserted here -->
+            </div>
+            <div class="my-5 w-full flex flex-row justify-evenly items-center">
+                {% if page.projectButtons %}
+                    {% for button in page.projectButtons %}
+                        {{button}}
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
-    
-    <div class="vertical-space" id="paragraph-canvas"></div>
-    {% include p5js-canvas.html %}
-   
+    <div class="w-3/8">
 
-    <div class="vertical-space" id="canvas-bottom"></div>
-    {% if page.projectMathML %}
-        {% include {{page.projectMathML}} %}
-    {% endif %}
+        {{content}}
+    </div>
     
+    <script src="/assets/js/lib/p5js/p5.min.js"></script>
     {% if page.projectScripts %}
         {% for script in page.projectScripts %}
         <script  src="{{script}}"></script>
         {% endfor %}
     {% endif %}
-</body>
-
-</html>

@@ -50,17 +50,12 @@ let grid = [];
 let hasStartBeenPressed = false;
 let sF = 1;
 function setup(){
-  widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
-  if (widthOfContainer < VIEW_WIDTH) {
-    VIEW_WIDTH = widthOfContainer;
-    VIEW_HEIGHT = widthOfContainer;
-  }
+  bugs = []
+  createCanvasSizeBasedOnDiv()
   hasStartBeenPressed = false;
   document.getElementById("play-button").innerHTML = "Play";
-  var canvas = createCanvas(VIEW_WIDTH,VIEW_HEIGHT);
-  canvas.parent('canvas-insertion-point');
   for (let i =0; i < amountOfBugs; i ++) {
-    bugs.push(new Bug());
+    bugs.push(new Bug(canvasWidth,canvasHeight));
   }
   
   resetFlockingParameters
@@ -69,9 +64,11 @@ function setup(){
 
 
 function draw() {
-  background(255);
+  clear()
   // do stuff here
   grid =[];
+  stroke(42,45,52);
+  fill(42,45,52);
   strokeWeight(1);
   
   for (let i =0; i < bugs.length;i++) {

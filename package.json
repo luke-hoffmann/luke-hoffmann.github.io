@@ -1,0 +1,30 @@
+{
+  "name": "luke-hoffmann.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  
+  "scripts": {
+    "tw:watch": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/site.css --watch",
+    "tw:build": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/site.css --minify",
+    "jekyll": "bundle exec jekyll serve --incremental --livereload"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luke-hoffmann/luke-hoffmann.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/luke-hoffmann/luke-hoffmann.github.io/issues"
+  },
+  "homepage": "https://github.com/luke-hoffmann/luke-hoffmann.github.io#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+  
+
+}

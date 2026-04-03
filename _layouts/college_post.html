@@ -1,0 +1,21 @@
+---
+    layout: base
+---
+    <div class="flex justify-center w-full h-[4vh] bg-obsidian-75 fixed">
+        <a class="text-[1.3em] text-cobalt-25 underline transition duration-200 ease-in-out hover:text-obsidian-100" href="/../college/index.html">Click for more Updates</a>
+    </div>
+    <div class="w-full h-[10vh]"></div>
+    
+
+    <div class="w-full flex flex-col items-center">
+            <span class="text-[2.5em] font-bold">{{page.blogTitle}} </span>
+            
+            <span class="text-[1.3em] italic">{{ page.date | date: "%B %-d, %Y" }}</span>
+                <div class="flex flex-col items-center gap-2 md:w-3/8 w-3/4 college-paragraph">
+                    {{content}}
+                </div>
+    </div>
+    <a class="text-[3em] underline transition duration-200 ease-in-out hover:text-obsidian-25" href="/../college/index.html">Click for more Updates</a>
+
+    
+

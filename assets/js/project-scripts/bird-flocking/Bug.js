@@ -1,16 +1,17 @@
 class Bug {
-  constructor(position,velocity,perceptionRadius){
+  constructor(screenW,screenH,position,velocity,perceptionRadius){
 
     this.seperationStrength = 1.34;
     this.cohesionStrength = 1;
     this.alignmentStrength = 1;
 
-
+    this.sW = screenW || 400;
+    this.sH = screenH || 400;
 
     
     this.position = position;
     this.velocity = velocity;
-    if (position == undefined) this.position = createVector(Math.random()*VIEW_WIDTH, Math.random()*VIEW_HEIGHT);
+    if (position == undefined) this.position = createVector(Math.random()*this.sW, Math.random()*this.sH);
     
     if (velocity == undefined) {
       this.velocity = p5.Vector.random2D();
@@ -25,23 +26,22 @@ class Bug {
     this.velocity.limit(maxBugVelocity)
     this.position.add(this.velocity);
     if (this.position.x < 0) {
-      this.position.x = VIEW_WIDTH;
+      this.position.x = this.sW;
     }
-    if (this.position.x > VIEW_WIDTH) {
+    if (this.position.x > this.sW) {
       this.position.x = 0;
     }
     if (this.position.y < 0) {
-      this.position.y = VIEW_HEIGHT;
+      this.position.y = this.sH;
     }
-    if (this.position.y > VIEW_HEIGHT) {
+    if (this.position.y > this.sH) {
       this.position.y = 0;
     }
     this.acceleration = createVector(0,0);
   }
   draw() {
     let direction = this.velocity.normalize();
-    stroke(0);
-    fill(color(this.position.x/WIDTH_TO_RGB,this.position.y/HEIGHT_TO_RGB,0));
+    
     
     let shiftedX = this.position.x+ (Math.cos(direction.heading() + (90 * RADIAN_TO_DEGREE)) *drawBugRadius/2);
     let shiftedY = this.position.y+ (Math.sin(direction.heading() + (90 * RADIAN_TO_DEGREE)) *drawBugRadius/2);

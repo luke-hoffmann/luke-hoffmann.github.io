@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+    --font-alef: "Alef", sans-serif;
+    --font-signika: "Signika Negative", sans-serif;
+    --font-yrsa: "Yrsa", serif;
+    --color-cobalt-100: rgb(117 133 150);
+    --color-cobalt-75: rgb(146 159 172);
+    --color-cobalt-50: rgb(176 185 195);
+    --color-cobalt-25: rgb(217 217 217);
+    --color-orange: rgb(255 117 56);
+    --color-obsidian-100: rgb(42 45 52);
+    --color-obsidian-75: rgb(62 65 72);
+    --color-obsidian-50: rgb(90 94 104);
+    --color-obsidian-25: rgb(135 139 151);
+    --spacing-navbar-height: 11vh;
+}
+@layer components {
+    body {
+        @apply text-obsidian-100;
+    }
+    .college-paragraph img {
+        @apply rounded-xl shadow-md mx-auto my-6 w-full;
+    }
+    p {
+        @apply w-full text-justify;
+    }
+    .college-paragraph h1, h3, h4 {
+        @apply font-bold text-[2em];
+
+    }
+    .p5Canvas {
+        @apply rounded-4xl;
+        @apply shadow-md;
+    }
+}

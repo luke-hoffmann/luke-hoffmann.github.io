@@ -82,11 +82,8 @@ function ConvexHull(graph){
 
 
 
-let renderWidth = 500;
-let renderHeight = 500;
 let renderGraphic;
-let viewWidth = 400;
-let viewHeight = 400;
+
 let sF = 1;
 
 
@@ -94,9 +91,9 @@ let points = [];
 let hull = [];
 let graphConvexHull = false;
 function reset(){
-  graphConvexHull = false;
+  //graphConvexHull = false;
   setup();
-  document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
+  //document.getElementById("find-convex").innerHTML = (graphConvexHull ? "Hide Convex Hull" : "Find Convex Hull");
   redraw();
 }
 function findConvex(){
@@ -107,16 +104,10 @@ function findConvex(){
 
 
 function setup(){
-  widthOfContainer = document.getElementById("canvas-insertion-point").getBoundingClientRect().width;
-    if (widthOfContainer < viewWidth) {
-    viewWidth = widthOfContainer;
-    viewHeight = widthOfContainer;
-  }
-  var canvas= createCanvas(viewWidth,viewHeight);
-  canvas.parent("canvas-insertion-point");
-  renderGraphic = createGraphics(viewWidth, viewHeight);
+  createCanvasSizeBasedOnDiv()
+  renderGraphic = createGraphics(width, height);
   points =[];
-  for (let i =0 ;i  <20;i++) {
+  for (let i =0 ;i  <40;i++) {
       points.push([20 + Math.random()*(width-40),20 + Math.random()*(height-40)]);
   }
   hull = ConvexHull(points);
@@ -134,17 +125,19 @@ function strokeOrFillRGB(array,filler){
 
 function draw() {
   
-  renderGraphic.background(255);
+  renderGraphic.clear();
   renderGraphic.scale(sF);
+  clear()
+  renderGraphic.stroke(42,45,52);
+  renderGraphic.fill(42,45,52);
   // do stuff here
   for (let i =0;  i < points.length;i++) {
-      strokeOrFillRGB([points[i][0]/(width),150,points[i][0]/(width/255)],"fill")
-      renderGraphic.circle(points[i][0],points[i][1],15);
+    renderGraphic.circle(points[i][0],points[i][1],5);
   }
   if (graphConvexHull) {
-      for (let i =1; i < hull.length;i++){
-          renderGraphic.line(hull[i-1][0],hull[i-1][1],hull[i][0],hull[i][1])
-      }
+    for (let i =1; i < hull.length;i++){
+      renderGraphic.line(hull[i-1][0],hull[i-1][1],hull[i][0],hull[i][1])
+    }
   }
   image(renderGraphic, 0, 0);
   noLoop();
