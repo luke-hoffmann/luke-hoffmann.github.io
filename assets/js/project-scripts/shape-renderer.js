@@ -24,11 +24,11 @@ function previousScene() {
 function updateScene(sceneNumber) {
     renderer.scene = scenes[sceneNumber];
     setDoSimulation(doAnimation);
-    redraw();
+    //redraw();
 }
 function nextScene() {
     sceneNumber++;
-    if (sceneNumber > scenes.length-1) {
+    if (sceneNumber >= scenes.length) {
         sceneNumber = 0;
     }
     updateScene(sceneNumber);
@@ -47,16 +47,6 @@ function startSimulation(){
     }
     noLoop();
 }
-
-
-
-
-
-window.documentWasResized = function() {
-    setDoSimulation(false);
-    console.log(":hwad")
-}
-
 
 
 
