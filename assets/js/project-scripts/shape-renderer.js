@@ -23,12 +23,16 @@ function previousScene() {
 }
 function updateScene(sceneNumber) {
     renderer.scene = scenes[sceneNumber];
+    noLoop();
     setDoSimulation(doAnimation);
+    if (doAnimation) {
+        loop();
+    }
     //redraw();
 }
 function nextScene() {
     sceneNumber++;
-    if (sceneNumber >= scenes.length) {
+    if (sceneNumber > scenes.length-1) {
         sceneNumber = 0;
     }
     updateScene(sceneNumber);
@@ -152,6 +156,7 @@ function draw () {
         noLoop()
     }
     clear();
+    background(0);
     cameraSpotTracker.mouseInputRotate(0.5,0,0,0);
     renderer.camera = cameraSpotTracker.update(renderer.camera)
     light_pos = new geometry.Vector(0, Math.sin(i)*500, Math.cos(i)*500);
