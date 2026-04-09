@@ -23,6 +23,8 @@ function previousScene() {
 }
 function updateScene(sceneNumber) {
     renderer.scene = scenes[sceneNumber];
+    setDoSimulation(doAnimation);
+    redraw();
 }
 function nextScene() {
     sceneNumber++;
@@ -33,7 +35,7 @@ function nextScene() {
 }
 function setDoSimulation(boolean ) {
     doAnimation = boolean;
-    document.getElementById("play-button").innerHTML = (doAnimation ? "Pause" :  "Start") + "<br><span class='font-bold'>Scene 1</span>";
+    document.getElementById("play-button").innerHTML = (doAnimation ? "Pause" :  "Start") + "<br><span class='font-bold'>Scene " + (sceneNumber+1) +"</span>";
 }
 
 function startSimulation(){
@@ -61,28 +63,83 @@ window.documentWasResized = function() {
 function setup () {
     setDoSimulation(doAnimation);
     createCanvasSizeBasedOnDiv()
+
+    // scene 1 - scene 1 - scene 1 - scene 1 - scene 1 - scene 1
     lights = [];
-    lights.push(new geometry.PointLight(new colorhandler.ColorHandler(0,255,0),1000000, new geometry.Vector(0,0,1000),100));
-    lights.push(new geometry.DirectionalLight(new colorhandler.ColorHandler(255,0,0),1000, new geometry.Vector(0,-1,0)));
-    lights.push(new geometry.DirectionalLight(new colorhandler.ColorHandler(255,255,0),1000, new geometry.Vector(0,1,0)));
     entities=[]
+    lights.push(
+        new geometry.PointLight(new colorhandler.ColorHandler(255,0,0),100000000, new geometry.Vector(0.5,1,0)),
+        new geometry.PointLight(new colorhandler.ColorHandler(0,255,0),100000000, new geometry.Vector(0.5,1,0))
+    );
+    
     pos = new geometry.PhysicsBody(new geometry.Vector(0,0,0));
-    entity = geometry.Entity.randomConvexEntityWithColors(110/width,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
+    entity = geometry.Entity.entityWithColorsFromMesh(geometry.MeshGenerator.generateEvenSphereMesh(400,100), pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
     entities.push(entity)
     scenes.push(new geometry.Scene(entities,lights));
 
+
+    // scene 2 - scene 2 - scene 2 - scene 2 - scene 2 - scene 2
     lights = [];
-    lights.push(new geometry.PointLight(new colorhandler.ColorHandler(0,255,0),1000000, new geometry.Vector(0,0,1000),100));
-    lights.push(new geometry.DirectionalLight(new colorhandler.ColorHandler(255,0,0),1000, new geometry.Vector(0,-1,0)));
-    lights.push(new geometry.DirectionalLight(new colorhandler.ColorHandler(255,255,0),1000, new geometry.Vector(0,1,0)));
-    entities= []
-    pos = new geometry.PhysicsBody(new geometry.Vector(0,0,0));
-    entity = geometry.Entity.randomConvexEntityWithColors(110/width,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
+    entities = []
+    
+    lights.push(
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.PointLight(new colorhandler.ColorHandler(70,200,100),1000000, new geometry.Vector(0,0,0),100)
+    );
+
+    pos = new geometry.PhysicsBody(new geometry.Vector(-1000,0,0));
+    entity = geometry.Entity.randomConvexEntityWithColors(500,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
+    entities.push(entity)
+    pos = new geometry.PhysicsBody(new geometry.Vector(1000,0,0));
+    entity = geometry.Entity.randomConvexEntityWithColors(500,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
     entities.push(entity)
     scenes.push(new geometry.Scene(entities,lights));
+
+
+    // scene 3 - scene 3 - scene 3 - scene 3 - scene 3 - scene 3
+    lights = [];
+    entities = []
+    lights.push(
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.PointLight(new colorhandler.ColorHandler(100,0,255),10000000, new geometry.Vector(0,0,0),100),
+        new geometry.PointLight(new colorhandler.ColorHandler(0,255,255),10000000, new geometry.Vector(0,0,0),100)
+    );
+
+    pos = new geometry.PhysicsBody(new geometry.Vector(-500,-200,0));
+    entity = geometry.Entity.randomConvexEntityWithColors(250,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
+    entities.push(entity)
+    pos = new geometry.PhysicsBody(new geometry.Vector(500,-200,0));
+    entity = geometry.Entity.randomConvexEntityWithColors(250,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
+    entities.push(entity)
+    pos = new geometry.PhysicsBody(new geometry.Vector(0,300,0));
+    entity = geometry.Entity.randomConvexEntityWithColors(250,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
+    entities.push(entity)
+    scenes.push(new geometry.Scene(entities,lights));
+
+
+    // scene 4 - scene 4 - scene 4 - scene 4 - scene 4 - scene 4
+    lights = [];
+    entities = []
+    lights.push(
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.DirectionalLight(new colorhandler.ColorHandler(0,0,0),0, new geometry.Vector(0.5,1,0)),
+        new geometry.PointLight(new colorhandler.ColorHandler(255,51,153),500000, new geometry.Vector(0,0,0),100),
+    );
+
+    pos = new geometry.PhysicsBody(new geometry.Vector(0,0,0));
+    entity = geometry.Entity.randomConvexEntityWithColors(450,100, pos,new colorhandler.ColorHandler(255,255,255),new colorhandler.ColorHandler(255,255,255),false);
+    entities.push(entity)
+    scenes.push(new geometry.Scene(entities,lights));
+
 
     screenSize = new geometry.Vector(width,height);
-    renderer = new geometry.p5Renderer(new geometry.Scene(entities,lights),screenSize,camera, new geometry.RenderParameters({
+    renderer = new geometry.p5Renderer(scenes[sceneNumber],screenSize,camera, new geometry.RenderParameters({
       doVertices: false,
       doTriangles: true,
       isPerspective:true,
@@ -92,10 +149,10 @@ function setup () {
       doNormalVectors: false,
       normalVectorLength: 40,
       doOutline : true,
-      showLights : false,
+      showLights : true,
       doFill: true,
     }),window);
-    cameraSpotTracker = new geometry.CameraSpotTracker(new geometry.Vector(0,0,0), 100000/(width**2),0,0);
+    cameraSpotTracker = new geometry.CameraSpotTracker(new geometry.Vector(0,0,0), 3000,0,30 * (Math.PI/180));
 };
 
 
@@ -104,11 +161,24 @@ function draw () {
     if(!doAnimation) {
         noLoop()
     }
-    clear()
-    cameraSpotTracker.mouseInputRotate(1,0,0,0);
-    renderer.camera = cameraSpotTracker.update(renderer.camera);
-    const light_pos = new geometry.Vector(Math.cos(i)*2000, 100, Math.sin(i)*2000);
-    
+    clear();
+    cameraSpotTracker.mouseInputRotate(0.5,0,0,0);
+    renderer.camera = cameraSpotTracker.update(renderer.camera)
+    light_pos = new geometry.Vector(0, Math.sin(i)*500, Math.cos(i)*500);
     renderer.setSceneLightPos(light_pos,0);
+    light_pos = new geometry.Vector(Math.cos(i)*500, 0, Math.sin(i)*500);
+    renderer.setSceneLightPos(light_pos,1);
+
+    light_pos = new geometry.Vector(0, Math.cos(i)*500, 0);
+    renderer.setSceneLightPos(light_pos,2);
+
+    
+    light_pos = new geometry.Vector(Math.cos(i)*1000, 0, Math.sin(i)*1000);
+    renderer.setSceneLightPos(light_pos,3);
+    light_pos = new geometry.Vector(0,300 + Math.cos(i+30)*550, Math.sin(i+20)*550);
+    renderer.setSceneLightPos(light_pos,4);
+
+    light_pos = new geometry.Vector(Math.cos(i+30)*550,0, Math.sin(i+20)*550);
+    renderer.setSceneLightPos(light_pos,5);
     renderer.graph();
 };

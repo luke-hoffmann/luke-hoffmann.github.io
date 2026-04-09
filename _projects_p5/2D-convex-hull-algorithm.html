@@ -5,9 +5,9 @@
 
     projectTitle: 2D Convex Hull
     projectButtons: > 
-        <div class="horizontal-space-evenly" id="project-buttons">
-            <button class='reset' type="button" onclick="reset()">Generate Points</button>
-            <button id='find-convex' class='reset' type='button' onclick="findConvex()">Find Convex Hull</button>
+        <div class="w-full flex justify-evenly items-center">
+            <button class='flex justify-center w-1/4 h-full bg-obsidian-75 text-cobalt-25' type="button" onclick="reset()">Generate Points</button>
+            <button id='find-convex' class='w-1/4 h-full bg-obsidian-75 text-cobalt-25' type='button' onclick="findConvex()">Find Convex Hull</button>
         </div>
     coverImage: /assets/images/project-images/p5js/low-res/2D-convex-hull.png
     projectScripts: 
@@ -29,8 +29,3 @@
     I first decided to implement this procedure in two dimensions. You can see that below. Mastering two dimensions, I decided to implement this in three dimensions. You can see that <b><a type="link" href="/projects/p5js/3D-convex-hull-algorithm">HERE</a></b>.
 </p>
 
-<h3> What does the visualization do?</h3>
-<ul>
-    <li>The <b> Generate Points </b> button allows you to generate a random set of points </li>
-    <li>The <b> Find Convex Hull </b> button does what is described above. It calculates the outermost points of the random points, and displays their connections </li>
-</ul>

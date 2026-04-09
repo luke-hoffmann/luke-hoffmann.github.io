@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "scripts": {
     "tw:watch": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/site.css --watch",
     "tw:build": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/site.css --minify",
@@ -25,6 +24,4 @@
     "@tailwindcss/cli": "^4.2.2",
     "tailwindcss": "^4.2.2"
   }
-  
-
 }

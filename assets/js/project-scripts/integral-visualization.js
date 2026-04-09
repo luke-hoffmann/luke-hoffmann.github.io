@@ -159,7 +159,7 @@ class IntegralVisualizer {
       let x =  this.graphPlacementX + (((functionPoints[i].x -this.functionStartX) *this.wF));
       let y = this.graphPlacementY + (this.graphHeight/2 - (functionPoints[i].y *this.hF));
       
-      graphPoints.push( new Point(x,y,3,"#D9D9D9"));
+      graphPoints.push( new Point(x,y,3,"#2A2D34"));
     }
     return graphPoints;
   }
@@ -187,7 +187,7 @@ class IntegralVisualizer {
 
 let rectangles;
 let integralVisualizer;
-let domainWidth = Number(document.getElementById("intervalSlider").value);
+let domainWidth = 7.65 // Number(document.getElementById("intervalSlider").value);
 let range = 3;
 let visualizedFunctionInUse = new MathFunctions("sin");
 let riemannSide = true;
@@ -201,7 +201,7 @@ function changeVisualizedFunction(functionToUse) {
 }
 
 function updateVisualization(renderGraphic) {
-  domainWidth = Number(document.getElementById("intervalSlider").value);
+  domainWidth = 7.65 //Number(document.getElementById("intervalSlider").value);
   dxSize = Number(document.getElementById("dxSlider").value)
   insetAmount = 10;
   console.log(canvasWidth,canvasHeight)
@@ -237,7 +237,7 @@ function draw() {
   // do stuff here
   
   integralVisualizer.graphTheCanvas(renderGraphic);
-  integralVisualizer.graphRectangles(renderGraphic,"#D9D9D9");
+  integralVisualizer.graphRectangles(renderGraphic,"#2A2D34");
   integralVisualizer.graphTheFunction(renderGraphic,integralVisualizer.graphPoints);
   image(renderGraphic, 0, 0);
   noLoop();

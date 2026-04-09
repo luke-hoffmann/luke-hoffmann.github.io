@@ -16,13 +16,12 @@ description: Personal portfolio of Luke Hoffmann featuring programming projects,
         Mathematics student focused on problem solving
     </span>
 </div>
-<div class="gap-y-10 pt-[7vh] grid justify-items-center items-start grid-cols-2 w-full">
+<div class="gap-y-10 pt-[7vh] grid justify-items-center items-start grid-cols-1 xl:grid-cols-2 w-full">
     {% for project in site.projects_p5 %}
             <a href="{{project.url}}" class="transition duration-200 ease-in-out hover:scale-109 w-1/2 flex flex-col justify-center items-center">
                 <img class='object-cover w-full aspect-[1/1] bg-cobalt-25 rounded-xl shadow-md mx-auto' src="{{project.coverImage}}" alt="An image of the project"> 
-                <div class="text-center project-lower-content text-[3em]"> {{project.title}}</div> 
+                <div class="text-center project-lower-content text-[1.5em] sm:text-[2em] md:text-[3em]"> {{project.title}}</div> 
             </a>
     {% endfor %}
 </div>
-
 
