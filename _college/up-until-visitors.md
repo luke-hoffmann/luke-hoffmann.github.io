@@ -42,21 +42,21 @@ I appreciate everyones involvement in my upbringing, and I am very grateful for 
 ---
 
 Most Friday nights my roommates and I, along with other groups go out to dinner and just hangout downtown.
-![\assets\images\blog\up-until-big-sur\494B1BD3-F9DA-4C73-BA8A-53DA87D3F775.jpeg](\assets\images\blog\up-until-big-sur\494B1BD3-F9DA-4C73-BA8A-53DA87D3F775.jpeg)
+![\assets\images\blog\up-until-big-sur\494B1BD3-F9DA-4C73-BA8A-53DA87D3F775.webp](\assets\images\blog\up-until-big-sur\494B1BD3-F9DA-4C73-BA8A-53DA87D3F775.webp)
 
-![\assets\images\blog\up-until-big-sur\849CC52F-8E44-4670-8B77-A86295B4C8A0.JPG](\assets\images\blog\up-until-big-sur\849CC52F-8E44-4670-8B77-A86295B4C8A0.JPG)
+![\assets\images\blog\up-until-big-sur\849CC52F-8E44-4670-8B77-A86295B4C8A0.webp](\assets\images\blog\up-until-big-sur\849CC52F-8E44-4670-8B77-A86295B4C8A0.webp)
 
-![\assets\images\blog\up-until-big-sur\IMG_2521.JPEG](\assets\images\blog\up-until-big-sur\IMG_2521.JPEG)
+![\assets\images\blog\up-until-big-sur\IMG_2521.webp](\assets\images\blog\up-until-big-sur\IMG_2521.webp)
 
-![\assets\images\blog\up-until-big-sur\IMG_2541.JPEG](\assets\images\blog\up-until-big-sur\IMG_2541.JPEG)
+![\assets\images\blog\up-until-big-sur\IMG_2541.webp](\assets\images\blog\up-until-big-sur\IMG_2541.webp)
 ---
 
 San Luis Obispo is beautiful:
 
 
-![\assets\images\blog\up-until-big-sur\IMG_0558.png](\assets\images\blog\up-until-big-sur\IMG_0558.png)
+![\assets\images\blog\up-until-big-sur\IMG_0558.webp](\assets\images\blog\up-until-big-sur\IMG_0558.webp)
 
-![\assets\images\blog\up-until-big-sur\IMG_0562.png](\assets\images\blog\up-until-big-sur\IMG_0562.png)
+![\assets\images\blog\up-until-big-sur\IMG_0562.webp](\assets\images\blog\up-until-big-sur\IMG_0562.webp)
 
 ---
 
@@ -67,7 +67,7 @@ People always leaves their doors open, and I roam around and hangout with my fri
 I love how everyone is friendly.
 
 The photo shown below is of my dorm room on one night, everyone was hanging out, partly chatting, partly doing homework.
-![\assets\images\blog\up-until-big-sur\IMG_1500.png](\assets\images\blog\up-until-big-sur\IMG_1500.png)
+![\assets\images\blog\up-until-big-sur\IMG_1500.webp](\assets\images\blog\up-until-big-sur\IMG_1500.webp)
 
 Lots of super sweet people with different backgrounds
 
@@ -91,8 +91,8 @@ Part of the building process is to test the "net shape" of the aircraft.
   - Pictures will be added in the future, still a WIP
 - Once the outside shape of the aircraft is tested, we can start to design how the parts are actually made of balsa wood
 - It should be a fun club!
-![\assets\images\blog\up-until-big-sur\IMG_0608.png](\assets\images\blog\up-until-big-sur\IMG_0608.png)
-![\assets\images\blog\up-until-big-sur\IMG_0609.png](\assets\images\blog\up-until-big-sur\IMG_0609.png)
+![\assets\images\blog\up-until-big-sur\IMG_0608.webp](\assets\images\blog\up-until-big-sur\IMG_0608.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0609.webp](\assets\images\blog\up-until-big-sur\IMG_0609.webp)
 
 ---
 
@@ -117,25 +117,25 @@ This last weekend I went on a backpacking trip to Big Sur with a group of ten.
 
 It was pretty sweet. Not too bad of a hike in. I slept in a hammock. I borrowed my budies bug net for the hammock. We had a small fire at night. Then hiked out.
 
-![\assets\images\blog\up-until-big-sur\IMG_0016.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0016.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0022.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0022.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0026.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0026.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0036.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0036.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0039.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0039.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0047.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0047.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0051.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0051.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0052.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0052.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0059.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0059.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0066.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0066.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0077.JPG](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0077.JPG)
-![\assets\images\blog\up-until-big-sur\IMG_0618.jpg](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0618.jpg)
+![\assets\images\blog\up-until-big-sur\IMG_0016.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0016.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0022.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0022.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0026.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0026.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0036.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0036.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0039.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0039.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0047.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0047.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0051.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0051.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0052.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0052.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0059.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0059.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0066.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0066.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0077.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0077.webp)
+![\assets\images\blog\up-until-big-sur\IMG_0618.webp](\assets\images\blog\up-until-big-sur\Big-Sur\IMG_0618.webp)
 
 ---
 
 Views around campus!
 
-![\assets\images\blog\up-until-big-sur\after-big-sur\beauty-pano.png](\assets\images\blog\up-until-big-sur\after-big-sur\beauty-pano.png)
-![\assets\images\blog\up-until-big-sur\after-big-sur\kennedy-court-yard.png](\assets\images\blog\up-until-big-sur\after-big-sur\kennedy-court-yard.png)
+![\assets\images\blog\up-until-big-sur\after-big-sur\beauty-pano.webp](\assets\images\blog\up-until-big-sur\after-big-sur\beauty-pano.webp)
+![\assets\images\blog\up-until-big-sur\after-big-sur\kennedy-court-yard.webp](\assets\images\blog\up-until-big-sur\after-big-sur\kennedy-court-yard.webp)
 
 ---
 I used the machines at my job to fabricate this organization for my drawers.
@@ -144,16 +144,16 @@ The slats slide into those grooves, and can be removed and placed elsewhere. So 
 
 I then printed photos of the objects and laminated them. This is so if one of the items is missing, its obvious what is missing. Instead of just saying "oh! something is missing, but I dont remember." I can now say "oh, my tape measure is missing, lets go look for it."
 
-![\assets\images\blog\up-until-big-sur\after-big-sur\organized-drawer-1.png](\assets\images\blog\up-until-big-sur\after-big-sur\organized-drawer-1.png)
-![\assets\images\blog\up-until-big-sur\after-big-sur\organized-drawer-2.png](\assets\images\blog\up-until-big-sur\after-big-sur\organized-drawer-2.png)
+![\assets\images\blog\up-until-big-sur\after-big-sur\organized-drawer-1.webp](\assets\images\blog\up-until-big-sur\after-big-sur\organized-drawer-1.webp)
+![\assets\images\blog\up-until-big-sur\after-big-sur\organized-drawer-2.webp](\assets\images\blog\up-until-big-sur\after-big-sur\organized-drawer-2.webp)
 
 ---
 
-![\assets\images\blog\up-until-big-sur\after-big-sur\luke-la-croix.png](\assets\images\blog\up-until-big-sur\after-big-sur\luke-la-croix.png)
+![\assets\images\blog\up-until-big-sur\after-big-sur\luke-la-croix.webp](\assets\images\blog\up-until-big-sur\after-big-sur\luke-la-croix.webp)
 
-![\assets\images\blog\up-until-big-sur\after-big-sur\shaka-luke.png](\assets\images\blog\up-until-big-sur\after-big-sur\shaka-luke.png)
-![\assets\images\blog\up-until-big-sur\after-big-sur\tyler-luke-grocery-store.png](\assets\images\blog\up-until-big-sur\after-big-sur\tyler-luke-grocery-store.png)
-![\assets\images\blog\up-until-big-sur\after-big-sur\vgs-friends.png](\assets\images\blog\up-until-big-sur\after-big-sur\vgs-friends.png)
+![\assets\images\blog\up-until-big-sur\after-big-sur\shaka-luke.webp](\assets\images\blog\up-until-big-sur\after-big-sur\shaka-luke.webp)
+![\assets\images\blog\up-until-big-sur\after-big-sur\tyler-luke-grocery-store.webp](\assets\images\blog\up-until-big-sur\after-big-sur\tyler-luke-grocery-store.webp)
+![\assets\images\blog\up-until-big-sur\after-big-sur\vgs-friends.webp](\assets\images\blog\up-until-big-sur\after-big-sur\vgs-friends.webp)
 
 ---
 
@@ -162,10 +162,10 @@ First Visitors!
 Grandma Pat, Lizzie, Henry, and Jack came to visit me in SLO! It was great to show them around and to have them meet some of my friends!
 
 
-![\assets\images\blog\up-until-big-sur\after-big-sur\IMG_6037.png](\assets\images\blog\up-until-big-sur\after-big-sur\IMG_6037.png)
+![\assets\images\blog\up-until-big-sur\after-big-sur\IMG_6037.webp](\assets\images\blog\up-until-big-sur\after-big-sur\IMG_6037.webp)
 
 
 We went out to dinner and to Fro Yo with my roommates and with the visitors!
 
-![\assets\images\blog\up-until-big-sur\after-big-sur\dinner-roomies.png](\assets\images\blog\up-until-big-sur\after-big-sur\dinner-roomies.png)
-![\assets\images\blog\up-until-big-sur\after-big-sur\fro-yo-roomies.png](\assets\images\blog\up-until-big-sur\after-big-sur\fro-yo-roomies.png)
+![\assets\images\blog\up-until-big-sur\after-big-sur\dinner-roomies.webp](\assets\images\blog\up-until-big-sur\after-big-sur\dinner-roomies.webp)
+![\assets\images\blog\up-until-big-sur\after-big-sur\fro-yo-roomies.webp](\assets\images\blog\up-until-big-sur\after-big-sur\fro-yo-roomies.webp)

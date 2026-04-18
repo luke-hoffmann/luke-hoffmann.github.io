@@ -4,7 +4,7 @@ title: "First Week of College"
 blogTitle: "First Week of College"
 date: 2025-09-20
 ---
-![/assets/images/blog/first-week/luke-pointing-fridge.png](/assets/images/blog/first-week/luke-pointing-fridge.png)
+![/assets/images/blog/first-week/luke-pointing-fridge.webp](/assets/images/blog/first-week/luke-pointing-fridge.webp)
 Went to Red Bricks (some dorms) and saw people rolling down a steep hill in the move-in carts.
 
 
@@ -17,14 +17,14 @@ Chatted with a girl named Stella, pretty smart, intelligent, she is my neighbor,
 Met Adrien and Anya, from Quinn's (my roommate) WOW group. Got to talk with them quite a bit. Very nice people.
 
 Went to the beach with my WOW group. Spent 30-ish minutes in the ocean. Body surfing, hanging out with the guys from the WOW group.  
-  ![/assets/images/blog/first-week/wow-beach.png](/assets/images/blog/first-week/wow-beach.png)
+  ![/assets/images/blog/first-week/wow-beach.webp](/assets/images/blog/first-week/wow-beach.webp)
 
 
 My WOW leaders took me and another guy to their frat house. At Cal Poly, the frats are more dispersed. For this frat (Sigma PI), they have a house for Sophomores, Juniors, and Seniors. So each pledge class lives together in a house through each year. I was expecting the frat house to be in poor condition, but it wasn't bad.
 
 Went to dinner with some friends, my roommates, and some other girls, just fun to hang out. Had ice cream and frozen yogurt afterwards.  
-  ![/assets/images/blog/first-week/roommates-dinner-1.png](/assets/images/blog/first-week/roommates-dinner-1.png)  
-  ![/assets/images/blog/first-week/roommates-dinner-2.png](/assets/images/blog/first-week/roommates-dinner-2.png)
+  ![/assets/images/blog/first-week/roommates-dinner-1.webp](/assets/images/blog/first-week/roommates-dinner-1.webp)  
+  ![/assets/images/blog/first-week/roommates-dinner-2.webp](/assets/images/blog/first-week/roommates-dinner-2.webp)
 
 Went to Sand Dunes and had a bonfire with a lot of people. Went back to dorm room and hung out.
 
@@ -32,7 +32,7 @@ Went to Sand Dunes and had a bonfire with a lot of people. Went back to dorm roo
 
 ### Dorm Tour - Click Image below to watch video of dorm tour
 
-[![IMAGE ALT TEXT HERE](/assets/images/blog/first-week/video-thumbnail.jpg)](https://www.youtube.com/shorts/U8rCLW6Xp3U)
+[![IMAGE ALT TEXT HERE](/assets/images/blog/first-week/video-thumbnail.webp)](https://www.youtube.com/shorts/U8rCLW6Xp3U)
 
 
 
@@ -42,14 +42,14 @@ Went to Sand Dunes and had a bonfire with a lot of people. Went back to dorm roo
 Using beautiful CNC machines like a HAAS CNC Machine.
 Access to machines such as:
 * Metal and wood lathes  
-    ![/assets/images/blog/first-week/metal-lathe-1.png](/assets/images/blog/first-week/metal-lathe-1.png)  
-    ![/assets/images/blog/first-week/metal-mill.png](/assets/images/blog/first-week/metal-mill.png)
+    ![/assets/images/blog/first-week/metal-lathe-1.webp](/assets/images/blog/first-week/metal-lathe-1.webp)  
+    ![/assets/images/blog/first-week/metal-mill.webp](/assets/images/blog/first-week/metal-mill.webp)
 
 * Welding Equipment
 
 * Most woodworking machines that would ever be needed  
-	![/assets/images/blog/first-week/wood-mill.png](/assets/images/blog/first-week/wood-mill.png)  
-    ![/assets/images/blog/first-week/slot-machine.png](/assets/images/blog/first-week/slot-machine.png)
+	![/assets/images/blog/first-week/wood-mill.webp](/assets/images/blog/first-week/wood-mill.webp)  
+    ![/assets/images/blog/first-week/slot-machine.webp](/assets/images/blog/first-week/slot-machine.webp)
 
 * Most metalworking machines that would ever be needed
 
@@ -63,8 +63,8 @@ I have 7 hours of work scheduled per week. Should be applicable for the whole qu
 
 ### Designing a New Dorm Room Layout
 Friends I made on the floor were annoyed by squeaking bunk beds. I measured their room and furniture, and proposed a new layout. Upon acceptance, I rearranged the room into the proposed layout. They were very happy to have it not squeak.  
-  ![/assets/images/blog/first-week/dorm-top-down-2.PNG](/assets/images/blog/first-week/dorm-top-down-2.PNG)  
-  ![/assets/images/blog/first-week/dorm-side-2.PNG](/assets/images/blog/first-week/dorm-side-2.PNG)
+  ![/assets/images/blog/first-week/dorm-top-down-2.webp](/assets/images/blog/first-week/dorm-top-down-2.webp)  
+  ![/assets/images/blog/first-week/dorm-side-2.webp](/assets/images/blog/first-week/dorm-side-2.webp)
 
 ---
 
@@ -105,13 +105,13 @@ Played some beach volleyball at the sand courts 400 ft from my dorm building.
 ---
 
 ### Getting close with a group: 
-![/assets/images/blog/first-week/hanging-out-1.png](/assets/images/blog/first-week/hanging-out-1.png)
+![/assets/images/blog/first-week/hanging-out-1.webp](/assets/images/blog/first-week/hanging-out-1.webp)
 Sammy from San Diego, Sophia from SLO, Owen from LA area, plus some other tag-alongs.
 
   - One night the 4 of us stayed up till 2:30 playing Mario Kart and talking.  
   - Another night we were at dinner, with Quinn as well, and I suggested we hike to the top of a nearby mountain. There is a "P" made out of concrete on the hill above campus, and so it's a popular hike. I suggested we go to the very top of the mountain. So we did. I brought headlamps because I knew we would be hiking back in the dark. We saw a tarantula.
 
-  ![/assets/images/blog/first-week/night-hike-to-p.png](/assets/images/blog/first-week/night-hike-to-p.png)
+  ![/assets/images/blog/first-week/night-hike-to-p.webp](/assets/images/blog/first-week/night-hike-to-p.webp)
 
 
 
@@ -119,11 +119,11 @@ Sammy from San Diego, Sophia from SLO, Owen from LA area, plus some other tag-al
 
 Tyler and Quinn (my roommates) are really nice guys. I respect what they value: usually going to bed around 10:30, waking up around 7:00-7:30. We have done well at keeping our room clean and organized.
 
-![/assets/images/blog/first-week/roommates-first-day.JPEG](/assets/images/blog/first-week/roommates-first-day.JPEG)
+![/assets/images/blog/first-week/roommates-first-day.webp](/assets/images/blog/first-week/roommates-first-day.webp)
 
 Tyler and I went for a walk up to the architectural grave yard is. Where ARCH projects are created by students.
 
-![/assets/images/blog/first-week/arch-graveyard-1.png](/assets/images/blog/first-week/arch-graveyard-1.png)
+![/assets/images/blog/first-week/arch-graveyard-1.webp](/assets/images/blog/first-week/arch-graveyard-1.webp)
 
 Tons of super healthy people at Cal Poly. Everyone seems to value health and being active.
 
